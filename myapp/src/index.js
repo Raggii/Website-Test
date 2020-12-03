@@ -1,29 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import './top-page.js'
-import Navbar from './top-page.js';
-
-
-class MainPage extends React.Component {
-
-    render() {
-        return(
-            <Navbar />
-        )
-    }
-
-
-}
-
-
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
 // =============================
 
-
-
-
 ReactDOM.render(
-    <MainPage />,
-    document.getElementById('root')    
-)
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
