@@ -4,6 +4,9 @@ import App from "./App";
 
 // =============================
 
+document.title =
+  "Chase Bovine Services – Dairy Nutrition and Veterinary Consulting";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

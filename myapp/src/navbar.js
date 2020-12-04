@@ -1,28 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
       <nav>
-        <Link to="/">
-          <img
-            src="http://chasebovineservices.com/wp-content/uploads/2019/09/CBS-Logo.20190924-305x194.jpg"
-            alt="Chase Bovine Services"
-          />
-        </Link>
+        <section>
+          <Link to="/">
+            <img
+              src="http://chasebovineservices.com/wp-content/uploads/2019/09/CBS-Logo.20190924-305x194.jpg"
+              alt="Chase Bovine Services"
+            />
+          </Link>
+          <p>Dairy Nutrition and Veterinary Consulting</p>
+        </section>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              exact
+              to="/"
+              activeStyle={{
+                fontWeight: "bold",
+                color: "red",
+              }}
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/about-me">About Me</Link>
+            <NavLink to="/about-me">About Me</NavLink>
           </li>
           <li>
-            <Link to="/resources">Resources</Link>
+            <NavLink to="/resources">Resources</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </nav>
