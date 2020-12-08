@@ -16,25 +16,24 @@ function Navbar() {
         </section>
         <ul>
           <li>
-            <NavLink
-              exact
-              to="/"
-              activeStyle={{
-                fontWeight: "bold",
-                color: "red",
-              }}
-            >
+            <NavLink exact to="/" activeclass="active-nav-link">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about-me">About Me</NavLink>
+            <NavLink to="/about-me" activeclass="active-nav-link">
+              About Me
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/resources">Resources</NavLink>
+            <NavLink to="/resources" activeclass="active-nav-link">
+              Resources
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/contact" activeclass="active-nav-link">
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>
