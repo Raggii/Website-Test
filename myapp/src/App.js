@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./index.css";
 
-import Navbar from "./navbar";
+import Navbar from "./comps/navbar";
 // pages
-import Home from "./home";
-import About from "./about-me";
-import Contact from "./contact";
+import Home from "./routes/home";
+import About from "./routes/about-me";
+import Contact from "./routes/contact";
 import Resources from "./resources";
-import Error from "./Error"; // Error page
+import Error from "./routes/Error"; // Error page
 
 const App = () => {
   return (

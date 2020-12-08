@@ -16,22 +16,22 @@ function Navbar() {
         </section>
         <ul>
           <li>
-            <NavLink exact to="/" activeclass="active-nav-link">
+            <NavLink exact to="/" activeClassName="active-nav-link">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about-me" activeclass="active-nav-link">
+            <NavLink to="/about-me" activeClassName="active-nav-link">
               About Me
             </NavLink>
           </li>
           <li>
-            <NavLink to="/resources" activeclass="active-nav-link">
+            <NavLink to="/resources" activeClassName="active-nav-link">
               Resources
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" activeclass="active-nav-link">
+            <NavLink to="/contact" activeClassName="active-nav-link">
               Contact
             </NavLink>
           </li>
