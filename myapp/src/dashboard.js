@@ -9,7 +9,7 @@ class dashboard extends React.Component {
     render() {
       return (
         <div className="shopping-list">
-            <h1>Shopping List for </h1>
+            <h1>dan is the best</h1>
         </div>
       );
     }
