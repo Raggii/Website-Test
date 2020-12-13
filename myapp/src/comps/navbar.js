@@ -7,10 +7,10 @@ function Navbar() {
       <nav>
         <section>
           <Link to="/">
-            <img
+            {/* <img
               src="http://chasebovineservices.com/wp-content/uploads/2019/09/CBS-Logo.20190924-305x194.jpg"
               alt="Chase Bovine Services"
-            />
+            /> */}
           </Link>
           <p>Dairy Nutrition and Veterinary Consulting</p>
         </section>
