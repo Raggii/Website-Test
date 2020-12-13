@@ -16,7 +16,7 @@ function Navbar() {
         
         <ul className= 'navBarHeadings'>
           <li >
-            <NavLink exact to="/" activeClassName="active-nav-link" target="_blank" className='btn'>
+            <NavLink exact to="/" activeClassName="active-nav-link" className='btn'>
               <h6>Home</h6>  
             </NavLink>
           </li>

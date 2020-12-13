@@ -11,6 +11,7 @@ import Contact from "./routes/contact";
 import Resources from "./resources";
 import Error from "./routes/Error"; // Error page
 import Login from  "./routes/login";
+import DashBoard from './routes/dashBoard';
 
 const App = () => {
   return (
@@ -31,7 +32,7 @@ const App = () => {
         </Route>
         <Route path = "/login">
           <Login />
-        </Route>
+        </Route>s
         {/** Error site when the url doesn't match any known extensions*/}
         <Route path="/*">
           <Error />
