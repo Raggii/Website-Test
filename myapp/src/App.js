@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import "./index.css";
+import "./styles/index.css";
 
 import Navbar from "./comps/navbar";
 // pages
@@ -10,8 +10,8 @@ import About from "./routes/about-me";
 import Contact from "./routes/contact";
 import Resources from "./resources";
 import Error from "./routes/Error"; // Error page
-import Login from  "./routes/login";
-import DashBoard from './routes/dashBoard';
+import Login from "./routes/login";
+import DashBoard from "./routes/dashBoard";
 
 const App = () => {
   return (
@@ -30,10 +30,10 @@ const App = () => {
         <Route path="/contact">
           <Contact />
         </Route>
-        <Route path = "/login">
+        <Route path="/login">
           <Login />
-        </Route>s
-        {/** Error site when the url doesn't match any known extensions*/}
+        </Route>
+        s{/** Error site when the url doesn't match any known extensions*/}
         <Route path="/*">
           <Error />
         </Route>
