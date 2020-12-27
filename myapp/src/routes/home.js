@@ -23,9 +23,11 @@ const Home = () => {
           img={cows_image_1}
           img_alt="cows_img_1"
         >
-          We use veterinary expertise and sound nutrition advice to improve
-          animal health, operational efficiency and profitability for New
-          Zealand dairy farmers.
+          <p>
+            We use veterinary expertise and sound nutrition advice to improve
+            animal health, operational efficiency and profitability for New
+            Zealand dairy farmers.
+          </p>
         </ImageTextParallelSection>
 
         <ImageTextParallelSection
@@ -34,9 +36,11 @@ const Home = () => {
           img_alt="cows_image_2"
           flip={true}
         >
-          We provide on-farm investigation and records analysis that identify
-          opportunities allowing implementation of sustainable solutions for
-          challenges with:
+          <p>
+            We provide on-farm investigation and records analysis that identify
+            opportunities allowing implementation of sustainable solutions for
+            challenges with:
+          </p>
           <ul>
             <li>Transition Diseases</li>
             <li>Reproductive Performance</li>
@@ -51,9 +55,11 @@ const Home = () => {
           img={cows_image_3}
           img_alt="cows_image_3"
         >
-          We work with you to develop feeding strategies and trace mineral
-          formulations to successfully prepare your cows for calving, lactation
-          and mating through:
+          <p>
+            We work with you to develop feeding strategies and trace mineral
+            formulations to successfully prepare your cows for calving,
+            lactation and mating through:
+          </p>
           <ul>
             <li>Body Condition Management</li>
             <li>Maximising Immune Status</li>
@@ -89,20 +95,12 @@ const ImageTextParallelSection = ({ title, img, img_alt, flip, children }) => {
         <img
           src={img}
           alt={img_alt}
-          style={{
-            width: "40vw",
-            height: "27vw",
-            marginRight: "1rem",
-            borderStyle: "solid",
-            borderWidth: "10px 10px 10px 10px",
-            borderColor: "#ffffff",
-            boxShadow: "10px 10px 20px 0px rgba(0,0,0,0.12)",
-          }}
+          className={styles.testimonialsImages}
         ></img>
         <article>
           <div>
             <h3>{title}</h3>
-            <p>{children}</p>
+            <div>{children}</div>
           </div>
         </article>
       </section>
@@ -113,20 +111,12 @@ const ImageTextParallelSection = ({ title, img, img_alt, flip, children }) => {
         <article>
           <div>
             <h3>{title}</h3>
-            <p>{children}</p>
+            <div>{children}</div>
           </div>
           <img
             src={img}
             alt={img_alt}
-            style={{
-              width: "40vw",
-              height: "27vw",
-              marginRight: "1rem",
-              borderStyle: "solid",
-              borderWidth: "10px 10px 10px 10px",
-              borderColor: "#ffffff",
-              boxShadow: "10px 10px 20px 0px rgba(0,0,0,0.12)",
-            }}
+            className={styles.testimonialsImages}
           ></img>
         </article>
       </section>

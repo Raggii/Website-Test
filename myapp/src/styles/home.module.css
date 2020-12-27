@@ -4,10 +4,11 @@ main {
 }
 
 .cow_header {
+  position: relative;
   background-image: url("./../assets/MG_7755.jpg");
   background-position: center center;
   background-size: cover;
-  height: 50vh;
+  height: 80vh;
   width: 100%;
 }
 
@@ -15,4 +16,14 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 0 20%;
+}
+
+.testimonialsImages {
+  width: 40vw;
+  height: 27vw;
+  margin-right: 1rem;
+  border-style: solid;
+  border-width: 10px 10px 10px 10px;
+  border-color: #ffffff;
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.12);
 }
