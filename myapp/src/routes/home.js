@@ -11,10 +11,14 @@ const Home = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.cow_header}></div>
+        <div className={styles.cow_header} />
         <section className={styles.text_header}>
-          <h3>Meeting the Needs of the Modern Dairy Farm</h3>
-          <Link to="/contact">Make an enquiry</Link>
+          <div>
+            <h3>Meeting the Needs of the Modern Dairy Farm</h3>
+            <div>
+              <Link to="/contact">Make an enquiry</Link>
+            </div>
+          </div>
         </section>
       </header>
       <main className={styles.main}>
