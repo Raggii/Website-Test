@@ -16,7 +16,9 @@ const Home = () => {
           <div>
             <h3>Meeting the Needs of the Modern Dairy Farm</h3>
             <div>
-              <Link to="/contact">Make an enquiry</Link>
+              <Link to="/contact" className={styles.makeEnquiry}>
+                Make an enquiry
+              </Link>
             </div>
           </div>
         </section>
@@ -72,22 +74,35 @@ const Home = () => {
           </ul>
         </ImageTextParallelSection>
 
-        <AboutMeSection></AboutMeSection>
+        <AboutMeSectionSmall></AboutMeSectionSmall>
       </main>
       <footer>
-        <Link to="/contact">Make an enquiry</Link>
+        <article></article>
+        <div>
+          <Link to="/contact" className={styles.makeEnquiry}>
+            Make an enquiry
+          </Link>
+        </div>
       </footer>
     </>
   );
 };
 
-const AboutMeSection = () => {
+// Might add some seperate divs around each button, as the margins are relative to the text in them
+// not the padding around them! Causes weird distances if you play with the padding of the buttins!
+//  - But have not quite figured out how this works,,, needs playing with.
+
+const AboutMeSectionSmall = () => {
   return (
-    <section className="container">
-      <img src={dr_charles_chase_2} alt="Dr-Charles-Chase-2" />
-      <div className="testimonial-name"></div>
-      <div className="testimonial-job"></div>
-      <Link to="/about-me">About me</Link>
+    <section className={styles.aboutMeSectionSmall}>
+      <div className={styles.about_info}>
+        <img src={dr_charles_chase_2} alt="Dr-Charles-Chase-2" />
+        <div className={styles.about_name}>Charles Chase, DVM, MS</div>
+        <div className={styles.about_job}>Doctor of Veterinary Medicine</div>
+      </div>
+      <Link to="/about-me" className={styles.about_link}>
+        About me
+      </Link>
     </section>
   );
 };
@@ -95,34 +110,34 @@ const AboutMeSection = () => {
 const ImageTextParallelSection = ({ title, img, img_alt, flip, children }) => {
   if (flip) {
     return (
-      <section className="container">
-        <img
-          src={img}
-          alt={img_alt}
-          className={styles.testimonialsImages}
-        ></img>
-        <article>
-          <div>
-            <h3>{title}</h3>
-            <div>{children}</div>
-          </div>
-        </article>
-      </section>
-    );
-  } else {
-    return (
-      <section className="container">
-        <article>
-          <div>
-            <h3>{title}</h3>
-            <div>{children}</div>
-          </div>
+      <section className={styles.testimonialContainer}>
+        <div>
           <img
             src={img}
             alt={img_alt}
             className={styles.testimonialsImages}
           ></img>
+        </div>
+        <article>
+          <h3>{title}</h3>
+          <div>{children}</div>
         </article>
+      </section>
+    );
+  } else {
+    return (
+      <section className={styles.testimonialContainer}>
+        <article>
+          <h3>{title}</h3>
+          <div>{children}</div>
+        </article>
+        <div>
+          <img
+            src={img}
+            alt={img_alt}
+            className={styles.testimonialsImages}
+          ></img>
+        </div>
       </section>
     );
   }

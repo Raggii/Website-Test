@@ -8,30 +8,34 @@ main {
   background-image: url("./../assets/MG_7755.jpg");
   background-position: center center;
   background-size: cover;
-  min-height: 550px;
-  height: 60vh;
+  height: 550px;
   width: 100%;
-}
-
-.text_header {
-  background-color: #003e53;
-  padding: 0 20px;
   margin: 0;
 }
 
-.text_header div {
+.text_header {
   display: flex;
+  background-color: #003e53;
+  margin: 0;
+  line-height: 1;
+}
+
+.text_header div {
+  display: inherit;
   justify-content: space-between;
+
   margin-left: auto;
   margin-right: auto;
+
   max-width: 980px;
+  padding: 0 20px;
 }
 
 .text_header div h3 {
   padding-top: 10px;
   text-align: left;
   color: #ffffff;
-  width: 64.388%;
+  width: 64%;
   font-family: "Roboto", Sans-serif;
   font-size: 30px;
   font-weight: 300;
@@ -39,32 +43,161 @@ main {
 }
 
 .text_header div div {
+  width: 36%;
+}
+
+.text_header div div {
   margin-right: 0;
   padding: 10px;
 }
 
-.text_header div div a {
+.makeEnquiry {
   font-size: 15px;
   font-family: "Playfair Display", Sans-serif;
   font-weight: 500;
   transition: all 0.3s;
-  background-color: #e4bc36;
+  background-color: #efcb56;
   padding: 20px 40px;
   text-decoration: none;
   align-self: center;
   color: white;
 }
 
-.text_header div div a:hover {
+.makeEnquiry:hover {
   background-color: #d88929;
 }
 
-.testimonialsImages {
-  width: 40vw;
-  height: 27vw;
-  margin-right: 1rem;
+.testimonialContainer {
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5em 20px 0 20px;
+  align-content: space-around;
+}
+
+.testimonialContainer div {
+  width: 100%;
+  padding: 20px;
+}
+
+.testimonialContainer div img {
   border-style: solid;
-  border-width: 10px 10px 10px 10px;
+  border-width: 10px;
   border-color: #ffffff;
-  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.12);
+  height: auto;
+  width: 100%;
+}
+
+.testimonialContainer article {
+  font-family: "Roboto", Sans-serif;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: normal;
+}
+
+.testimonialContainer article h3 {
+  color: #003e53;
+  font-family: "Playfair Display", Sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.testimonialContainer article p {
+  margin-bottom: 1.6em;
+}
+
+.testimonialContainer article ul {
+  list-style: disc;
+  margin: 0 0 1.5em 3em;
+}
+
+.aboutMeSectionSmall {
+  background-color: transparent;
+  background-image: linear-gradient(
+    260deg,
+    #ffffff 0%,
+    rgba(210, 233, 225, 0.37) 100%
+  );
+
+  padding: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 100px;
+  padding-bottom: auto;
+  text-align: center;
+
+  font-family: "Roboto", Sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  font-style: normal;
+}
+
+.aboutMeSectionSmall img {
+  border-radius: 50%;
+  width: 198px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.about_link {
+  font-size: 15px;
+  text-decoration: none;
+  background-color: #efcb56;
+  color: #ffffff;
+  transition: all 0.3s;
+  padding: 12px 24px;
+  border-radius: 3px;
+}
+
+.about_link:hover {
+  background-color: #d88929;
+}
+
+.about_name {
+  color: #e4bc36;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+}
+
+.about_info {
+  margin-bottom: 1.8em;
+}
+
+.about_job {
+  color: #54595f;
+  line-height: 1.6em;
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+footer {
+  background-color: #003e53;
+  padding: 0 20px;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+footer article {
+  width: 65%;
+}
+
+footer div {
+  margin: auto;
+  margin-right: 0;
 }
