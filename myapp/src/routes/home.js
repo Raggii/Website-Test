@@ -111,7 +111,7 @@ const ImageTextParallelSection = ({ title, img, img_alt, flip, children }) => {
   if (flip) {
     return (
       <section className={styles.testimonialContainer}>
-        <div>
+        <div className={styles.testimonialImageContainer}>
           <img
             src={img}
             alt={img_alt}
@@ -131,7 +131,7 @@ const ImageTextParallelSection = ({ title, img, img_alt, flip, children }) => {
           <h3>{title}</h3>
           <div>{children}</div>
         </article>
-        <div>
+        <div className={styles.testimonialImageContainer}>
           <img
             src={img}
             alt={img_alt}

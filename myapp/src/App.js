@@ -33,7 +33,7 @@ const App = () => {
         <Route path="/login">
           <Login />
         </Route>
-        s{/** Error site when the url doesn't match any known extensions*/}
+        {/** Error site when the url doesn't match any known extensions*/}
         <Route path="/*">
           <Error />
         </Route>

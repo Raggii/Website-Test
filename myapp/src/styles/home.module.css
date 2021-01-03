@@ -14,14 +14,13 @@ main {
 }
 
 .text_header {
-  display: flex;
   background-color: #003e53;
   margin: 0;
   line-height: 1;
 }
 
 .text_header div {
-  display: inherit;
+  display: flex;
   justify-content: space-between;
 
   margin-left: auto;
@@ -43,7 +42,7 @@ main {
 }
 
 .text_header div div {
-  width: 36%;
+  align-self: flex-end;
 }
 
 .text_header div div {
@@ -74,11 +73,11 @@ main {
   column-gap: 4em;
   margin-left: auto;
   margin-right: auto;
-  padding: 5em 20px 0 20px;
+  padding: 3em 20px 0 20px;
   align-content: space-around;
 }
 
-.testimonialContainer div {
+.testimonialContainer .testimonialImageContainer {
   width: 100%;
   padding: 20px;
 }
@@ -98,6 +97,7 @@ main {
   font-weight: 400;
   font-size: 1rem;
   font-style: normal;
+  padding: 20px;
 }
 
 .testimonialContainer article h3 {
