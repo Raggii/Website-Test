@@ -8,7 +8,7 @@ import Navbar from "./comps/navbar";
 import Home from "./routes/home";
 import About from "./routes/about-me";
 import Contact from "./routes/contact";
-import Resources from "./resources";
+import Resources from "./routes/resources";
 import Error from "./routes/Error"; // Error page
 import Login from "./routes/login";
 import DashBoard from "./routes/dashBoard";

@@ -1,10 +1,12 @@
 import React from "react";
 
+import styles from "./../styles/about-me.module.css";
+
 const About = () => {
   return (
     <>
-      <article >
-        <p className="item">
+      <article>
+        <p>
           Dr. Chase founded Chase Bovine Services in August 2019 to bring his
           focus on improving dairy nutrition and production medicine to the New
           Zealand dairy industry. Chase Bovine Services provides dairy nutrition
@@ -13,7 +15,7 @@ const About = () => {
           as nutrition advice.
         </p>
 
-        <p className="item">
+        <p>
           In 1999, Charlie graduated from the University of Florida with a
           doctorate in Veterinary Medicine and a Master’s degree in dairy
           nutrition. Upon graduation, he began work as a veterinarian in the San
@@ -28,7 +30,7 @@ const About = () => {
           feeding programme management.
         </p>
 
-        <p className="item">
+        <p>
           Later, Dr. Chase moved into the role of technical services
           veterinarian with an international genetics company helping to train
           technicians in the proper techniques of heat detection, insemination,
@@ -37,7 +39,7 @@ const About = () => {
           performance issues.
         </p>
 
-        <p className="item">
+        <p>
           Prior to moving to New Zealand, Charlie worked as a veterinary dairy
           specialist with a prominent dairy nutrition company. In this role, he
           worked with nutritionists to balance rations for optimal performance
@@ -45,7 +47,7 @@ const About = () => {
           troubleshooting.
         </p>
 
-        <p className="item">
+        <p>
           The return to daily veterinary practice in the mid-Canterbury region
           allowed Charlie to gain a unique understanding of grazing-based dairy
           systems. During this time, he was instrumental in developing
@@ -55,7 +57,7 @@ const About = () => {
           opportunities for improvement.
         </p>
 
-        <p className="item">
+        <p>
           Using the experience of working closely with grazing-based farms, Dr.
           Chase returned to corporate veterinary practice to share his
           experience and expertise internationally with customers across
