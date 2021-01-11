@@ -19,8 +19,8 @@ const Contact = () => {
   return (
     <>
       <main>
-        <section>
-          <articale>
+        <section className={styles.contact_elm}>
+          <article className={styles.contact_info}>
             <p>Thank you for your enquiry. You may contact us directly at:</p>
             <ul>
               <li>crchasedvm@hotmail.com,</li>
@@ -28,7 +28,7 @@ const Contact = () => {
               <li>fill out the form below.</li>
             </ul>
             <p>We will get back with you as soon as possible.</p>
-          </articale>
+          </article>
           <form>
             <div>
               <label htmlFor="fullName">Name</label>
@@ -52,13 +52,12 @@ const Contact = () => {
             </div>
             <div>
               <label htmlFor="message">Message</label>
-              <input
-                type="text"
+              <textarea
                 id="message"
                 name="message"
                 value={enquiry.message}
                 onChange={handleChange}
-              ></input>
+              ></textarea>
             </div>
             <button
               type="submit"
