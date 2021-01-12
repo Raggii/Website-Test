@@ -30,7 +30,7 @@ const login = () => {
               name='age'
             />
           </div>
-          <NavLink to="/dashboard" >
+          <NavLink to="/dashboard">
               <h6 className='btnCpy'>login</h6>
             </NavLink>
         </form>

@@ -23,6 +23,7 @@ function Navbar() {
           <NavbarLinkItem to="/about-me">About Me</NavbarLinkItem>
           <NavbarLinkItem to="/resources">Resources</NavbarLinkItem>
           <NavbarLinkItem to="/contact">Contact</NavbarLinkItem>
+          <NavbarLinkItem to="/login">Login</NavbarLinkItem>
           {/* <NavbarLinkItem to="/login">Login</NavbarLinkItem> */}
         </ul>
         {/* </section> */}
