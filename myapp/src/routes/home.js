@@ -27,13 +27,20 @@ const Home = () => {
           </div>
         </div>
 
-        <section className={styles.text_header}>
-          <div>
-            <h3>Meeting the Needs of the Modern Dairy Farm</h3>
-            <div>
-              <Link to="/contact" className={styles.makeEnquiry}>
-                Make an enquiry
-              </Link>
+        <section className={styles.header_seperator}>
+          <div className={styles.seperator_wrap}>
+            <div className={styles.seperator_text_wrap}>
+              <h3>Meeting the Needs of the Modern Dairy Farm</h3>
+            </div>
+            <div className={styles.enquiry_wrap}>
+              <div>
+                <Link
+                  to="/contact"
+                  className={`${styles.makeEnquiry} ${styles.enquiry_seperator}`}
+                >
+                  Make an enquiry
+                </Link>
+              </div>
             </div>
           </div>
         </section>
