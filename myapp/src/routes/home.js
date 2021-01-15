@@ -100,8 +100,7 @@ const Home = () => {
           <AboutMeSectionSmall></AboutMeSectionSmall>
         </main>
       </div>
-      <footer>
-        <article></article>
+      <footer className={styles.home_footer}>
         <div>
           <Link to="/contact" className={styles.makeEnquiry}>
             Make an enquiry

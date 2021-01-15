@@ -47,7 +47,6 @@ main {
 
 .seperator_wrap {
   display: flex;
-  justify-content: space-between;
   width: 100%;
 
   margin-left: auto;
@@ -58,17 +57,16 @@ main {
 }
 
 .seperator_text_wrap {
-  width: 65%;
-  align-content: center;
+  display: flex;
   align-items: center;
-  text-align: left;
+  justify-content: flex-start;
+
+  width: 65%;
   margin-right: 0;
-  padding: 10px;
-  align-self: flex-end;
+  padding: 10px 0;
 }
 
 .seperator_text_wrap h3 {
-  padding-top: 10px;
   text-align: left;
   color: #ffffff;
   line-height: 1;
@@ -85,24 +83,23 @@ main {
 }
 
 .enquiry_wrap div {
+  position: relative;
   padding: 10px;
-}
-
-.enquiry_seperator {
-  position: absolute;
-  right: 0;
-  margin-left: auto;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .makeEnquiry {
   font-size: 15px;
+  height: fit-content;
   font-family: "Playfair Display", Sans-serif;
   font-weight: 500;
   transition: all 0.3s;
   background-color: #e4bc36;
   padding: 20px 40px;
   text-decoration: none;
-  align-self: center;
   color: white;
 }
 
@@ -118,7 +115,6 @@ main {
   margin-left: auto;
   margin-right: auto;
   padding: 3em 20px 0 20px;
-  align-content: space-around;
 }
 
 .testimonialContainer .testimonialImageContainer {
@@ -150,10 +146,12 @@ main {
   font-size: 36px;
   font-weight: normal;
   line-height: 1;
+  margin-bottom: 0.5em;
 }
 
 .testimonialContainer article p {
   margin-bottom: 1.6em;
+  line-height: 1.49;
 }
 
 .testimonialContainer article ul {
@@ -224,7 +222,7 @@ html {
   min-height: 100%;
 }
 
-footer {
+.home_footer {
   background-color: #003e53;
   padding: 0 20px;
 
@@ -237,13 +235,12 @@ footer {
   display: flex;
 }
 
-footer article {
-  width: 65%;
-}
-
 footer div {
+  display: flex;
+  max-width: 980px;
+  width: 100%;
   margin: auto;
-  margin-right: 0;
+  justify-content: flex-end;
 }
 
 @media (min-width: 1024px) {

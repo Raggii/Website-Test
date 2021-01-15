@@ -6,7 +6,7 @@
   border: 0;
   box-sizing: border-box;
 }
-
+/* 
 ::selection {
   background-color: #fb2056;
   color: #ffffff;
@@ -75,4 +75,4 @@ h4 {
 .btnCpy:hover {
   background: var(--clr-primary-1);
   color: var(--clr-primary-5);
-}
+} */
