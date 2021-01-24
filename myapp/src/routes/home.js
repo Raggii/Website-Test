@@ -11,73 +11,96 @@ const Home = () => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.cow_header} />
-        <section className={styles.text_header}>
-          <div>
-            <h3>Meeting the Needs of the Modern Dairy Farm</h3>
-            <div>
-              <Link to="/contact" className={styles.makeEnquiry}>
-                Make an enquiry
-              </Link>
+        <div className={styles.cow_header}>
+          <div className={styles.svg_shape_wrapper}>
+            <svg
+              className={styles.svg_shape}
+              xmlns="https://www.w3.org/2000/svg"
+              viewBox="0 0 700 10"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M360 0L350 9.9 340 0 0 0 0 10 700 10 700 0"
+                style={{ fill: "#003e53" }}
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <section className={styles.header_seperator}>
+          <div className={styles.seperator_wrap}>
+            <div className={styles.seperator_text_wrap}>
+              <h3>Meeting the Needs of the Modern Dairy Farm</h3>
+            </div>
+            <div className={styles.enquiry_wrap}>
+              <div>
+                <Link
+                  to="/contact"
+                  className={`${styles.makeEnquiry} ${styles.enquiry_seperator}`}
+                >
+                  Make an enquiry
+                </Link>
+              </div>
             </div>
           </div>
         </section>
       </header>
-      <main className={styles.main}>
-        <ImageTextParallelSection
-          title="Chase Bovine Services"
-          img={cows_image_1}
-          img_alt="cows_img_1"
-        >
-          <p>
-            We use veterinary expertise and sound nutrition advice to improve
-            animal health, operational efficiency and profitability for New
-            Zealand dairy farmers.
-          </p>
-        </ImageTextParallelSection>
+      <div className={styles.main_wrapper}>
+        <main className={styles.main}>
+          <ImageTextParallelSection
+            title="Chase Bovine Services"
+            img={cows_image_1}
+            img_alt="cows_img_1"
+          >
+            <p>
+              We use veterinary expertise and sound nutrition advice to improve
+              animal health, operational efficiency and profitability for New
+              Zealand dairy farmers.
+            </p>
+          </ImageTextParallelSection>
 
-        <ImageTextParallelSection
-          title="Veterinary Consulting"
-          img={cows_image_2}
-          img_alt="cows_image_2"
-          flip={true}
-        >
-          <p>
-            We provide on-farm investigation and records analysis that identify
-            opportunities allowing implementation of sustainable solutions for
-            challenges with:
-          </p>
-          <ul>
-            <li>Transition Diseases</li>
-            <li>Reproductive Performance</li>
-            <li>Milk Production (Volume and Components)</li>
-            <li>Lameness</li>
-            <li>Mastitis and Somatic Cell Count</li>
-          </ul>
-        </ImageTextParallelSection>
+          <ImageTextParallelSection
+            title="Veterinary Consulting"
+            img={cows_image_2}
+            img_alt="cows_image_2"
+            flip={true}
+          >
+            <p>
+              We provide on-farm investigation and records analysis that
+              identify opportunities allowing implementation of sustainable
+              solutions for challenges with:
+            </p>
+            <ul>
+              <li>Transition Diseases</li>
+              <li>Reproductive Performance</li>
+              <li>Milk Production (Volume and Components)</li>
+              <li>Lameness</li>
+              <li>Mastitis and Somatic Cell Count</li>
+            </ul>
+          </ImageTextParallelSection>
 
-        <ImageTextParallelSection
-          title="Nutritional Services"
-          img={cows_image_3}
-          img_alt="cows_image_3"
-        >
-          <p>
-            We work with you to develop feeding strategies and trace mineral
-            formulations to successfully prepare your cows for calving,
-            lactation and mating through:
-          </p>
-          <ul>
-            <li>Body Condition Management</li>
-            <li>Maximising Immune Status</li>
-            <li>Prevention of Metabolic Disease</li>
-            <li>Balanced Nutrient Formulation</li>
-          </ul>
-        </ImageTextParallelSection>
+          <ImageTextParallelSection
+            title="Nutritional Services"
+            img={cows_image_3}
+            img_alt="cows_image_3"
+          >
+            <p>
+              We work with you to develop feeding strategies and trace mineral
+              formulations to successfully prepare your cows for calving,
+              lactation and mating through:
+            </p>
+            <ul>
+              <li>Body Condition Management</li>
+              <li>Maximising Immune Status</li>
+              <li>Prevention of Metabolic Disease</li>
+              <li>Balanced Nutrient Formulation</li>
+            </ul>
+          </ImageTextParallelSection>
 
-        <AboutMeSectionSmall></AboutMeSectionSmall>
-      </main>
-      <footer>
-        <article></article>
+          <AboutMeSectionSmall></AboutMeSectionSmall>
+        </main>
+      </div>
+      <footer className={styles.home_footer}>
         <div>
           <Link to="/contact" className={styles.makeEnquiry}>
             Make an enquiry
