@@ -1,4 +1,4 @@
-/* p {
+.about_me p {
   color: #7a7a7a;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -7,6 +7,9 @@
   margin-bottom: 1.6em;
 }
 
-article {
+.about_me {
   padding: 1em;
-} */
+  max-width: 990px;
+  margin: 0 auto;
+  margin-top: 27px;
+} 
