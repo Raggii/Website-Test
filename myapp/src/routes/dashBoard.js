@@ -1,9 +1,10 @@
 import React from 'react'
+import DashNav from '../comps/Dashboard/DashNav'
 
 const dashBoard = () => {
     return (
         <div>
-            <h1>DasH!</h1>
+            <DashNav></DashNav>
         </div>
     )
 }
