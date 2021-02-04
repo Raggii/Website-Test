@@ -7,7 +7,7 @@ nav {
   padding: 0 20px;
 }
 
-.nav_wrapper {
+.navWrapper {
   background-color: #fff;
   width: 100%;
   font-size: 16px;
@@ -32,19 +32,19 @@ nav * {
   font-weight: 400;
 }
 
-.logo_description {
+.logoDescription {
   font-size: 15px;
   line-height: 1.5;
   margin-bottom: 0;
 }
 
-.logo_image {
+.logoImage {
   width: 305px;
   height: auto;
   max-width: 305px;
 }
 
-.nav_links {
+.navLinks {
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-template-rows: auto;
@@ -52,7 +52,7 @@ nav * {
   margin: auto 0 auto auto;
 }
 
-.nav_link {
+.navLink {
   color: black;
   padding: 1em;
   text-decoration: none;
@@ -60,10 +60,20 @@ nav * {
   transition: all 0.3s;
 }
 
-.nav_link:hover {
+.navLink:hover {
   color: #fb2056;
 }
 
-.active_nav_link {
+.activeNavLink {
   color: #fb2056;
+}
+
+.burgerIcon {
+  visibility: hidden;
+}
+
+@media (max-width: 921px) {
+  .burgerIcon {
+    visibility: visible;
+  }
 }

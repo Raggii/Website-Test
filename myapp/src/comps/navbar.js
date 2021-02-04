@@ -1,55 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
-import LogoImage from "../assets/CBS_Logo_20190924_305x194.jpg";
 import styles from "../styles/navbar.module.css";
 
-export const HAMBURGER_WIDTH_THRESHOLD_PX = 921;
-
 function Navbar() {
-  const [showLinks, setShowLinks] = useState(false);
-  const [isHamburgerMenu, setIsHamburgerMenu] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
+  const [showMenu, setshowMenu] = useState(false);
 
-  const updateWidthWindow = () => {
-    setWidth(window.innerWidth);
+  const handleBurgerClick = () => {
+    setshowMenu(!showMenu);
   };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateWidthWindow);
-    return () => window.removeEventListener("resize", updateWidthWindow);
-  });
-
-  useEffect(() => {
-    setIsHamburgerMenu(width <= HAMBURGER_WIDTH_THRESHOLD_PX);
-  }, [width]);
 
   return (
     <>
-      <div className={styles.nav_wrapper}>
+      <div className={styles.navWrapper}>
         <nav>
           <div className={styles.logoContainer}>
             <Link to="/">
               <img
-                className={styles.logo_image}
-                src={LogoImage}
+                className={styles.logoImage}
+                src="http://chasebovineservices.com/wp-content/uploads/2019/09/CBS-Logo.20190924-305x194.jpg"
                 alt="Chase Bovine Services"
               />
             </Link>
-            <p className={styles.logo_description}>
+            <p className={styles.logoDescription}>
               Dairy Nutrition and Veterinary Consulting
             </p>
           </div>
-          <div>
-            {isHamburgerMenu ? <h1>MENU</h1> : <></>}
-            <ul className={styles.nav_links}>
-              <NavbarLinkItem to="/">Home</NavbarLinkItem>
-              <NavbarLinkItem to="/about-me">About me</NavbarLinkItem>
-              <NavbarLinkItem to="/resources">Resources</NavbarLinkItem>
-              <NavbarLinkItem to="/contact">Contact</NavbarLinkItem>
-              <NavbarLinkItem to="/login">Login</NavbarLinkItem>
-            </ul>
-          </div>
+          <span className={styles.burgerIcon} onClick={handleBurgerClick}>
+            {showMenu ? "X" : "☰"}
+          </span>
+          <ul className={styles.navLinks}>
+            <NavbarLinkItem to="/">Home</NavbarLinkItem>
+            <NavbarLinkItem to="/about-me">About me</NavbarLinkItem>
+            <NavbarLinkItem to="/resources">Resources</NavbarLinkItem>
+            <NavbarLinkItem to="/contact">Contact</NavbarLinkItem>
+            <NavbarLinkItem to="/login">Login</NavbarLinkItem>
+          </ul>
         </nav>
       </div>
     </>
@@ -62,8 +48,8 @@ const NavbarLinkItem = ({ to, children }) => {
       <NavLink
         exact
         to={to}
-        activeClassName={styles.active_nav_link}
-        className={styles.nav_link}
+        activeClassName={styles.activeNavLink}
+        className={styles.navLink}
       >
         {children}
       </NavLink>
