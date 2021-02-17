@@ -1,78 +1,8 @@
 *,
 ::after,
 ::before {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
 }
-/* 
-::selection {
-  background-color: #fb2056;
-  color: #ffffff;
-}
-
-.item {
-  background: var(--clr-white);
-  display: flex;
-  justify-content: space-between;
-  max-width: var(--fixed-width);
-  margin: 1rem auto;
-  align-items: center;
-  border-radius: var(--radius);
-}
-
-.navBarHeadings {
-  list-style-type: none;
-  margin: 2rem auto;
-  align-items: center;
-  display: flex;
-}
-
-.btn {
-  background-color: black;
-  color: white;
-  border: 0.5px solid black;
-  padding: 1px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: white;
-  color: black;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
-}
-
-.btnCpy {
-  display: inline-block;
-  background: var(--clr-primary-5);
-  color: var(--clr-white);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius);
-  border-color: transparent;
-  text-transform: capitalize;
-  font-size: 1rem;
-  letter-spacing: var(--spacing);
-  margin-top: 2rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btnCpy:hover {
-  background: var(--clr-primary-1);
-  color: var(--clr-primary-5);
-} */
