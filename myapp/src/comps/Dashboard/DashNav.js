@@ -10,20 +10,20 @@ import Styles from '../../styles/dashboardStyles/navBar.module.css'
 const DashNav = () => {
     return (
         <>
-            <div>
+            <div className={Styles.sideBox}>
                 <Link to="/">
                 <img
                     src={LogoImage}
                     alt="Chase Bovine Services "
                 />
                 </Link>
+                <div>
+                    <p>Button1</p>
+                    <p>Button2</p>
+                </div>
                 
             </div>
-            <svg viewBox="0 0 307 500" 
-                xmlns="http://www.w3.org/2000/svg">
 
-                <rect className={Styles.box} width='229' height='864'/>
-            </svg>
 
         </>
     )

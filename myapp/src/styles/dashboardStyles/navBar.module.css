@@ -1,12 +1,12 @@
 /* Rectangle 4 */
 
-.box {
-  position: absolute;
-  left: 0%;
-  right: 82.86%;
-  top: 0%;
-  bottom: 0%;
-
-  background: #0021a5;
-  box-shadow: 3px 2px 14px rgba(0, 0, 0, 0.107195);
+.sideBox {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: none;
+  padding: 1em 1em;
+  background-color: #0021a5;
+  float: "left";
+  width: 20%;
+  height: 400px;
 }
