@@ -1,0 +1,12 @@
+/* Rectangle 4 */
+
+.box {
+  position: absolute;
+  left: 0%;
+  right: 82.86%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #0021a5;
+  box-shadow: 3px 2px 14px rgba(0, 0, 0, 0.107195);
+}
