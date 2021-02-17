@@ -4,7 +4,8 @@ import LogoImage from "../../assets/Logo2.png";
 import { NavLink, Link } from "react-router-dom";
 import PageOne from './PageOne';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Styles from '../../styles/dashboardStyles/navBar.module.css'
+import Styles from '../../styles/dashboardStyles/navBar.module.css';
+import SideButton from './sideButton';
 
 //Make Button with inputs logo and name
 const DashNav = () => {
@@ -18,8 +19,9 @@ const DashNav = () => {
                 />
                 </Link>
                 <div>
-                    <p>Button1</p>
-                    <p>Button2</p>
+                    <SideButton name='button1'></SideButton>
+                    <SideButton name='button2'></SideButton>
+                    <SideButton name='button3'></SideButton>
                 </div>
                 
             </div>
