@@ -3,15 +3,18 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./styles/index.css";
 
+// base app stuff
 import Navbar from "./comps/navbar";
-// pages
 import Home from "./routes/home";
 import About from "./routes/about-me";
 import Contact from "./routes/contact";
 import Resources from "./routes/resources";
 import Error from "./routes/Error"; // Error page
 import Login from "./routes/login";
+
+// Dashboard stuff
 import Dashboard from "./routes/dashboard";
+import DashboardCalender from "./comps/Dashboard/PageOne";
 
 const App = () => {
   return (
@@ -29,7 +32,20 @@ const App = () => {
 };
 
 const DashboardApp = () => {
-  return <Dashboard />;
+  return (
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/dashboard/">
+            <Dashboard></Dashboard>
+          </Route>
+          <Route path="/dashboard/calend">
+            <DashboardCalender></DashboardCalender>
+          </Route>
+        </Switch>
+      </Router>
+    </>
+  );
 };
 
 const BaseApp = () => {

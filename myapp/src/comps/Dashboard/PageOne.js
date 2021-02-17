@@ -1,13 +1,15 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from "react";
+import Calendar from "react-calendar";
+import "./../../styles/dashboardStyles/calender.css";
 
-const PageOne = () => {
-    return (
-        <div>
-            Hello
-        </div>
-    )
+function DashboardCalender() {
+  const [value, setValue] = useState(new Date());
+
+  function onChange(nextValue) {
+    setValue(nextValue);
+  }
+
+  return <Calendar onChange={onChange} value={value} />;
 }
 
-
-export default PageOne
+export default DashboardCalender;
