@@ -16,12 +16,13 @@
   display: block;
   background-color: #0021a5;
   color: #111111;
+  margin: 12px;
+}
+
+.buttonSingle img {
+  margin: 12;
 }
 
 .buttonSingle:hover {
   background-color: #1f3cb0;
-}
-
-.buttonHolder {
-  grid-row: ;
 }

@@ -7,8 +7,10 @@ const SideButton = ({name}) => {
         return (
 
             <div >
+                <Link className = {Styles.buttonSingle}> 
                 <img src={imageDefault}></img>
-                <Link className = {Styles.buttonSingle}> {name}</Link>
+                {name}
+                </Link>
             </div>
 
 
