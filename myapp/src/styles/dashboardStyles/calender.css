@@ -118,3 +118,9 @@
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
+
+.high-urgent-class-tile {
+  background-color: #d10000;
+  color: #e6e6e6;
+  border-radius: 50%;
+}
