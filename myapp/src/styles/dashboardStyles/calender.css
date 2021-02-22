@@ -119,8 +119,26 @@
   background-color: #e6e6e6;
 }
 
-.high-urgent-class-tile {
+.super-urgent-class-tile {
   background-color: #d10000;
-  color: #e6e6e6;
-  border-radius: 50%;
+  color: #110e39;
+  border-radius: 75%;
+}
+
+.high-urgent-class-tile {
+  background-color: #ff6161;
+  color: #110e39;
+  border-radius: 75%;
+}
+
+.medium-urgent-class-tile {
+  background-color: #fb8b18;
+  color: #110e39;
+  border-radius: 75%;
+}
+
+.low-urgent-class-tile {
+  background-color: #90c335;
+  color: #110e39;
+  border-radius: 75%;
 }

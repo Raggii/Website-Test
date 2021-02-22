@@ -30,15 +30,16 @@ class ReminderClass {
 }
 
 const dates = [
-  new ReminderClass("First reminder", new Date(2021, 1, 24), classNamesUrgency.high),
+  new ReminderClass("First reminder", new Date(2021, 1, 24), classNamesUrgency.super),
   new ReminderClass("Second reminder", new Date(2021, 1, 25), classNamesUrgency.medium),
-  new ReminderClass("Third reminder", new Date(2021, 1, 27), classNamesUrgency.super),
+  new ReminderClass("Third reminder", new Date(2021, 1, 27), classNamesUrgency.low),
 ];
 
 function reminderClassName(props: CalendarTileProperties): string | string[] | null {
   if (props.view === "month") {
     if (dates.find((reminder) => isSameDay(props.date, reminder.date))) {
-      return classNamesUrgency.high;
+      // Filter through these to return the correct class assocaites with the level of importance for
+      // the reminder!
     }
   }
   return null;
