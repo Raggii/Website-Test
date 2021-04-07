@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vaan3225/CHASE-BOVINE-SERVICES/issues"
   },
-  "homepage": "https://github.com/vaan3225/CHASE-BOVINE-SERVICES#readme"
+  "homepage": "https://github.com/vaan3225/CHASE-BOVINE-SERVICES#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta3"
+  }
 }
