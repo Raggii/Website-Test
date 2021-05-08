@@ -1,0 +1,254 @@
+main {
+  align-items: center;
+}
+
+.main_wrapper {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.cow_header {
+  position: relative;
+  background-image: url("public/assets/MG_7755.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 550px;
+  width: 100%;
+  margin: 0;
+}
+
+.svg_shape_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.svg_shape {
+  position: absolute;
+  bottom: 0;
+}
+
+.text_header {
+  background-color: #003e53;
+  margin: 0;
+  line-height: 1;
+}
+
+.header_seperator {
+  position: relative;
+  display: flex;
+  background-color: #003e53;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  width: 100%;
+  height: auto;
+}
+
+.seperator_wrap {
+  display: flex;
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  max-width: 980px;
+  padding: 0 20px;
+}
+
+.seperator_text_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 65%;
+  margin-right: 0;
+  padding: 10px 0;
+}
+
+.seperator_text_wrap h3 {
+  text-align: left;
+  color: #ffffff;
+  line-height: 1;
+  font-family: "Roboto", Sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.enquiry_wrap {
+  position: relative;
+  width: 35%;
+  height: auto;
+}
+
+.enquiry_wrap div {
+  position: relative;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.makeEnquiry {
+  font-size: 15px;
+  height: fit-content;
+  font-family: "Playfair Display", Sans-serif;
+  font-weight: 500;
+  transition: all 0.3s;
+  background-color: #e4bc36;
+  padding: 20px 40px;
+  text-decoration: none;
+  color: white;
+}
+
+.makeEnquiry:hover {
+  background-color: #d88929;
+}
+
+.testimonialContainer {
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3em 20px 0 20px;
+}
+
+.testimonialContainer .testimonialImageContainer {
+  width: 100%;
+  padding: 20px;
+}
+
+.testimonialContainer div img {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #ffffff;
+  box-shadow: -10px 10px 20px 0px rgba(0, 0, 0, 0.12);
+  height: auto;
+  width: 100%;
+}
+
+.testimonialContainer article {
+  font-family: "Roboto", Sans-serif;
+  color: #7a7a7a;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: normal;
+  padding: 20px;
+}
+
+.testimonialContainer article h3 {
+  color: #003e53;
+  font-family: "Playfair Display", Sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 1;
+  margin-bottom: 0.5em;
+}
+
+.testimonialContainer article p {
+  margin-bottom: 1.6em;
+  line-height: 1.49;
+}
+
+.testimonialContainer article ul {
+  list-style: disc;
+  margin: 0 0 1.5em 3em;
+}
+
+.aboutMeSectionSmall {
+  background-color: transparent;
+  background-image: linear-gradient(
+    260deg,
+    #ffffff 0%,
+    rgba(210, 233, 225, 0.37) 100%
+  );
+
+  padding: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 100px;
+  padding-bottom: auto;
+  text-align: center;
+
+  font-family: "Roboto", Sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  font-style: normal;
+}
+
+.aboutMeSectionSmall img {
+  border-radius: 50%;
+  width: 198px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.about_link {
+  font-size: 15px;
+  text-decoration: none;
+  background-color: #efcb56;
+  color: #ffffff;
+  transition: all 0.3s;
+  padding: 12px 24px;
+  border-radius: 3px;
+}
+
+.about_link:hover {
+  background-color: #d88929;
+}
+
+.about_name {
+  color: #e4bc36;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+}
+
+.about_info {
+  margin-bottom: 1.8em;
+}
+
+.about_job {
+  color: #54595f;
+  line-height: 1.6em;
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.home_footer {
+  background-color: #003e53;
+  padding: 0 20px;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+footer div {
+  display: flex;
+  max-width: 980px;
+  width: 100%;
+  margin: auto;
+  justify-content: flex-end;
+}
+
+@media (min-width: 1024px) {
+  .seperator_wrap {
+    padding: 0 0 30px 0;
+  }
+
+  .makeEnquiry {
+    font-size: 18px;
+  }
+}

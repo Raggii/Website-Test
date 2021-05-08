@@ -1,0 +1,29 @@
+/* * {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.49;
+  color: #7a7a7a;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+main {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.contact_elm {
+  padding: 3.34em 2.4em;
+  margin: 20px;
+}
+
+.contact_info {
+}
+
+.contact_info ul {
+  list-style: none;
+}
