@@ -1,16 +1,17 @@
 // required router packages
 import express from "express";
+
+// getting sub-routers
+import authenticationRouter from "./authentication";
+
 const router = express.Router();
 
-// getting routers
-const authenticationRouter = require("./authentication");
-
-// using the routers
+// mounting sub-routers
 router.use("/auth", authenticationRouter);
 
-// Default response
+// Adding a response
 router.get("/", (req, res) => {
   res.send("Welcome to /api");
 });
 
-module.exports = router;
+export = router;

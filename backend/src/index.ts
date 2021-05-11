@@ -1,13 +1,14 @@
 // Get the routers
-const routers = require("./routes/routers");
+import routers from "./routes/routers";
 
 // Require the middle ware libraries.
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import dotenv from "dotenv";
 
 // Gets the environment variables
-require("dotenv").config();
+dotenv.config();
 
 // Create the express app.
 import express from "express";
@@ -33,6 +34,8 @@ app.get("/", (req, res) => {
 
 // Starting the server
 app.listen(PORT, () => {
+  // tslint:disable-next-line:no-console
   console.log(`Server started:`);
+  // tslint:disable-next-line:no-console
   console.log(`     Server URL: ${BASE_URL}:${PORT} (PORT: ${PORT})`);
 });

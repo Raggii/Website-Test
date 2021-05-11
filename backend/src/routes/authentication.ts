@@ -11,4 +11,4 @@ router.get("/", (req, res) => {
   res.send("Welcome to /api/auth");
 });
 
-module.exports = router;
+export = router;
