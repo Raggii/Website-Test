@@ -3,7 +3,7 @@ const routers = require("./routes/routers");
 
 // Require the middle ware libraries.
 const bodyParser = require("body-parser");
-require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 // Gets the environment variables
@@ -21,6 +21,7 @@ const BASE_URL = process.env.BASE_URL || "localhost";
 app.use(bodyParser.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
 app.use(bodyParser.json()); // Automatically converts json data type into JSON object for the req.
 app.use(cors()); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
+app.use(cookieParser());
 
 // use routers
 app.use("/api", routers);
