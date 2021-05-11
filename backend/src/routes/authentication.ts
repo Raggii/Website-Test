@@ -1,4 +1,5 @@
 import express from "express";
+
 const router = express.Router();
 
 // test route on localhost:PORT/api/auth/test
