@@ -10,7 +10,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 // Create the express app.
-const express = require("express");
+import express from "express";
 const app = express();
 
 // Get the constants
