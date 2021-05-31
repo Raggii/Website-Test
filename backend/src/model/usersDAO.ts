@@ -10,7 +10,7 @@ export class UsersDataAccessObject {
   /**
    *
    */
-  public static get Instance() {
+  public static get Instance(): UsersDataAccessObject {
     // if the instance has not yet been instantiated, we instantiate it.
     if (this._instance === null) {
       this._instance = new this();
@@ -28,7 +28,7 @@ export class UsersDataAccessObject {
   /**
    * Determines if a username is unique within the database.
    */
-  public isUsernameUnique(username: String) {
+  public isUsernameUnique(username: string): boolean {
     return true;
   }
 
@@ -36,6 +36,10 @@ export class UsersDataAccessObject {
    *
    * @param username
    * @param password
+   * @returns
    */
-  public addNewUser(username: String, password: String) {}
+  public addNewUser(username: string, password: string): string {
+    const userId = "RANDOM_ID_STRING_ASDASD";
+    return userId;
+  }
 }

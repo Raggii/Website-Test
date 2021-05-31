@@ -1,8 +1,10 @@
 import express from "express";
 import { UsersDataAccessObject } from "../model/usersDAO";
+import AuthHandler from "../handlers/authHandler";
 
 const router = express.Router();
 const usersDAO = UsersDataAccessObject.Instance;
+const authHandler = AuthHandler.Instance;
 
 // Register a new user
 router.post("/register", (req, res) => {
@@ -25,8 +27,9 @@ router.post("/register", (req, res) => {
   }
 
   // Attempt to add the user data to the database
+  let userId: null | string = null;
   try {
-    usersDAO.addNewUser(req.body.username, req.body.password);
+    userId = usersDAO.addNewUser(req.body.username, req.body.password);
   } catch (error) {
     res.status(500).json({
       message: "Something went wrong trying to sign you up.",
@@ -35,6 +38,7 @@ router.post("/register", (req, res) => {
   }
 
   // TODO Create JWT Token
+  const jwtToken = authHandler.sign({ userId: userId });
 
   // Success response
   res.status(201).json({

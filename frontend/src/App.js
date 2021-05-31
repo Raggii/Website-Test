@@ -13,7 +13,7 @@ import Error from "./routes/Error"; // Error page
 import Login from "./routes/login";
 
 // Dashboard stuff
-import Dashboard from "./routes/dashboard";
+import Dashboard from "./routes/dashBoard";
 import DashboardCalender from "./comps/Dashboard/PageOne";
 
 const App = () => {

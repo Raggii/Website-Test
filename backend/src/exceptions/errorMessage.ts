@@ -1,8 +1,8 @@
 export = class ErrorMessage {
-  code: Number;
-  message: String;
+  code: number;
+  message: string;
 
-  constructor(code: Number, message: String) {
+  constructor(code: number, message: string) {
     this.code = code;
     this.message = message;
   }
