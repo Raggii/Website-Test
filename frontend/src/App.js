@@ -13,7 +13,7 @@ import Error from "./routes/Error"; // Error page
 import Login from "./routes/login";
 
 // Dashboard stuff
-import Dashboard from "./routes/dashboard";
+import Dashboard from "./Dashboard/layouts/Admin";
 import DashboardCalender from "./comps/Dashboard/PageOne";
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route path="/dashboard">
-          <DashboardApp></DashboardApp>
+          <Dashboard></Dashboard>
         </Route>
         <Route path="/">
           <BaseApp></BaseApp>
@@ -31,22 +31,6 @@ const App = () => {
   );
 };
 
-const DashboardApp = () => {
-  return (
-    <>
-      <Router>
-        <Switch>
-          <Route exact path="/dashboard/">
-            <Dashboard></Dashboard>
-          </Route>
-          <Route path="/dashboard/calend">
-            <DashboardCalender></DashboardCalender>
-          </Route>
-        </Switch>
-      </Router>
-    </>
-  );
-};
 
 const BaseApp = () => {
   return (
