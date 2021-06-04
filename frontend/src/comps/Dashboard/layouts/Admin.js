@@ -21,12 +21,12 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch, useLocation } from "react-router-dom";
 
-import DemoNavbar from "components/Navbars/DemoNavbar.js";
-import Footer from "components/Footer/Footer.js";
-import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+import DemoNavbar from "../components/Navbars/DemoNavbar.js";
+import Footer from "../components/Footer/Footer.js";
+import Sidebar from "../components/Sidebar/Sidebar.js";
+import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 
-import routes from "routes.js";
+import routes from "../routes.js";
 
 var ps;
 
@@ -57,25 +57,15 @@ function Dashboard(props) {
   const handleBgClick = (color) => {
     setBackgroundColor(color);
   };
+
   return (
     <div className="wrapper">
-      <Sidebar
-        {...props}
-        routes={routes}
-        bgColor={backgroundColor}
-        activeColor={activeColor}
-      />
+      <Sidebar {...props} routes={routes} bgColor={backgroundColor} activeColor={activeColor} />
       <div className="main-panel" ref={mainPanel}>
         <DemoNavbar {...props} />
         <Switch>
           {routes.map((prop, key) => {
-            return (
-              <Route
-                path={prop.layout + prop.path}
-                component={prop.component}
-                key={key}
-              />
-            );
+            return <Route path={prop.layout + prop.path} component={prop.component} key={key} />;
           })}
         </Switch>
         <Footer fluid />

@@ -36,7 +36,7 @@ import {
   Input,
 } from "reactstrap";
 
-import routes from "routes.js";
+import routes from "../../routes";
 
 function Header(props) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -81,10 +81,7 @@ function Header(props) {
     window.addEventListener("resize", updateColor.bind(this));
   });
   React.useEffect(() => {
-    if (
-      window.innerWidth < 993 &&
-      document.documentElement.className.indexOf("nav-open") !== -1
-    ) {
+    if (window.innerWidth < 993 && document.documentElement.className.indexOf("nav-open") !== -1) {
       document.documentElement.classList.toggle("nav-open");
       sidebarToggle.current.classList.toggle("toggled");
     }
@@ -92,17 +89,12 @@ function Header(props) {
   return (
     // add or remove classes depending if we are on full-screen-maps page or not
     <Navbar
-      color={
-        props.location.pathname.indexOf("full-screen-maps") !== -1
-          ? "dark"
-          : color
-      }
+      color={props.location.pathname.indexOf("full-screen-maps") !== -1 ? "dark" : color}
       expand="lg"
       className={
         props.location.pathname.indexOf("full-screen-maps") !== -1
           ? "navbar-absolute fixed-top"
-          : "navbar-absolute fixed-top " +
-            (color === "transparent" ? "navbar-transparent " : "")
+          : "navbar-absolute fixed-top " + (color === "transparent" ? "navbar-transparent " : "")
       }
     >
       <Container fluid>
@@ -146,11 +138,7 @@ function Header(props) {
                 </p>
               </Link>
             </NavItem>
-            <Dropdown
-              nav
-              isOpen={dropdownOpen}
-              toggle={(e) => dropdownToggle(e)}
-            >
+            <Dropdown nav isOpen={dropdownOpen} toggle={(e) => dropdownToggle(e)}>
               <DropdownToggle caret nav>
                 <i className="nc-icon nc-bell-55" />
                 <p>

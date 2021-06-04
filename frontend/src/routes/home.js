@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cows_image_1 from "../../public/assets/misc-and-some-duplicates-256-3.jpg";
-import cows_image_2 from "../../public/assets/cows-for-wallpaper2-3.jpg";
-import cows_image_3 from "../../public/assets/misc-and-some-duplicates-195-2-1024x683.jpg";
-import dr_charles_chase_2 from "../../public/assets/Dr-Charles-Chase-2.jpg";
+import cows_image_1 from "../assets/misc-and-some-duplicates-256-3.jpg";
+import cows_image_2 from "../assets/cows-for-wallpaper2-3.jpg";
+import cows_image_3 from "../assets/misc-and-some-duplicates-195-2-1024x683.jpg";
+import dr_charles_chase_2 from "../assets/Dr-Charles-Chase-2.jpg";
 
 import styles from "../styles/home.module.css";
 

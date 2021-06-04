@@ -13,16 +13,13 @@ import Error from "./routes/Error"; // Error page
 import Login from "./routes/login";
 
 // Dashboard stuff
-import Dashboard from "./src/comps/Dashboard/layouts/Admin";
-import DashboardCalender from "./comps/Dashboard/PageOne";
+import Dashboard from "./comps/Dashboard/layouts/Admin";
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/dashboard">
-          <Dashboard></Dashboard>
-        </Route>
+        <Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
         <Route path="/">
           <BaseApp></BaseApp>
         </Route>
@@ -30,7 +27,6 @@ const App = () => {
     </Router>
   );
 };
-
 
 const BaseApp = () => {
   return (
