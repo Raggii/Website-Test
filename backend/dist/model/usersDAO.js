@@ -30,9 +30,11 @@ class UsersDataAccessObject {
      *
      * @param username
      * @param password
+     * @returns
      */
     addNewUser(username, password) {
-        throw new Error("Not implemented");
+        const userId = "RANDOM_ID_STRING_ASDASD";
+        return userId;
     }
 }
 exports.UsersDataAccessObject = UsersDataAccessObject;

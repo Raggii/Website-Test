@@ -4,8 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const express_1 = __importDefault(require("express"));
 const usersDAO_1 = require("../model/usersDAO");
+const authHandler_1 = __importDefault(require("../handlers/authHandler"));
 const router = express_1.default.Router();
 const usersDAO = usersDAO_1.UsersDataAccessObject.Instance;
+const authHandler = authHandler_1.default.Instance;
 // Register a new user
 router.post("/register", (req, res) => {
     //
@@ -24,8 +26,9 @@ router.post("/register", (req, res) => {
         return;
     }
     // Attempt to add the user data to the database
+    let userId = null;
     try {
-        usersDAO.addNewUser(req.body.username, req.body.password);
+        userId = usersDAO.addNewUser(req.body.username, req.body.password);
     }
     catch (error) {
         res.status(500).json({
@@ -34,6 +37,7 @@ router.post("/register", (req, res) => {
         return;
     }
     // TODO Create JWT Token
+    const jwtToken = authHandler.sign({ userId });
     // Success response
     res.status(201).json({
         message: "User has been successfully.",

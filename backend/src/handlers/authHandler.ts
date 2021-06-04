@@ -18,7 +18,7 @@ class AuthHandler {
   }
 
   //
-  sign(payload: object, callback?: Function): string | null {
+  sign(payload: object, callback?: (arg0: string) => void): string | null {
     const jwtString = jwt.sign(payload, this.secret);
 
     if (callback !== null) {

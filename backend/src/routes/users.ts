@@ -38,7 +38,7 @@ router.post("/register", (req, res) => {
   }
 
   // TODO Create JWT Token
-  const jwtToken = authHandler.sign({ userId: userId });
+  const jwtToken = authHandler.sign({ userId });
 
   // Success response
   res.status(201).json({
