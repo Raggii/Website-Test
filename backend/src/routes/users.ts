@@ -1,5 +1,5 @@
 import express from "express";
-import { UsersDataAccessObject } from "../model/usersDAO";
+import { UsersDataAccessObject } from "../DAOs/usersDAO";
 import AuthHandler from "../handlers/authHandler";
 
 const router = express.Router();
@@ -19,7 +19,7 @@ router.post("/register", (req, res) => {
   }
 
   // Ensure that the username is unique
-  if (usersDAO.isUsernameUnique(req.body.username)) {
+  if (!usersDAO.isUsernameUnique(req.body.username)) {
     res.status(409).json({
       message: "Username is not unique.",
     });
@@ -37,12 +37,13 @@ router.post("/register", (req, res) => {
     return;
   }
 
-  // TODO Create JWT Token
+  // Create JWT Token
   const jwtToken = authHandler.sign({ userId });
 
   // Success response
   res.status(201).json({
     message: "User has been successfully.",
+    tok: jwtToken,
   });
 });
 
