@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Api from "../Api";
 
 /**
@@ -165,9 +166,12 @@ export default function Login() {
           {/* Login Button */}
           <div className="row mt-4 text-center">
             <div className="col">
-              <button className="btn btn-outline-primary" type="submit">
+              {/* <button className="btn btn-outline-primary" type="submit">
                 Login
-              </button>
+              </button> */}
+              <Link className="btn btn-outline-primary" to="/Dashboard">
+                Login
+              </Link>
             </div>
           </div>
         </form>

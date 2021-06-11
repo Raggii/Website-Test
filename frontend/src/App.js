@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
 import LandingPage from "./views/LandingPage";
 import Login from "./views/Login";
+import Dashboard from "./views/Dashboard";
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
 
         <Route path="/login">
           <Login />
+        </Route>
+
+        <Route path="/Dashboard">
+          <Dashboard />
         </Route>
       </Switch>
     </Router>
