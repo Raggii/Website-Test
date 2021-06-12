@@ -1,26 +1,25 @@
 #sidebar-wrapper {
   z-index: 1;
-  position: absolute always top left;
-  width: 0;
+  position: absolute;
+  width: 0px;
   height: 100%;
   overflow-y: hidden;
-  background: #abc21a;
-  border: 2px solid red;
-  opacity: 0.9;
+  background: #0021a5;
 }
 
 #page-content-wrapper {
   width: 100%;
   position: absolute;
   padding: 15px;
-  border: 5px solid green;
 }
 
-#wrapper.menuDisplayed #sidebar-wrapper {
+/* changes the sidebar to display */
+/* need to set to a different  */
+#wrapper-menu-displayed #sidebar-wrapper {
   width: 250px;
 }
 
-#wrapper.menuDisplayed #page-content-wrapper {
+#wrapper-menu-displayed #page-content-wrapper {
   padding-left: 250px;
 }
 
@@ -35,11 +34,17 @@
 }
 
 .sidebar-nav li a {
+  padding-top: 10px;
   display: block;
   text-decoration: none;
-  color: #dda;
+  color: white;
+}
+
+.sidebar-nav p {
+  padding-top: 10px;
+  padding-right: 5px;
 }
 
 .sidebar-nav li a:hover {
-  background: #16a085;
+  background: #4d65db;
 }

@@ -6,6 +6,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from "./views/LandingPage";
 import Login from "./views/Login";
 import Dashboard from "./views/Dashboard";
+import FirstPage from "./views/InitialInputs/FirstPage";
+import SecondPage from "./views/InitialInputs/SecondPage";
+import ThirdPage from "./views/InitialInputs/ThirdPage";
+import ForthPage from "./views/InitialInputs/ForthPage";
 
 function App() {
   return (
@@ -18,7 +22,25 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+    {/* CHANGE THIS TO SOMETHING NICER!!!!! */}
+        <Route path="/DataCollect1">
+          <FirstPage />
+        </Route>
 
+        <Route path="/DataCollect2">
+          <SecondPage />
+        </Route>
+
+        <Route path="/DataCollect3">
+          <ThirdPage />
+        </Route>
+
+        <Route path="/DataCollect4">
+          <ForthPage />
+        </Route>
+    {/* PLEASE IT IS TO EASY TO GET TO */}
+
+    
         <Route path="/Dashboard">
           <Dashboard />
         </Route>
