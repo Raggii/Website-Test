@@ -31,13 +31,13 @@
 .sidebar-nav li {
   text-indent: 20px;
   line-height: 40px;
+  color: #c7c6fd;
 }
 
 .sidebar-nav li a {
   padding-top: 10px;
   display: block;
   text-decoration: none;
-  color: white;
 }
 
 .sidebar-nav p {

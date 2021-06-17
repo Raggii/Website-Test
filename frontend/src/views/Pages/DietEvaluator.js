@@ -1,18 +1,10 @@
 import React from 'react'
 
-
-const PageTwo = () => {
+export default function DietEvaluator() {
     return (
         <>
-
-
-
-
-
-
-        
+            DietEvaluator
         </>
     )
 }
 
-export default PageTwo

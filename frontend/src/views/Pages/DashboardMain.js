@@ -1,28 +1,21 @@
 import React from 'react'
 import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
-const PageOne = () => {
+const DashboardMain = () => {
 
 
     
     return (
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-
-
+        <div className="container">
+            <div className="row">
+                <div className="col-4">
                     Column
-                    
-
-
+        
                 </div>
-                <div class="col-4">
+                <div className="col-4">
                     Column
 
-
-
-
                 </div>
-                <div class="col-4">
+                <div className="col-4">
                     <CalendarComponent></CalendarComponent> 
 
                     <p>anything foes below</p>
@@ -33,4 +26,4 @@ const PageOne = () => {
     )
 }
 
-export default PageOne
+export default DashboardMain
