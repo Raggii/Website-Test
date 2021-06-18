@@ -1,16 +1,16 @@
 /**
  *
  */
-export class UsersDataAccessObject {
+export class UserModel {
   /**
    *
    */
-  private static _instance: UsersDataAccessObject;
+  private static _instance: UserModel;
 
   /**
    *
    */
-  public static get Instance(): UsersDataAccessObject {
+  public static get Instance(): UserModel {
     // if the instance has not yet been instantiated, we instantiate it.
     if (this._instance === null) {
       this._instance = new this();
