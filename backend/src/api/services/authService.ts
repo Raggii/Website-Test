@@ -1,21 +1,18 @@
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
-class AuthHandler {
+type HashResponse = {
+  hash: string;
+  salt: string;
+};
+
+class AuthService {
   //
-  private static _instance: AuthHandler;
-  //
-  private secret = process.env.JWT_SECRET;
+  private secret: string = process.env.JWT_SECRET;
+  private saltRounds: number = 16;
 
   //
-  private constructor() {}
-
-  public static get Instance() {
-    if (this._instance === null) {
-      this._instance = new this();
-    }
-
-    return this._instance;
-  }
+  public constructor() {}
 
   //
   sign(payload: object, callback?: (arg0: string) => void): string | null {
@@ -27,6 +24,14 @@ class AuthHandler {
       return jwtString;
     }
   }
+
+  async hashPassword(password: string): Promise<HashResponse> {
+    bcrypt.genSalt(this.saltRounds).then((salt: string) => {
+      bcrypt.hash(password, salt).then((hash) => {
+        throw Error("Not implemented"); // TODO RETURN HashResponse!
+      });
+    });
+  }
 }
 
-export = AuthHandler;
+export = AuthService;
