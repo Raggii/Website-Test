@@ -1,8 +1,8 @@
-import { UserModel } from "../models/usersModel";
+import { UserModel } from "../models/userModel";
 import AuthHandler from "../services/authService";
 
 const authHandler = AuthHandler.Instance;
-const usersModel = UserModel.Instance;
+const userModel = UserModel.Instance;
 
 module.exports = {
   register: (req: any, res: any) => {
@@ -15,7 +15,7 @@ module.exports = {
     }
 
     // Ensure that the username is unique
-    if (!usersModel.isUsernameUnique(req.body.username)) {
+    if (!userModel.isUsernameUnique(req.body.username)) {
       res.status(409).json({
         message: "Username is not unique.",
       });
@@ -25,7 +25,7 @@ module.exports = {
     // Attempt to add the user data to the database
     let userId: null | string = null;
     try {
-      userId = usersModel.addNewUser(req.body.username, req.body.password);
+      userId = userModel.addNewUser(req.body.username, req.body.password);
     } catch (error) {
       res.status(500).json({
         message: "Something went wrong trying to sign you up.",
