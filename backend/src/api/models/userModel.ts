@@ -1,3 +1,5 @@
+import AuthService from "../services/authService";
+import { isNewUserValid } from "../validations/userValidation";
 import { userDAO } from "./DAOs/userDAO";
 
 export type User = {
@@ -23,6 +25,10 @@ export class UserModel {
    * This will also be lazily instantiated with the userModel.
    */
   private userDaoInstance: userDAO;
+  /**
+   * Authentication service is instantiated by the model for authentication.
+   */
+  private auth: AuthService = new AuthService();
 
   /**
    * Creates the UserModel class instance.
@@ -47,8 +53,24 @@ export class UserModel {
    * @param user A new user that we want to add.
    * @returns The user's ID.
    */
-  public addNewUser(newUser: NewUser): string | null {
-    const userId = "RANDOM_ID_STRING_ASDASD";
+  public async addNewUser(newUser: NewUser): Promise<String> {
+    // This is not really necessary, as functions providing newUser will probably
+    // Sanatise the input anyway.
+    if (!isNewUserValid(newUser)) return null;
+
+    // We need to hash the password
+    const { hash, salt, err } = await this.auth.hashPassword(newUser.password);
+
+    // If there is an error we throw it
+    if (err) throw new Error(err);
+
+    // We create a user obj and try to add it to the database.
+    const user: User = { hash, salt, username: newUser.username, email: newUser.email };
+    const userId = this.userDaoInstance.AddUser(user);
+
+    // We throw an error if the user id is null.
+    if (userId === null) throw new Error("Something went wrong trying to add user.");
+
     return userId;
   }
 }

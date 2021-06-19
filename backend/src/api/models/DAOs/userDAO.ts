@@ -1,3 +1,5 @@
+import { User } from "../userModel";
+
 /**
  * Singlton class used as the primary access point to the database.
  */
@@ -32,6 +34,14 @@ export class userDAO {
    * @returns {String[]} Returns a list of all users that match this username.
    */
   findUsersByUsername(username: string): string[] {
+    throw new Error("Method not implemented.");
+  }
+
+  /**
+   * Given a User object attempt to add it to the database.
+   * @param user
+   */
+  AddUser(user: User): string | null {
     throw new Error("Method not implemented.");
   }
 }
