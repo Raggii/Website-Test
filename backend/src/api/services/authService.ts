@@ -13,9 +13,6 @@ class AuthService {
   private saltRounds: number = 16;
 
   //
-  public constructor() {}
-
-  //
   sign(payload: object, callback?: (arg0: string) => void): string | null {
     const jwtString = jwt.sign(payload, this.secret);
 
@@ -35,9 +32,9 @@ class AuthService {
   async hashPassword(password: string): Promise<HashResponse> {
     try {
       const salt = await bcrypt.genSalt(this.saltRounds);
-      const hash = await bcrypt.hash(password, salt);
+      const hashedPass = await bcrypt.hash(password, salt);
       return {
-        hash,
+        hash: hashedPass,
         salt,
         err: null,
       };
@@ -54,12 +51,12 @@ class AuthService {
    * Given a plain password and a hash compare asynchronously.
    *
    * @param plainPassword The plain text password inputted
-   * @param hash The user hash
+   * @param hashedPass The user hash
    * @returns true if the password was used to create the hash. Otherwise false.
    */
-  async verifyPassword(plainPassword: string, hash: string): Promise<Boolean> {
+  async verifyPassword(plainPassword: string, hashedPass: string): Promise<boolean> {
     try {
-      const response: boolean = await bcrypt.compare(plainPassword, hash);
+      const response: boolean = await bcrypt.compare(plainPassword, hashedPass);
 
       // This is to avoid any null or undefined values.
       if (!response) return false;

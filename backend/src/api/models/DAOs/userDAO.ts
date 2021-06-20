@@ -1,13 +1,15 @@
 import { User } from "../userModel";
+import db from "../../../config/dbConfig.js";
 
 /**
  * Singlton class used as the primary access point to the database.
  */
-export class userDAO {
+export class UserDAO {
   /**
    * Contains the instance.
    */
-  private static _instance: userDAO;
+  private static _instance: UserDAO = null;
+  private conn = db;
 
   /**
    * Returns the Singlton instance, if it is not defined create a new one.
@@ -43,5 +45,18 @@ export class userDAO {
    */
   AddUser(user: User): string | null {
     throw new Error("Method not implemented.");
+  }
+
+  getAllUsers() {
+    return new Promise((resolve, reject) => {
+      this.conn
+        .query("SELECT * FROM users")
+        .then((res) => {
+          resolve(res);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   }
 }

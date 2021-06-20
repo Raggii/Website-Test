@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // Get the routers
-const routers_1 = __importDefault(require("./routes/routers"));
+const routers_1 = __importDefault(require("./api/routes/routers"));
 // Require the middle ware libraries.
 const body_parser_1 = __importDefault(require("body-parser"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));

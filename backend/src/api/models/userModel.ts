@@ -1,6 +1,6 @@
 import AuthService from "../services/authService";
 import { isNewUserValid } from "../validations/userValidation";
-import { userDAO } from "./DAOs/userDAO";
+import { UserDAO } from "./DAOs/userDAO";
 
 export type User = {
   userId?: number;
@@ -24,18 +24,11 @@ export class UserModel {
    * Stores the instance of the user Data Access Object to interact with the database.
    * This will also be lazily instantiated with the userModel.
    */
-  private userDaoInstance: userDAO;
+  private userDaoInstance: UserDAO = UserDAO.Instance;
   /**
    * Authentication service is instantiated by the model for authentication.
    */
   private auth: AuthService = new AuthService();
-
-  /**
-   * Creates the UserModel class instance.
-   */
-  public constructor() {
-    this.userDaoInstance = userDAO.Instance;
-  }
 
   /**
    * Determines if a username is unique within the database.
@@ -43,7 +36,7 @@ export class UserModel {
    * @param username Username we want to check if it is unique.
    */
   public isUsernameUnique(username: string): boolean {
-    let results: string[] = this.userDaoInstance.findUsersByUsername(username);
+    const results: string[] = this.userDaoInstance.findUsersByUsername(username);
     return !(results.length > 0);
   }
 
@@ -53,7 +46,7 @@ export class UserModel {
    * @param user A new user that we want to add.
    * @returns The user's ID.
    */
-  public async addNewUser(newUser: NewUser): Promise<String> {
+  public async addNewUser(newUser: NewUser): Promise<string> {
     // This is not really necessary, as functions providing newUser will probably
     // Sanatise the input anyway.
     if (!isNewUserValid(newUser)) return null;
@@ -72,5 +65,9 @@ export class UserModel {
     if (userId === null) throw new Error("Something went wrong trying to add user.");
 
     return userId;
+  }
+
+  getAllUsers() {
+    return this.userDaoInstance.getAllUsers();
   }
 }

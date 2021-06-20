@@ -8,7 +8,7 @@ const userModel = new UserModel();
 /**
  * Performs the registration steps when attempting to add a new user.
  */
-module.exports.register = (req: any, res: any) => {
+const register = (req: any, res: any) => {
   // Ensuring that we have the correct elements // TODO REMOVE VALIDATOR CLASS
   if (!isNewUserValid(req.body)) {
     res.status(400).json({
@@ -48,7 +48,7 @@ module.exports.register = (req: any, res: any) => {
     });
 };
 
-module.exports.login = (req: any, res: any) => {
+const login = (req: any, res: any) => {
   // Check that we got the correct data.
   if (!req.username || !req.password) {
     res.status(400).json({
@@ -57,4 +57,23 @@ module.exports.login = (req: any, res: any) => {
   }
 
   // Test that the password is correct.
+};
+
+const users = (req: any, res: any) => {
+  userModel
+    .getAllUsers()
+    .then((results) => {
+      res.status(200).json({
+        results,
+      });
+    })
+    .catch((e) => {
+      res.status(500).json({ err: e });
+    });
+};
+
+export default {
+  register,
+  login,
+  users,
 };

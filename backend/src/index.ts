@@ -1,5 +1,5 @@
 // Get the routers
-import routers from "./routes/routers";
+import routers from "./api/routes/routers";
 
 // Require the middle ware libraries.
 import bodyParser from "body-parser";
