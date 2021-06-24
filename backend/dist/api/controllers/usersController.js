@@ -42,6 +42,7 @@ const register = (req, res) => {
         });
     })
         .catch((e) => {
+        console.error(e);
         res.status(500).json({
             message: "Something went wrong trying to sign you up.",
         });

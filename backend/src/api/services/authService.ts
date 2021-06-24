@@ -13,14 +13,8 @@ class AuthService {
   private saltRounds: number = 16;
 
   //
-  sign(payload: object, callback?: (arg0: string) => void): string | null {
-    const jwtString = jwt.sign(payload, this.secret);
-
-    if (callback !== null) {
-      callback(jwtString);
-    } else {
-      return jwtString;
-    }
+  sign(payload: object): string | null {
+    return jwt.sign(payload, this.secret);
   }
 
   /**

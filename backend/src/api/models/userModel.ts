@@ -5,13 +5,19 @@ import { UserDAO } from "./DAOs/userDAO";
 export type User = {
   userId?: number;
   username: string;
+  fname: string;
+  lname: string;
   email: string;
   hash: string;
   salt: string;
+  created_on?: Date;
+  role_id?: number;
 };
 
 export type NewUser = {
   username: string;
+  fname: string;
+  lname: string;
   email: string;
   password: string;
 };
@@ -35,9 +41,14 @@ export class UserModel {
    *
    * @param username Username we want to check if it is unique.
    */
-  public isUsernameUnique(username: string): boolean {
-    const results: string[] = this.userDaoInstance.findUsersByUsername(username);
-    return !(results.length > 0);
+  public async isUsernameUnique(username: string): Promise<boolean> {
+    try {
+      const results: string[] = await this.userDaoInstance.findUsersByUsername(username);
+      return !(results.length > 0);
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
   }
 
   /**
@@ -46,7 +57,7 @@ export class UserModel {
    * @param user A new user that we want to add.
    * @returns The user's ID.
    */
-  public async addNewUser(newUser: NewUser): Promise<string> {
+  public async addNewUser(newUser: NewUser): Promise<number> {
     // This is not really necessary, as functions providing newUser will probably
     // Sanatise the input anyway.
     if (!isNewUserValid(newUser)) return null;
@@ -58,13 +69,25 @@ export class UserModel {
     if (err) throw new Error(err);
 
     // We create a user obj and try to add it to the database.
-    const user: User = { hash, salt, username: newUser.username, email: newUser.email };
-    const userId = this.userDaoInstance.AddUser(user);
+    const user: User = {
+      hash,
+      salt,
+      username: newUser.username,
+      email: newUser.email,
+      fname: newUser.fname,
+      lname: newUser.lname,
+    };
+    try {
+      const userId = await this.userDaoInstance.AddUser(user);
 
-    // We throw an error if the user id is null.
-    if (userId === null) throw new Error("Something went wrong trying to add user.");
+      // We throw an error if the user id is null.
+      if (userId === null) throw new Error("Something went wrong trying to add user.");
 
-    return userId;
+      return userId;
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
   }
 
   getAllUsers() {

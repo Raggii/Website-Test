@@ -37,8 +37,16 @@ class UserModel {
      * @param username Username we want to check if it is unique.
      */
     isUsernameUnique(username) {
-        const results = this.userDaoInstance.findUsersByUsername(username);
-        return !(results.length > 0);
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const results = yield this.userDaoInstance.findUsersByUsername(username);
+                return !(results.length > 0);
+            }
+            catch (e) {
+                console.error(e);
+                return false;
+            }
+        });
     }
     /**
      * Given a user object we add it to the data base. Also performing sanatizations beforehand
@@ -58,12 +66,25 @@ class UserModel {
             if (err)
                 throw new Error(err);
             // We create a user obj and try to add it to the database.
-            const user = { hash, salt, username: newUser.username, email: newUser.email };
-            const userId = this.userDaoInstance.AddUser(user);
-            // We throw an error if the user id is null.
-            if (userId === null)
-                throw new Error("Something went wrong trying to add user.");
-            return userId;
+            const user = {
+                hash,
+                salt,
+                username: newUser.username,
+                email: newUser.email,
+                fname: newUser.fname,
+                lname: newUser.lname,
+            };
+            try {
+                const userId = yield this.userDaoInstance.AddUser(user);
+                // We throw an error if the user id is null.
+                if (userId === null)
+                    throw new Error("Something went wrong trying to add user.");
+                return userId;
+            }
+            catch (e) {
+                console.error(e);
+                return null;
+            }
         });
     }
     getAllUsers() {

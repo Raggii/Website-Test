@@ -1,4 +1,4 @@
-// Get the routers
+import { disconnectDatabase, initDatabase } from "./config/dbConfig";
 import routers from "./api/routes/routers";
 
 // Require the middle ware libraries.
@@ -18,24 +18,32 @@ const app = express();
 const PORT = process.env.PORT || 2999;
 const BASE_URL = process.env.BASE_URL || "localhost";
 
-// Adding the middleware
-app.use(bodyParser.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
-app.use(bodyParser.json()); // Automatically converts json data type into JSON object for the req.
-app.use(cors()); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
-app.use(cookieParser());
+// initiate the database.
+initDatabase().then(() => {
+  // Adding the middleware
+  app.use(bodyParser.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
+  app.use(bodyParser.json()); // Automatically converts json data type into JSON object for the req.
+  app.use(cors()); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
+  app.use(cookieParser());
 
-// use routers
-app.use("/api", routers);
+  // use routers
+  app.use("/api", routers);
 
-// default response
-app.get("/", (req, res) => {
-  res.send("Chase Bovine Backend");
-});
+  // default response
+  app.get("/", (req, res) => {
+    res.send("Chase Bovine Backend");
+  });
 
-// Starting the server
-app.listen(PORT, () => {
-  // tslint:disable-next-line:no-console
-  console.log(`Server started:`);
-  // tslint:disable-next-line:no-console
-  console.log(`     Server URL: ${BASE_URL}:${PORT} (PORT: ${PORT})`);
+  // On exit we want to disconnect from the database.
+  process.on("exit", () => {
+    disconnectDatabase();
+  });
+
+  // Starting the server
+  app.listen(PORT, () => {
+    // tslint:disable-next-line:no-console
+    console.log(`Server started:`);
+    // tslint:disable-next-line:no-console
+    console.log(`     Server URL: ${BASE_URL}:${PORT} (PORT: ${PORT})`);
+  });
 });

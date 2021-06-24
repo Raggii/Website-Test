@@ -8,7 +8,11 @@ exports.isNewUserValid = void 0;
  * @returns true if the new user if valid. Otherwise false.
  */
 const isNewUserValid = (newUser) => {
-    return dataExists(newUser.username) && dataExists(newUser.password) && dataExists(newUser.email);
+    return (dataExists(newUser.username) &&
+        dataExists(newUser.password) &&
+        dataExists(newUser.email) &&
+        dataExists(newUser.fname) &&
+        dataExists(newUser.lname));
 };
 exports.isNewUserValid = isNewUserValid;
 /**

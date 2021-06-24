@@ -33,19 +33,60 @@ class UserDAO {
      * @returns {String[]} Returns a list of all users that match this username.
      */
     findUsersByUsername(username) {
-        throw new Error("Method not implemented.");
+        return new Promise((resolve, reject) => {
+            this.conn
+                .query(`SELECT * FROM accounts WHERE username = $1;`, username)
+                .then((res) => {
+                resolve(res);
+            })
+                .catch((e) => {
+                reject(e);
+            });
+        });
     }
     /**
      * Given a User object attempt to add it to the database.
      * @param user
      */
     AddUser(user) {
-        throw new Error("Method not implemented.");
+        return new Promise((resolve, reject) => {
+            this.conn
+                .query(`INSERT INTO accounts (username, fname, lname, email, hash, salt)
+        values ($1, $2, $3, $4, $5, $6)
+        RETURNING id;`, [user.username, user.fname, user.lname, user.email, user.hash, user.salt] // Replace with actual role id
+            )
+                .then((res) => {
+                resolve(res);
+            })
+                .catch((e) => {
+                reject(e);
+            });
+        });
+    }
+    /**
+     * Returns a user with a given user id.
+     *
+     * @param userId The user's id
+     * @returns {User} the user that has the id given.
+     */
+    getUser(userId) {
+        return new Promise((resolve, reject) => {
+            this.conn
+                .query(`SELECT *
+        FROM accounts
+        WHERE id = $1;`, userId)
+                .then((res) => {
+                resolve(res);
+            })
+                .catch((e) => {
+                reject(e);
+            });
+        });
     }
     getAllUsers() {
         return new Promise((resolve, reject) => {
             this.conn
-                .query("SELECT * FROM users")
+                .query("SELECT * FROM users;")
                 .then((res) => {
                 resolve(res);
             })

@@ -20,14 +20,8 @@ class AuthService {
         this.saltRounds = 16;
     }
     //
-    sign(payload, callback) {
-        const jwtString = jsonwebtoken_1.default.sign(payload, this.secret);
-        if (callback !== null) {
-            callback(jwtString);
-        }
-        else {
-            return jwtString;
-        }
+    sign(payload) {
+        return jsonwebtoken_1.default.sign(payload, this.secret);
     }
     /**
      * Async function that given a password create a hash and salt.

@@ -28,7 +28,7 @@ const register = (req: any, res: any) => {
   // Attempt to add the user data to the database
   userModel
     .addNewUser(req.body)
-    .then((userId: string) => {
+    .then((userId: number) => {
       // If we don't have the user id this should have failed.
       if (userId === null) throw new Error();
 
@@ -42,6 +42,7 @@ const register = (req: any, res: any) => {
       });
     })
     .catch((e) => {
+      console.error(e);
       res.status(500).json({
         message: "Something went wrong trying to sign you up.",
       });

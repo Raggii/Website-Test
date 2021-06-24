@@ -5,7 +5,13 @@
  * @returns true if the new user if valid. Otherwise false.
  */
 export const isNewUserValid = (newUser: any): boolean => {
-  return dataExists(newUser.username) && dataExists(newUser.password) && dataExists(newUser.email);
+  return (
+    dataExists(newUser.username) &&
+    dataExists(newUser.password) &&
+    dataExists(newUser.email) &&
+    dataExists(newUser.fname) &&
+    dataExists(newUser.lname)
+  );
 };
 
 /**
