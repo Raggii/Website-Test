@@ -4,9 +4,12 @@ import { NextFunction, Request, Response } from "express";
 const authService = new AuthService();
 
 export function authenticateAccessToken(req: Request, res: Response, next: NextFunction) {
-  const token = req.headers.authorization;
+  const header = req.headers.authorization;
 
-  if (token) {
+  if (header) {
+    const headerVals = header.split(" ");
+    const token = headerVals[headerVals.length - 1];
+
     const responseToken = authService.verifyToken(token);
 
     if (!responseToken.isValid) {

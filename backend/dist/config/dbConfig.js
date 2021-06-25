@@ -16,6 +16,8 @@ exports.initDatabase = exports.disconnectDatabase = void 0;
 const pg_promise_1 = __importDefault(require("pg-promise"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const process_1 = require("process");
+const roleDAO_1 = require("../api/models/DAOs/roleDAO");
+const userDAO_1 = require("../api/models/DAOs/userDAO");
 dotenv_1.default.config();
 /**
  * Connection configuration
@@ -53,31 +55,17 @@ function initDatabase() {
             }
         }
         // Try to create any missing tables
-        try {
-            // create role table
-            yield conn.query(`CREATE TABLE IF NOT EXISTS role (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(25) UNIQUE NOT NULL
-    );`);
-            // create user
-            yield conn.query(`CREATE TABLE IF NOT EXISTS accounts (
-      id serial PRIMARY KEY,
-      username VARCHAR(40) UNIQUE NOT NULL,
-      fname varchar(50),
-      lname varchar(50),
-      email varchar(40) NOT NULL,
-      hash varchar(72) NOT NULL,
-      salt varchar(72) NOT NULL,
-      created_on timestamp(6),
-      role_id INT,
-      FOREIGN KEY (role_id) REFERENCES role (id)
-    );`);
-        }
-        catch (e) {
+        conn
+            .tx((t) => __awaiter(this, void 0, void 0, function* () {
+            yield roleDAO_1.RoleDAO.Instance.initRoleTable(t);
+            yield userDAO_1.UserDAO.Instance.initUserTable(t);
+            return;
+        }))
+            .catch((e) => {
             console.log("SOMETHING WENT WRONG WITH DROPPING TABLES PLEASE REVIEW DATABASE!");
             console.error(e);
             process_1.exit(1);
-        }
+        });
     });
 }
 exports.initDatabase = initDatabase;

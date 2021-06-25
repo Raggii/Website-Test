@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -6,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDAO = void 0;
 const dbConfig_js_1 = __importDefault(require("../../../config/dbConfig.js"));
 /**
- * Singlton class used as the primary access point to the database.
+ * Singlton class used as the primary access point to the database for negotiating with the user table.
  */
 class UserDAO {
     constructor() {
@@ -22,6 +31,22 @@ class UserDAO {
         }
         // Return the instance
         return this._instance;
+    }
+    initUserTable(t) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield t.none(`CREATE TABLE IF NOT EXISTS accounts (
+      id serial PRIMARY KEY,
+      username VARCHAR(40) UNIQUE NOT NULL,
+      fname varchar(50),
+      lname varchar(50),
+      email varchar(40) NOT NULL,
+      hash varchar(72) NOT NULL,
+      salt varchar(72) NOT NULL,
+      created_on timestamp(6),
+      role_id INT,
+      FOREIGN KEY (role_id) REFERENCES role (id)
+    );`);
+        });
     }
     /**
      * Given some string the find a list of all users that have this username.

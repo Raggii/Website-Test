@@ -1,6 +1,8 @@
 import pgPromise from "pg-promise";
 import dotEnv from "dotenv";
 import { exit } from "process";
+import { RoleDAO } from "../api/models/DAOs/roleDAO";
+import { UserDAO } from "../api/models/DAOs/userDAO";
 
 dotEnv.config();
 
@@ -38,43 +40,24 @@ export function disconnectDatabase() {
  * Initiates the database with all tables
  */
 export async function initDatabase() {
-  // Try to drop all the tables if it is local
-  if (process.env.NODE_ENV === "local") {
-    try {
-      await conn.query(`DROP TABLE IF EXISTS role, accounts;`);
-    } catch (e) {
+  // Try to create any missing tables
+  conn
+    .tx(async (t: pgPromise.ITask<{}>) => {
+      // If we are on a local machine, we want to wipe the database.
+      if (process.env.NODE_ENV === "local") {
+        await t.none(`DROP TABLE IF EXISTS role, accounts;`);
+      }
+
+      // initiate tables
+      await RoleDAO.Instance.initRoleTable(t);
+      await UserDAO.Instance.initUserTable(t);
+      return;
+    })
+    .catch((e) => {
       console.log("SOMETHING WENT WRONG WITH DROPPING TABLES PLEASE REVIEW DATABASE!");
       console.error(e);
       exit(1);
-    }
-  }
-
-  // Try to create any missing tables
-  try {
-    // create role table
-    await conn.query(`CREATE TABLE IF NOT EXISTS role (
-      id SERIAL PRIMARY KEY,
-      name VARCHAR(25) UNIQUE NOT NULL
-    );`);
-
-    // create user
-    await conn.query(`CREATE TABLE IF NOT EXISTS accounts (
-      id serial PRIMARY KEY,
-      username VARCHAR(40) UNIQUE NOT NULL,
-      fname varchar(50),
-      lname varchar(50),
-      email varchar(40) NOT NULL,
-      hash varchar(72) NOT NULL,
-      salt varchar(72) NOT NULL,
-      created_on timestamp(6),
-      role_id INT,
-      FOREIGN KEY (role_id) REFERENCES role (id)
-    );`);
-  } catch (e) {
-    console.log("SOMETHING WENT WRONG WITH DROPPING TABLES PLEASE REVIEW DATABASE!");
-    console.error(e);
-    exit(1);
-  }
+    });
 }
 
 export default conn;

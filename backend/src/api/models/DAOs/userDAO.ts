@@ -1,8 +1,9 @@
 import { User } from "../userModel";
 import db from "../../../config/dbConfig.js";
+import pgPromise from "pg-promise";
 
 /**
- * Singlton class used as the primary access point to the database.
+ * Singlton class used as the primary access point to the database for negotiating with the user table.
  */
 export class UserDAO {
   /**
@@ -25,6 +26,28 @@ export class UserDAO {
   }
 
   private constructor() {}
+
+  async initUserTable(t: pgPromise.ITask<{}>): Promise<void> {
+    await t.none(`CREATE TABLE IF NOT EXISTS accounts (
+      id serial PRIMARY KEY,
+      username VARCHAR(40) UNIQUE NOT NULL,
+      fname varchar(50),
+      lname varchar(50),
+      email varchar(40) NOT NULL,
+      hash varchar(72) NOT NULL,
+      salt varchar(72) NOT NULL,
+      created_on timestamp(6),
+      role_id INT,
+      FOREIGN KEY (role_id) REFERENCES role (id)
+    );`);
+  }
+
+  /**
+   * verifys that the default admin exists, otherwise it will be created.
+   */
+  async checkDefaultAdmin() {
+    throw new Error("Not implemented yet!");
+  }
 
   /**
    * Given some string the find a list of all users that have this username.

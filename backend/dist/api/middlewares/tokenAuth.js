@@ -7,8 +7,10 @@ exports.authenticateAccessToken = void 0;
 const authService_1 = __importDefault(require("../services/authService"));
 const authService = new authService_1.default();
 function authenticateAccessToken(req, res, next) {
-    const token = req.headers.authorization;
-    if (token) {
+    const header = req.headers.authorization;
+    if (header) {
+        const headerVals = header.split(" ");
+        const token = headerVals[headerVals.length - 1];
         const responseToken = authService.verifyToken(token);
         if (!responseToken.isValid) {
             console.error(responseToken.err);
