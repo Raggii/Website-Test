@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import bcrypt, { hash } from "bcrypt";
+import bcrypt from "bcrypt";
 
 type HashResponse = {
   hash: string;
@@ -7,14 +7,39 @@ type HashResponse = {
   err: string;
 };
 
+type tokenResponse = {
+  err?: string;
+  content: object | string;
+  isValid: boolean;
+};
+
 class AuthService {
-  //
-  private secret: string = process.env.JWT_SECRET;
+  /**
+   * Number of salt rounds used for hashing.
+   */
   private saltRounds: number = 16;
 
-  //
-  sign(payload: object): string | null {
-    return jwt.sign(payload, this.secret);
+  /**
+   * Generates a token string for a user with a payload data.
+   *
+   * @param payload Data stored within the token.
+   * @returns {string} JWT token string.
+   */
+  signToken(payload: object): string {
+    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" });
+  }
+
+  verifyToken(token: string): tokenResponse {
+    try {
+      const content = jwt.verify(token, process.env.JWT_SECRET);
+      return { content, isValid: true };
+    } catch (err) {
+      return {
+        content: null,
+        err,
+        isValid: false,
+      };
+    }
   }
 
   /**

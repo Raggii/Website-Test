@@ -34,7 +34,7 @@ const register = (req, res) => {
         if (userId === null)
             throw new Error();
         // Create JWT Token
-        const jwtToken = authService.sign({ userId });
+        const jwtToken = authService.signToken({ userId });
         // Success response
         res.status(201).json({
             message: "User has been successfully.",
@@ -50,7 +50,7 @@ const register = (req, res) => {
 };
 const login = (req, res) => {
     // Check that we got the correct data.
-    if (!req.username || !req.password) {
+    if (!req.body.username || !req.body.password) {
         res.status(400).json({
             message: "Username or password are required..",
         });
@@ -58,6 +58,7 @@ const login = (req, res) => {
     // Test that the password is correct.
 };
 const users = (req, res) => {
+    console.error(req.body.tokData);
     userModel
         .getAllUsers()
         .then((results) => {
@@ -69,9 +70,20 @@ const users = (req, res) => {
         res.status(500).json({ err: e });
     });
 };
+const user = (req, res) => {
+    userModel
+        .getUser(Number.parseInt(req.params.id, 10))
+        .then((results) => {
+        res.status(200).json({ results });
+    })
+        .catch((e) => {
+        res.status(500).json({ err: e });
+    });
+};
 exports.default = {
     register,
     login,
     users,
+    user,
 };
 //# sourceMappingURL=usersController.js.map

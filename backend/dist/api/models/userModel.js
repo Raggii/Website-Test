@@ -90,6 +90,9 @@ class UserModel {
     getAllUsers() {
         return this.userDaoInstance.getAllUsers();
     }
+    getUser(userID) {
+        return this.userDaoInstance.getUser(userID);
+    }
 }
 exports.UserModel = UserModel;
 //# sourceMappingURL=userModel.js.map

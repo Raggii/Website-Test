@@ -14,7 +14,7 @@ export class UserDAO {
   /**
    * Returns the Singlton instance, if it is not defined create a new one.
    */
-  public static get Instance() {
+  public static get Instance(): UserDAO {
     // if the instance has not yet been instantiated, we instantiate it.
     if (this._instance === null) {
       this._instance = new this();
@@ -24,9 +24,6 @@ export class UserDAO {
     return this._instance;
   }
 
-  /**
-   *
-   */
   private constructor() {}
 
   /**
@@ -97,7 +94,7 @@ export class UserDAO {
   getAllUsers() {
     return new Promise((resolve, reject) => {
       this.conn
-        .query("SELECT * FROM users;")
+        .query("SELECT * FROM accounts;")
         .then((res) => {
           resolve(res);
         })

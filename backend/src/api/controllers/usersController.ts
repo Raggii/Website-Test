@@ -1,6 +1,7 @@
 import { UserModel } from "../models/userModel";
 import AuthService from "../services/authService";
 import { isNewUserValid } from "../validations/userValidation";
+import { Request, Response } from "express";
 
 const authService = new AuthService();
 const userModel = new UserModel();
@@ -8,7 +9,7 @@ const userModel = new UserModel();
 /**
  * Performs the registration steps when attempting to add a new user.
  */
-const register = (req: any, res: any) => {
+const register = (req: Request, res: Response) => {
   // Ensuring that we have the correct elements // TODO REMOVE VALIDATOR CLASS
   if (!isNewUserValid(req.body)) {
     res.status(400).json({
@@ -33,7 +34,7 @@ const register = (req: any, res: any) => {
       if (userId === null) throw new Error();
 
       // Create JWT Token
-      const jwtToken = authService.sign({ userId });
+      const jwtToken = authService.signToken({ userId });
 
       // Success response
       res.status(201).json({
@@ -49,9 +50,9 @@ const register = (req: any, res: any) => {
     });
 };
 
-const login = (req: any, res: any) => {
+const login = (req: Request, res: Response) => {
   // Check that we got the correct data.
-  if (!req.username || !req.password) {
+  if (!req.body.username || !req.body.password) {
     res.status(400).json({
       message: "Username or password are required..",
     });
@@ -60,7 +61,9 @@ const login = (req: any, res: any) => {
   // Test that the password is correct.
 };
 
-const users = (req: any, res: any) => {
+const users = (req: Request, res: Response) => {
+  console.error(req.body.tokData);
+
   userModel
     .getAllUsers()
     .then((results) => {
@@ -73,8 +76,20 @@ const users = (req: any, res: any) => {
     });
 };
 
+const user = (req: Request, res: Response) => {
+  userModel
+    .getUser(Number.parseInt(req.params.id, 10))
+    .then((results) => {
+      res.status(200).json({ results });
+    })
+    .catch((e) => {
+      res.status(500).json({ err: e });
+    });
+};
+
 export default {
   register,
   login,
   users,
+  user,
 };

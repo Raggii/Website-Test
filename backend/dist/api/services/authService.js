@@ -15,13 +15,32 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 class AuthService {
     constructor() {
-        //
-        this.secret = process.env.JWT_SECRET;
+        /**
+         * Number of salt rounds used for hashing.
+         */
         this.saltRounds = 16;
     }
-    //
-    sign(payload) {
-        return jsonwebtoken_1.default.sign(payload, this.secret);
+    /**
+     * Generates a token string for a user with a payload data.
+     *
+     * @param payload Data stored within the token.
+     * @returns {string} JWT token string.
+     */
+    signToken(payload) {
+        return jsonwebtoken_1.default.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" });
+    }
+    verifyToken(token) {
+        try {
+            const content = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
+            return { content, isValid: true };
+        }
+        catch (err) {
+            return {
+                content: null,
+                err,
+                isValid: false,
+            };
+        }
     }
     /**
      * Async function that given a password create a hash and salt.

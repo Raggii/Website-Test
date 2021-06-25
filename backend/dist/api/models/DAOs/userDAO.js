@@ -9,9 +9,6 @@ const dbConfig_js_1 = __importDefault(require("../../../config/dbConfig.js"));
  * Singlton class used as the primary access point to the database.
  */
 class UserDAO {
-    /**
-     *
-     */
     constructor() {
         this.conn = dbConfig_js_1.default;
     }
@@ -86,7 +83,7 @@ class UserDAO {
     getAllUsers() {
         return new Promise((resolve, reject) => {
             this.conn
-                .query("SELECT * FROM users;")
+                .query("SELECT * FROM accounts;")
                 .then((res) => {
                 resolve(res);
             })

@@ -93,4 +93,8 @@ export class UserModel {
   getAllUsers() {
     return this.userDaoInstance.getAllUsers();
   }
+
+  getUser(userID: number) {
+    return this.userDaoInstance.getUser(userID);
+  }
 }
