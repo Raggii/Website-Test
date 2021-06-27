@@ -7,18 +7,23 @@ const DashboardMain = () => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-4">
+                <div className="col-1">
                     Column
         
                 </div>
-                <div className="col-4">
+                <div className="col-10">
                     Column
 
                 </div>
-                <div className="col-4">
+                <div className="col-1">
                     <CalendarComponent></CalendarComponent> 
 
-                    <p>anything foes below</p>
+                    <h7>Reminders</h7>
+                    <p>First</p>
+                    <p>Second</p>
+                    <p>Third</p>
+                    <p>Forth</p>
+
 
                 </div>
             </div>

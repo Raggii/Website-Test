@@ -1,121 +1,106 @@
 import React from 'react'
+import Input from '../BaseComps/Input'
+import DropBox from '../BaseComps/DropBox'
 
 
 export default function FirstPage() {
     return (
         <>
+        <div class="row">
+            <div class="col-4"></div>
+            <h2 class="col-4">
+                {"       CHASE BOVINE SERVICES PAGE 1"}
+            </h2>       
+        </div>
         {/* Gotta add styling alittle here */}
         {/* a title thingo and make it not shit */}
             <div>
-                {/* Consultant */}
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Consultant</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                <div class="row">
+                    {/* Consultant */}
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <Input name = "Consultant"></Input>
+                    </div>       
                 </div>
-
-                {/* Contact Details  Email*/}
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Contact Details Email</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                    
+                <div class="row">
+                    {/* Contact Details  Email*/}
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <Input name = "Contact Email"></Input>
+                    </div>
                 </div>
-
-                {/* Farm Name */}
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Farm Name</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                <div class="row">
+                    {/* Farm Name */}
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <Input name = "Farm Name"></Input>
+                    </div>
                 </div>
+                
+                <div class="row">
+                    {/* Herd Size */}
+                    <div class="col-4"></div>
+                    <div class="col-2">
+                        <Input name = "Herd Size"></Input>
 
-                {/* Herd Size */}
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Herd Size</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-                </div>
+                    </div>
+                    <div class="col-2">
+                        {/* Milk Yield (kg MS/c/yr) */}
+                        <Input name = "Milk Yield (kg MS/c/yr)"></Input>
 
-                {/* Milk Yield (kg MS/c/yr) */}
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Milk Yield (kg MS/c/yr)</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+                    </div>
                 </div>
 
                 {/* Two together */}
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4"></div>
+                    <div class="col-2">
                         {/* Fat % */}
-                        <div class="input-group mb-3">
-                            <span span class="input-group-text" id="inputGroup-sizing-default">Fat %</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-                        </div>
-                    
+                        <Input name = "Fat Percentage"></Input>                    
                     </div>
-                    <div class="col-6">
+                    <div class="col-2">
                         {/* Prot % */}
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Prot %</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-                        </div>
-
+                        <Input name = "Prot Percentage"></Input>
                     </div>
                 </div>
+
 
                 {/* Three Drop Boxes */}
                 
-                {/* Production Phase */}
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Production Phase
-                    </button>
-                    {/* The drop Down Options */}
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-                {/* Predominat Breed */}
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Predominat Breed
-                    </button>
-                    {/* The drop Down Options */}
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                 <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-2">
+                        {/* Fat % */}
+                        <DropBox title = "Producition Phase" opt1="" opt2="" opt3=""></DropBox>                    
+                    </div>
+                    <div class="col-2">
+                        {/* Prot % */}
+                        <DropBox title = "Predmoninat Breed" opt1="" opt2="" opt3=""></DropBox>
+                    </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-6">
-                        {/* Production Site: % */}
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Production Site: %
-                            </button>
-                            {/* The drop Down Options */}
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                    
+                    <div class="col-4"> </div>
+                    <div class="col-2">
+                        {/* Prot % */}
+                        <DropBox title = "Production Site" opt1="" opt2="" opt3=""></DropBox>
                     </div>
-                    <div class="col-6">
+                    <div class="col-2">
                         {/* RANDOM THINGO WHAT IS THIS? % */}
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">RANDOM THINGO WHAT IS THIS?</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
-                      </div>
+                        <Input name = "RANDOM THINGO"></Input>
 
                     </div>
+                    
                 </div>
 
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5"> </div>
+                    <div class="col-1">
                         <a type="button" class="btn btn-danger">Cancel</a>
                     </div>
-                    <div class="col-4">
+                    <div class="col-1">
                         <a type="button" class="btn btn-primary" href="/DataCollect2">Continue</a>
                     </div>
                 </div>

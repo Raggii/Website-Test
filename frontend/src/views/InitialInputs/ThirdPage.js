@@ -1,307 +1,127 @@
 import React from 'react'
+import RadioButton from "../BaseComps/RadioButton"
 export default function ThirdPage() {
     return (
-        <>
-
-            {/* Need to find a way to turn the others off when clicked one */}
-            {/* And add 100 million more */}
-            {/* Spaces from sides and between them */}
-        {/* Maybe column each of the 2 things NAME AND THINGO so they all line up nicely */}
-            {/* Center this and make nice */}
-            <div>
-                <h1>
-                    Animal Health Concerns
-                </h1>
-
+        <>    
+            <div class="row">
+                <div class="col-4"></div>
+                <h2 class="col-4">
+                    {"       CHASE BOVINE SERVICES PAGE 3"}
+                </h2>       
             </div>
 
             {/* Need to be in columns */}
-            <div> 
-                <p>None</p>
-                <p>Slight</p>
-                <p>Moderate</p>
-                <p>Very</p>
+            <div className="row"> 
+                <div className= "col-4"> </div>
+                <div className= " col-1">None</div>
+                <div className= " col-1">Slight</div>
+                <div className= " col-1">Moderate</div>
+                <div className= " col-1">Very</div>
             </div>
-
-            {/* Top Three */}
             <div>
                 {/* Lameness */}
-                <div class="input-group">
-                    <h7>Lameness</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Lameness"></RadioButton>
 
                 {/* Somatic Cell Count */}
-                <div class="input-group">
-                    <h7>Somatic Cell Count </h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Somatic Cell Count"></RadioButton>
 
                 {/* Body Condition */}
-                <div class="input-group">
-                    <h7>Body Condition</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Body Condition"></RadioButton>
             </div>
 
-
-
             {/* Second Three */}
-            <div>
-                <h6>Reproductive Preformance</h6>
-                {/* NonCyler Cows */}
-                <div class="input-group">
-                    <h7>NonCyler Cows</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
+            <div>        
+                <div className="row">
+                    <div className="col-2"></div>
+                    <div className="col-2"><h6>Reproductive Preformance</h6></div>
                 </div>
+                {/* NonCyler Cows */}
+                <RadioButton title = "NonCyler Cows"></RadioButton>
 
                 {/* 6wk inCalf % */}
-                <div class="input-group">
-                    <h7>6wk inCalf %</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "6wk inCalf %"></RadioButton>
+
 
                 {/* Final Empty % */}
-                <div class="input-group">
-                    <h7>Final Empty</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Final Empty"></RadioButton>
+
             </div>
 
 
             {/* Third Three */}
             <div>
-                <h6>Transition Disease Incidence</h6>
-                {/* Uterine Disease - RFM */}
-                <div class="input-group">
-                    <h7>Uterine Disease - RFM</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
+                
+                <div className="row">
+                    <div className="col-2"></div>
+                    <div className="col-2"><h6>Transition Disease Incidence</h6></div>
                 </div>
+                {/* Uterine Disease - RFM */}
+                <RadioButton title = "Uterine Disease"></RadioButton>
+
 
                 {/* Mastitis */}
-                <div class="input-group">
-                    <h7>Mastitis </h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Mastitis"></RadioButton>
+
 
                 {/* Ketosis - Metabolic Dz */}
-                <div class="input-group">
-                    <h7>Ketosis - Metabolic Dz</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Ketosis Metabolic"></RadioButton>
+
             </div>
 
 
 
             {/* Forth section */}
             <div>
-                <h6>Trace Mineral Monitoring</h6>
-                {/* Selenium Status */}
-                <div class="input-group">
-                    <h7>Selenium Status</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
+                <div className="row">
+                    <div className="col-2"></div>
+                    <div className="col-2"><h6>Trace Mineral Monitoring</h6></div>
                 </div>
+                {/* Selenium Status */}
+                <RadioButton title = "Selenium Status"></RadioButton>
+
 
                 {/* Copper Deficiency */}
-                <div class="input-group">
-                    <h7>Copper Deficiency</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Copper Deficiency"></RadioButton>
+
 
                 {/* Copper Toxicity */}
-                <div class="input-group">
-                    <h7>Copper Toxicity</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div> 
+                <RadioButton title = "Copper Toxicity"></RadioButton>
+
 
             </div>
 
 
             {/* Last Section*/}
             <div>
-                <h6>Dietary Antagonists</h6>
-                {/* Iron */}
-                <div class="input-group">
-                    <h7>Iron</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
+                <div className="row">
+                    <div className="col-2"></div>
+                    <div className="col-2"><h6>Dietary Antagonists</h6></div>
                 </div>
+                {/* Iron */}
+                <RadioButton title = "Iron"></RadioButton>
+
 
                 {/* Molydenum */}
-                <div class="input-group">
-                    <h7>Molydenum</h7>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
-                    </div>
-                </div>
+                <RadioButton title = "Molydenum"></RadioButton>
+
 
 
                 <div class="row">
-                    <div class="col-3">
+                    <div className="col-4"></div>
+                    <div class="col-1">
                         <a type="button" class="btn btn-danger">Cancel</a>
                     </div>
                     
-                    <div class="col-3">
+                    <div class="col-1">
                         <a type="button" class="btn btn-warning">Zero Concerns</a>
 
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-1">
                         <a type="button" class="btn btn-secondary" href="/DataCollect2">Back</a>
 
                     </div>
-                    <div class="col-3">
+                    <div class="col-1">
                         <a type="button" class="btn btn-primary" href="/DataCollect4">Continue</a>
 
                     </div>
