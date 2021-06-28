@@ -14,17 +14,15 @@ const userModel = new userModel_1.UserModel();
 const register = (req, res) => {
     // Ensuring that we have the correct elements // TODO REMOVE VALIDATOR CLASS
     if (!userValidation_1.isNewUserValid(req.body)) {
-        res.status(400).json({
+        return res.status(400).json({
             message: "Some user data is missing.",
         });
-        return;
     }
     // Ensure that the username is unique
     if (!userModel.isUsernameUnique(req.body.username)) {
-        res.status(409).json({
+        return res.status(409).json({
             message: "Username is not unique.",
         });
-        return;
     }
     // Attempt to add the user data to the database
     userModel
@@ -36,14 +34,14 @@ const register = (req, res) => {
         // Create JWT Token
         const jwtToken = authService.signToken({ userId });
         // Success response
-        res.status(201).json({
+        return res.status(201).json({
             message: "User has been successfully.",
             tok: jwtToken,
         });
     })
         .catch((e) => {
         console.error(e);
-        res.status(500).json({
+        return res.status(500).json({
             message: "Something went wrong trying to sign you up.",
         });
     });
@@ -58,7 +56,6 @@ const login = (req, res) => {
     // Test that the password is correct.
 };
 const users = (req, res) => {
-    console.error(req.body.tokData);
     userModel
         .getAllUsers()
         .then((results) => {

@@ -5,8 +5,8 @@ import { UserDAO } from "./DAOs/userDAO";
 export type User = {
   userId?: number;
   username: string;
-  fname: string;
-  lname: string;
+  fname?: string;
+  lname?: string;
   email: string;
   hash: string;
   salt: string;
@@ -77,6 +77,7 @@ export class UserModel {
       fname: newUser.fname,
       lname: newUser.lname,
     };
+
     try {
       const userId = await this.userDaoInstance.AddUser(user);
 
@@ -95,6 +96,6 @@ export class UserModel {
   }
 
   getUser(userID: number) {
-    return this.userDaoInstance.getUser(userID);
+    return this.userDaoInstance.getUserById(userID);
   }
 }

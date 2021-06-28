@@ -12,6 +12,7 @@ dotenv.config();
 
 // Create the express app.
 import express from "express";
+import { dgaaService, startDgaaService } from "./api/services/dgaaService";
 const app = express();
 
 // Get the constants
@@ -20,6 +21,10 @@ const BASE_URL = process.env.BASE_URL || "localhost";
 
 // initiate the database.
 initDatabase().then(() => {
+  // initiate the dgaa Service
+  dgaaService();
+  startDgaaService();
+
   // Adding the middleware
   app.use(bodyParser.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
   app.use(bodyParser.json()); // Automatically converts json data type into JSON object for the req.

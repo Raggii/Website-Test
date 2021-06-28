@@ -14,12 +14,16 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 // Create the express app.
 const express_1 = __importDefault(require("express"));
+const dgaaService_1 = require("./api/services/dgaaService");
 const app = express_1.default();
 // Get the constants
 const PORT = process.env.PORT || 2999;
 const BASE_URL = process.env.BASE_URL || "localhost";
 // initiate the database.
 dbConfig_1.initDatabase().then(() => {
+    // initiate the dgaa Service
+    dgaaService_1.dgaaService();
+    dgaaService_1.startDgaaService();
     // Adding the middleware
     app.use(body_parser_1.default.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
     app.use(body_parser_1.default.json()); // Automatically converts json data type into JSON object for the req.

@@ -43,26 +43,20 @@ exports.disconnectDatabase = disconnectDatabase;
  */
 function initDatabase() {
     return __awaiter(this, void 0, void 0, function* () {
-        // Try to drop all the tables if it is local
-        if (process.env.NODE_ENV === "local") {
-            try {
-                yield conn.query(`DROP TABLE IF EXISTS role, accounts;`);
-            }
-            catch (e) {
-                console.log("SOMETHING WENT WRONG WITH DROPPING TABLES PLEASE REVIEW DATABASE!");
-                console.error(e);
-                process_1.exit(1);
-            }
-        }
         // Try to create any missing tables
         conn
             .tx((t) => __awaiter(this, void 0, void 0, function* () {
+            // If we are on a local machine, we want to wipe the database.
+            if (process.env.NODE_ENV === "local") {
+                yield t.none(`DROP TABLE IF EXISTS role, accounts;`);
+            }
+            // initiate tables
             yield roleDAO_1.RoleDAO.Instance.initRoleTable(t);
             yield userDAO_1.UserDAO.Instance.initUserTable(t);
             return;
         }))
             .catch((e) => {
-            console.log("SOMETHING WENT WRONG WITH DROPPING TABLES PLEASE REVIEW DATABASE!");
+            console.log("Database initiation went wrong...\n\n");
             console.error(e);
             process_1.exit(1);
         });

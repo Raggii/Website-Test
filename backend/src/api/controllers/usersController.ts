@@ -12,18 +12,16 @@ const userModel = new UserModel();
 const register = (req: Request, res: Response) => {
   // Ensuring that we have the correct elements // TODO REMOVE VALIDATOR CLASS
   if (!isNewUserValid(req.body)) {
-    res.status(400).json({
+    return res.status(400).json({
       message: "Some user data is missing.",
     });
-    return;
   }
 
   // Ensure that the username is unique
   if (!userModel.isUsernameUnique(req.body.username)) {
-    res.status(409).json({
+    return res.status(409).json({
       message: "Username is not unique.",
     });
-    return;
   }
 
   // Attempt to add the user data to the database
@@ -37,14 +35,14 @@ const register = (req: Request, res: Response) => {
       const jwtToken = authService.signToken({ userId });
 
       // Success response
-      res.status(201).json({
+      return res.status(201).json({
         message: "User has been successfully.",
         tok: jwtToken,
       });
     })
     .catch((e) => {
       console.error(e);
-      res.status(500).json({
+      return res.status(500).json({
         message: "Something went wrong trying to sign you up.",
       });
     });
@@ -62,8 +60,6 @@ const login = (req: Request, res: Response) => {
 };
 
 const users = (req: Request, res: Response) => {
-  console.error(req.body.tokData);
-
   userModel
     .getAllUsers()
     .then((results) => {

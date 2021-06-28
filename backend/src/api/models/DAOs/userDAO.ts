@@ -1,6 +1,7 @@
 import { User } from "../userModel";
 import db from "../../../config/dbConfig.js";
 import pgPromise from "pg-promise";
+import { roleType } from "./roleDAO";
 
 /**
  * Singlton class used as the primary access point to the database for negotiating with the user table.
@@ -33,61 +34,59 @@ export class UserDAO {
       username VARCHAR(40) UNIQUE NOT NULL,
       fname varchar(50),
       lname varchar(50),
-      email varchar(40) NOT NULL,
+      email varchar(40) UNIQUE NOT NULL,
       hash varchar(72) NOT NULL,
       salt varchar(72) NOT NULL,
-      created_on timestamp(6),
-      role_id INT,
+      created_on timestamp(6) DEFAULT current_timestamp,
+      role_id INT NOT NULL,
       FOREIGN KEY (role_id) REFERENCES role (id)
     );`);
   }
 
   /**
-   * verifys that the default admin exists, otherwise it will be created.
+   * Checks if the default admin account exists in the database.
+   *
+   * @returns {Promise<boolean>} if exists return true. Otherwise false.
    */
-  async checkDefaultAdmin() {
-    throw new Error("Not implemented yet!");
+  async defaultAdminExists(): Promise<boolean> {
+    const dgaaUser = await this.conn.oneOrNone(
+      `SELECT * FROM ACCOUNTS WHERE role_id = $1;`,
+      roleType.DEFAULT_ADMIN
+    );
+    return dgaaUser !== null && dgaaUser !== undefined;
+  }
+
+  /**
+   * Creates the default admin account for the database
+   */
+  async createDefaultAdmin(user: User): Promise<void> {
+    await this.conn.none(
+      `INSERT INTO accounts (username, email, hash, salt, role_id) VALUES ($1, $2, $3, $4, $5);`,
+      [user.username, user.email, user.hash, user.salt, roleType.DEFAULT_ADMIN]
+    );
   }
 
   /**
    * Given some string the find a list of all users that have this username.
    *
    * @param username Some username to get the list of.
-   * @returns {String[]} Returns a list of all users that match this username.
+   * @returns {Promise<String[]>} Returns a list of all users that match this username.
    */
-  findUsersByUsername(username: string): Promise<string[]> {
-    return new Promise((resolve, reject) => {
-      this.conn
-        .query(`SELECT * FROM accounts WHERE username = $1;`, username)
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
+  async findUsersByUsername(username: string): Promise<string[]> {
+    return await this.conn.query(`SELECT * FROM accounts WHERE username = $1;`, username);
   }
 
   /**
    * Given a User object attempt to add it to the database.
    * @param user
    */
-  AddUser(user: User): Promise<number> {
-    return new Promise((resolve, reject) => {
-      this.conn
-        .query(
-          `INSERT INTO accounts (username, fname, lname, email, hash, salt)
+  async AddUser(user: User): Promise<number> {
+    return await this.conn.query(
+      `INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
         values ($1, $2, $3, $4, $5, $6)
         RETURNING id;`,
-          [user.username, user.fname, user.lname, user.email, user.hash, user.salt] // Replace with actual role id
-        )
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
+      [user.username, user.fname, user.lname, user.email, user.hash, user.salt, roleType.USER] // Replace with actual role id
+    );
   }
 
   /**
@@ -96,34 +95,16 @@ export class UserDAO {
    * @param userId The user's id
    * @returns {User} the user that has the id given.
    */
-  getUser(userId: number): Promise<User> {
-    return new Promise((resolve, reject) => {
-      this.conn
-        .query(
-          `SELECT *
+  async getUserById(userId: number): Promise<User> {
+    return await this.conn.query(
+      `SELECT *
         FROM accounts
         WHERE id = $1;`,
-          userId
-        )
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
+      userId
+    );
   }
 
-  getAllUsers() {
-    return new Promise((resolve, reject) => {
-      this.conn
-        .query("SELECT * FROM accounts;")
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
+  async getAllUsers() {
+    return await this.conn.query("SELECT * FROM accounts;");
   }
 }

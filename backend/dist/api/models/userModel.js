@@ -91,7 +91,7 @@ class UserModel {
         return this.userDaoInstance.getAllUsers();
     }
     getUser(userID) {
-        return this.userDaoInstance.getUser(userID);
+        return this.userDaoInstance.getUserById(userID);
     }
 }
 exports.UserModel = UserModel;

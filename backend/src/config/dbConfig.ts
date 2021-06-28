@@ -54,7 +54,7 @@ export async function initDatabase() {
       return;
     })
     .catch((e) => {
-      console.log("SOMETHING WENT WRONG WITH DROPPING TABLES PLEASE REVIEW DATABASE!");
+      console.log("Database initiation went wrong...\n\n");
       console.error(e);
       exit(1);
     });
