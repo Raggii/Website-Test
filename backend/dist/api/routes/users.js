@@ -12,6 +12,6 @@ router.post("/register", express_validator_1.body("username").isAlphanumeric().i
 // Login a user
 router.post("/login", express_validator_1.body("username").exists(), express_validator_1.body("password").exists(), usersController_1.default.login);
 // Return a specfic user given a id parameter
-router.get("/user/:id", express_validator_1.param("id").isInt(), tokenAuth_1.authenticateAccessToken, usersController_1.default.user);
+router.get("/user/:id", tokenAuth_1.authenticateAccessToken, usersController_1.default.user);
 module.exports = router;
 //# sourceMappingURL=users.js.map

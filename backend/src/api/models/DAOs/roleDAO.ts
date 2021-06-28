@@ -9,7 +9,7 @@ import db from "../../../config/dbConfig.js";
  * - *VET* --> has a group of users, and has contact to the ADMINs
  * - *USER* --> is only aware of his own VET, and or contact to the ADMIN.
  */
-export enum roleType {
+export enum RoleType {
   DEFAULT_ADMIN = 0,
   ADMIN = 1,
   VET = 2,
@@ -45,12 +45,12 @@ export class RoleDAO {
     // Create all the roles specified by roleModel
     await t.batch([
       t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [
-        roleType.DEFAULT_ADMIN,
+        RoleType.DEFAULT_ADMIN,
         "DEFAULT_ADMIN",
       ]),
-      t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [roleType.ADMIN, "ADMIN"]),
-      t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [roleType.VET, "VET"]),
-      t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [roleType.USER, "USER"]),
+      t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [RoleType.ADMIN, "ADMIN"]),
+      t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [RoleType.VET, "VET"]),
+      t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [RoleType.USER, "USER"]),
     ]);
   }
 }

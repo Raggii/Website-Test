@@ -13,17 +13,19 @@ dotenv.config();
 // Create the express app.
 import express from "express";
 import { dgaaService, startDgaaService } from "./api/services/dgaaService";
-const app = express();
 
 // Get the constants
 const PORT = process.env.PORT || 2999;
 const BASE_URL = process.env.BASE_URL || "localhost";
 
-// initiate the database.
-initDatabase().then(() => {
+const initiation = async () => {
+  // initiate the database.
+  await initDatabase();
+
   // initiate the dgaa Service
-  dgaaService();
+  await dgaaService();
   startDgaaService();
+  const app = express();
 
   // Adding the middleware
   app.use(bodyParser.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
@@ -45,10 +47,12 @@ initDatabase().then(() => {
   });
 
   // Starting the server
-  app.listen(PORT, () => {
+  app.listen(PORT, async () => {
     // tslint:disable-next-line:no-console
     console.log(`Server started:`);
     // tslint:disable-next-line:no-console
     console.log(`     Server URL: ${BASE_URL}:${PORT} (PORT: ${PORT})`);
   });
-});
+};
+
+initiation();

@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
 const authService_1 = __importDefault(require("../services/authService"));
 const userValidation_1 = require("../validations/userValidation");
+const roleDAO_1 = require("./DAOs/roleDAO");
 const userDAO_1 = require("./DAOs/userDAO");
 /**
  * handles data logic for the User model
@@ -76,6 +77,7 @@ class UserModel {
                 email: newUser.email,
                 fname: newUser.fname,
                 lname: newUser.lname,
+                role_id: roleDAO_1.RoleType.USER,
             };
             try {
                 const userId = yield this.userDaoInstance.AddUser(user);
@@ -105,10 +107,9 @@ class UserModel {
                 if (!user) {
                     return { err: "Username is invalid", userId: null };
                 }
-                console.log(user);
                 // Check the password
                 if (yield this.auth.verifyPassword(password, user.hash)) {
-                    return { err: null, userId: user.userId };
+                    return { err: null, userId: user.id };
                 }
                 else {
                     return { err: "Password is invalid", userId: null };
@@ -122,8 +123,18 @@ class UserModel {
     getAllUsers() {
         return this.userDaoInstance.getAllUsers();
     }
-    getUser(userID) {
-        return this.userDaoInstance.getUserById(userID);
+    /**
+     * Retrieves the user of a given user id.
+     *
+     * @param userId userId of the user we want to get information about.
+     * @returns {getUserResponse} Formatted response of the user object.
+     */
+    getUser(userId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = yield this.userDaoInstance.getUserById(userId);
+            const dtoData = Object.assign({}, user);
+            return dtoData;
+        });
     }
 }
 exports.UserModel = UserModel;

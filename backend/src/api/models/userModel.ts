@@ -1,9 +1,11 @@
 import AuthService from "../services/authService";
 import { isNewUserValid } from "../validations/userValidation";
+import { RoleType } from "./DAOs/roleDAO";
 import { UserDAO } from "./DAOs/userDAO";
+import { getUserResponse } from "./DTOs/userDTO";
 
 export type User = {
-  userId?: number;
+  id?: number;
   username: string;
   fname?: string;
   lname?: string;
@@ -11,7 +13,7 @@ export type User = {
   hash: string;
   salt: string;
   created_on?: Date;
-  role_id?: number;
+  role_id: number;
 };
 
 export type NewUser = {
@@ -79,6 +81,7 @@ export class UserModel {
       email: newUser.email,
       fname: newUser.fname,
       lname: newUser.lname,
+      role_id: RoleType.USER,
     };
 
     try {
@@ -111,7 +114,7 @@ export class UserModel {
 
       // Check the password
       if (await this.auth.verifyPassword(password, user.hash)) {
-        return { err: null, userId: user.userId };
+        return { err: null, userId: user.id };
       } else {
         return { err: "Password is invalid", userId: null };
       }
@@ -124,7 +127,16 @@ export class UserModel {
     return this.userDaoInstance.getAllUsers();
   }
 
-  getUser(userID: number) {
-    return this.userDaoInstance.getUserById(userID);
+  /**
+   * Retrieves the user of a given user id.
+   *
+   * @param userId userId of the user we want to get information about.
+   * @returns {getUserResponse} Formatted response of the user object.
+   */
+  async getUser(userId: number): Promise<getUserResponse> {
+    const user: User = await this.userDaoInstance.getUserById(userId);
+    const dtoData: getUserResponse = { ...user };
+
+    return dtoData;
   }
 }

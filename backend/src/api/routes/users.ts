@@ -21,6 +21,6 @@ router.post(
 router.post("/login", body("username").exists(), body("password").exists(), usersController.login);
 
 // Return a specfic user given a id parameter
-router.get("/user/:id", param("id").isInt(), authenticateAccessToken, usersController.user);
+router.get("/user/:id", authenticateAccessToken, usersController.user);
 
 export = router;

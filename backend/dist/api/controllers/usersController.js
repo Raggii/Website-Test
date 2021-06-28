@@ -73,6 +73,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         // If the user is valid we return a token
         if (!response.err) {
             // Generate the JWT token for authenticated requests.
+            console.error(response);
             const jwtToken = authService.signToken({ userId: response.userId });
             return res.status(200).json({ message: "Successfully authenticated!", tok: jwtToken });
         }
@@ -99,14 +100,27 @@ const users = (req, res) => {
     });
 };
 const user = (req, res) => {
+    // Requested id
+    let requestedId;
+    try {
+        requestedId = Number.parseInt(req.params.id, 10);
+    }
+    catch (e) {
+        return res.status(400).json({ message: "Parameter Id must be an integer" });
+    }
+    // If we don't have access to the request id (not ours) return a 403
+    if (requestedId !== req.body.tokData.userId) {
+        return res.sendStatus(403);
+    }
+    // Return the requested userId's user
     userModel
-        .getUser(Number.parseInt(req.params.id, 10))
-        .then((results) => {
-        res.status(200).json({ results });
+        .getUser(requestedId)
+        .then((data) => {
+        return res.status(200).json({ data });
     })
         .catch((e) => {
         console.error(e);
-        res.status(500).json({ err: "Something went wrong..." });
+        return res.status(500).json({ err: "Something went wrong..." });
     });
 };
 exports.default = {

@@ -16,6 +16,8 @@ exports.dgaaService = exports.startDgaaService = void 0;
 const userDAO_1 = require("../models/DAOs/userDAO");
 const timers_1 = require("timers");
 const authService_1 = __importDefault(require("./authService"));
+const roleDAO_1 = require("../models/DAOs/roleDAO");
+const process_1 = require("process");
 const authService = new authService_1.default();
 const DGAA_SERVICE_DELAY_MS = 1000 * 60 * 5;
 function startDgaaService() {
@@ -44,12 +46,18 @@ function dgaaService() {
                     email: process.env.DGAA_EMAIL,
                     hash,
                     salt,
+                    role_id: roleDAO_1.RoleType.DEFAULT_ADMIN,
                 };
-                userDAO_1.UserDAO.Instance.createDefaultAdmin(adminUser);
+                yield userDAO_1.UserDAO.Instance.createDefaultAdmin(adminUser);
+                console.log("DGAA CREATED...");
+            }
+            else {
+                console.log("DGAA Exists...");
             }
         }
         catch (e) {
-            console.error(e);
+            console.error("SOMETHING WENT WRONG...");
+            process_1.exit(1);
         }
     });
 }

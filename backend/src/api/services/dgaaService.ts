@@ -2,6 +2,8 @@ import { UserDAO } from "../models/DAOs/userDAO";
 import { setInterval } from "timers";
 import { User } from "../models/userModel";
 import AuthService from "./authService";
+import { RoleType } from "../models/DAOs/roleDAO";
+import { exit } from "process";
 
 const authService = new AuthService();
 const DGAA_SERVICE_DELAY_MS = 1000 * 60 * 5;
@@ -30,10 +32,15 @@ export async function dgaaService(): Promise<void> {
         email: process.env.DGAA_EMAIL,
         hash,
         salt,
+        role_id: RoleType.DEFAULT_ADMIN,
       };
-      UserDAO.Instance.createDefaultAdmin(adminUser);
+      await UserDAO.Instance.createDefaultAdmin(adminUser);
+      console.log("DGAA CREATED...");
+    } else {
+      console.log("DGAA Exists...");
     }
   } catch (e) {
-    console.error(e);
+    console.error("SOMETHING WENT WRONG...");
+    exit(1);
   }
 }

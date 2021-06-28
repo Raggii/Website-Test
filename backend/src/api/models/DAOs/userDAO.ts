@@ -1,7 +1,7 @@
 import { User } from "../userModel";
 import db from "../../../config/dbConfig.js";
 import pgPromise from "pg-promise";
-import { roleType } from "./roleDAO";
+import { RoleType } from "./roleDAO";
 
 /**
  * Singlton class used as the primary access point to the database for negotiating with the user table.
@@ -51,7 +51,7 @@ export class UserDAO {
   async defaultAdminExists(): Promise<boolean> {
     const dgaaUser = await this.conn.oneOrNone(
       `SELECT * FROM ACCOUNTS WHERE role_id = $1;`,
-      roleType.DEFAULT_ADMIN
+      RoleType.DEFAULT_ADMIN
     );
     return dgaaUser !== null && dgaaUser !== undefined;
   }
@@ -62,7 +62,7 @@ export class UserDAO {
   async createDefaultAdmin(user: User): Promise<void> {
     await this.conn.none(
       `INSERT INTO accounts (username, email, hash, salt, role_id) VALUES ($1, $2, $3, $4, $5);`,
-      [user.username, user.email, user.hash, user.salt, roleType.DEFAULT_ADMIN]
+      [user.username, user.email, user.hash, user.salt, user.role_id]
     );
   }
 
@@ -85,7 +85,7 @@ export class UserDAO {
       `INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
         values ($1, $2, $3, $4, $5, $6, $7)
         RETURNING id;`,
-      [user.username, user.fname, user.lname, user.email, user.hash, user.salt, roleType.USER] // Replace with actual role id
+      [user.username, user.fname, user.lname, user.email, user.hash, user.salt, user.role_id]
     );
   }
 

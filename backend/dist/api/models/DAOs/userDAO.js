@@ -56,7 +56,7 @@ class UserDAO {
      */
     defaultAdminExists() {
         return __awaiter(this, void 0, void 0, function* () {
-            const dgaaUser = yield this.conn.oneOrNone(`SELECT * FROM ACCOUNTS WHERE role_id = $1;`, roleDAO_1.roleType.DEFAULT_ADMIN);
+            const dgaaUser = yield this.conn.oneOrNone(`SELECT * FROM ACCOUNTS WHERE role_id = $1;`, roleDAO_1.RoleType.DEFAULT_ADMIN);
             return dgaaUser !== null && dgaaUser !== undefined;
         });
     }
@@ -65,7 +65,7 @@ class UserDAO {
      */
     createDefaultAdmin(user) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.conn.none(`INSERT INTO accounts (username, email, hash, salt, role_id) VALUES ($1, $2, $3, $4, $5);`, [user.username, user.email, user.hash, user.salt, roleDAO_1.roleType.DEFAULT_ADMIN]);
+            yield this.conn.none(`INSERT INTO accounts (username, email, hash, salt, role_id) VALUES ($1, $2, $3, $4, $5);`, [user.username, user.email, user.hash, user.salt, user.role_id]);
         });
     }
     /**
@@ -87,8 +87,7 @@ class UserDAO {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.conn.one(`INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
         values ($1, $2, $3, $4, $5, $6, $7)
-        RETURNING id;`, [user.username, user.fname, user.lname, user.email, user.hash, user.salt, roleDAO_1.roleType.USER] // Replace with actual role id
-            );
+        RETURNING id;`, [user.username, user.fname, user.lname, user.email, user.hash, user.salt, user.role_id]);
         });
     }
     /**
