@@ -3,7 +3,14 @@ import { NextFunction, Request, Response } from "express";
 
 const authService = new AuthService();
 
-export function authenticateAccessToken(req: Request, res: Response, next: NextFunction) {
+/**
+ * Ensures that anyone access this endpoint has a valid access token.
+ *
+ * @param req endpoint request.
+ * @param res enpoint response.
+ * @param next function to call for the next middleware level.
+ */
+export async function authenticateAccessToken(req: Request, res: Response, next: NextFunction) {
   const header = req.headers.authorization;
 
   if (header) {

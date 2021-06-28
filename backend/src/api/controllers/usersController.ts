@@ -1,6 +1,6 @@
 import { UserModel } from "../models/userModel";
 import AuthService from "../services/authService";
-import { isNewUserValid } from "../validations/userValidation";
+import { body, Result, ValidationError, validationResult } from "express-validator";
 import { Request, Response } from "express";
 
 const authService = new AuthService();
@@ -9,9 +9,11 @@ const userModel = new UserModel();
 /**
  * Performs the registration steps when attempting to add a new user.
  */
-const register = (req: Request, res: Response) => {
-  // Ensuring that we have the correct elements // TODO REMOVE VALIDATOR CLASS
-  if (!isNewUserValid(req.body)) {
+const register = async (req: Request, res: Response) => {
+  // Ensuring that we have the correct elements
+  const errors: Result<ValidationError> = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.error(errors);
     return res.status(400).json({
       message: "Some user data is missing.",
     });
@@ -25,7 +27,7 @@ const register = (req: Request, res: Response) => {
   }
 
   // Attempt to add the user data to the database
-  userModel
+  await userModel
     .addNewUser(req.body)
     .then((userId: number) => {
       // If we don't have the user id this should have failed.
@@ -48,15 +50,39 @@ const register = (req: Request, res: Response) => {
     });
 };
 
-const login = (req: Request, res: Response) => {
-  // Check that we got the correct data.
-  if (!req.body.username || !req.body.password) {
-    res.status(400).json({
-      message: "Username or password are required..",
-    });
-  }
+const login = async (req: Request, res: Response) => {
+  try {
+    // Ensuring that we have the correct elements
+    const errors: Result<ValidationError> = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.error(errors);
+      return res.status(400).json({
+        message: "Some user data is missing.",
+      });
+    }
 
-  // Test that the password is correct.
+    const { username, password } = req.body;
+
+    // Check that the user is valid
+    const response: { err: string; userId: number } = await userModel.isUserValid(
+      username,
+      password
+    );
+
+    // If the user is valid we return a token
+    if (!response.err) {
+      // Generate the JWT token for authenticated requests.
+      const jwtToken = authService.signToken({ userId: response.userId });
+
+      return res.status(200).json({ message: "Successfully authenticated!", tok: jwtToken });
+    } else {
+      console.error(response.err);
+      return res.status(400).json({ message: "Password or username is invalid." });
+    }
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: "Something went wrong when logging in..." });
+  }
 };
 
 const users = (req: Request, res: Response) => {
@@ -79,7 +105,8 @@ const user = (req: Request, res: Response) => {
       res.status(200).json({ results });
     })
     .catch((e) => {
-      res.status(500).json({ err: e });
+      console.error(e);
+      res.status(500).json({ err: "Something went wrong..." });
     });
 };
 

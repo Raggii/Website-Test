@@ -43,8 +43,11 @@ export class UserModel {
    */
   public async isUsernameUnique(username: string): Promise<boolean> {
     try {
-      const results: string[] = await this.userDaoInstance.findUsersByUsername(username);
-      return !(results.length > 0);
+      const result: User = await this.userDaoInstance.getUserByUsername(username);
+      if (result) {
+        return true;
+      }
+      return false;
     } catch (e) {
       console.error(e);
       return false;
@@ -88,6 +91,32 @@ export class UserModel {
     } catch (e) {
       console.error(e);
       return null;
+    }
+  }
+
+  /**
+   * Given a pair of a user's username and password we verify if it is valid.
+   *
+   * @param username Attmpt username.
+   * @param password Attempt password
+   * @returns err contains the error message. isValid defines if the combination is valid.
+   */
+  async isUserValid(username: string, password: string): Promise<{ err: string; userId: number }> {
+    try {
+      // Check if the user exists
+      const user: User = await this.userDaoInstance.getUserByUsername(username);
+      if (!user) {
+        return { err: "Username is invalid", userId: null };
+      }
+
+      // Check the password
+      if (await this.auth.verifyPassword(password, user.hash)) {
+        return { err: null, userId: user.userId };
+      } else {
+        return { err: "Password is invalid", userId: null };
+      }
+    } catch (e) {
+      return { err: "SOMETHING", userId: null };
     }
   }
 

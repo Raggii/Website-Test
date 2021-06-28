@@ -70,10 +70,10 @@ export class UserDAO {
    * Given some string the find a list of all users that have this username.
    *
    * @param username Some username to get the list of.
-   * @returns {Promise<String[]>} Returns a list of all users that match this username.
+   * @returns {Promise<User>} Returns a list of all users that match this username.
    */
-  async findUsersByUsername(username: string): Promise<string[]> {
-    return await this.conn.query(`SELECT * FROM accounts WHERE username = $1;`, username);
+  async getUserByUsername(username: string): Promise<User> {
+    return await this.conn.oneOrNone(`SELECT * FROM accounts WHERE username = $1;`, username);
   }
 
   /**
@@ -81,9 +81,9 @@ export class UserDAO {
    * @param user
    */
   async AddUser(user: User): Promise<number> {
-    return await this.conn.query(
+    return await this.conn.one(
       `INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
-        values ($1, $2, $3, $4, $5, $6)
+        values ($1, $2, $3, $4, $5, $6, $7)
         RETURNING id;`,
       [user.username, user.fname, user.lname, user.email, user.hash, user.salt, roleType.USER] // Replace with actual role id
     );
@@ -96,7 +96,7 @@ export class UserDAO {
    * @returns {User} the user that has the id given.
    */
   async getUserById(userId: number): Promise<User> {
-    return await this.conn.query(
+    return await this.conn.oneOrNone(
       `SELECT *
         FROM accounts
         WHERE id = $1;`,
@@ -105,6 +105,6 @@ export class UserDAO {
   }
 
   async getAllUsers() {
-    return await this.conn.query("SELECT * FROM accounts;");
+    return await this.conn.manyOrNone("SELECT * FROM accounts;");
   }
 }

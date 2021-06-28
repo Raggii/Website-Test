@@ -39,8 +39,11 @@ class UserModel {
     isUsernameUnique(username) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const results = yield this.userDaoInstance.findUsersByUsername(username);
-                return !(results.length > 0);
+                const result = yield this.userDaoInstance.getUserByUsername(username);
+                if (result) {
+                    return true;
+                }
+                return false;
             }
             catch (e) {
                 console.error(e);
@@ -84,6 +87,35 @@ class UserModel {
             catch (e) {
                 console.error(e);
                 return null;
+            }
+        });
+    }
+    /**
+     * Given a pair of a user's username and password we verify if it is valid.
+     *
+     * @param username Attmpt username.
+     * @param password Attempt password
+     * @returns err contains the error message. isValid defines if the combination is valid.
+     */
+    isUserValid(username, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                // Check if the user exists
+                const user = yield this.userDaoInstance.getUserByUsername(username);
+                if (!user) {
+                    return { err: "Username is invalid", userId: null };
+                }
+                console.log(user);
+                // Check the password
+                if (yield this.auth.verifyPassword(password, user.hash)) {
+                    return { err: null, userId: user.userId };
+                }
+                else {
+                    return { err: "Password is invalid", userId: null };
+                }
+            }
+            catch (e) {
+                return { err: "SOMETHING", userId: null };
             }
         });
     }

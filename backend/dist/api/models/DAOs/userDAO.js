@@ -72,11 +72,11 @@ class UserDAO {
      * Given some string the find a list of all users that have this username.
      *
      * @param username Some username to get the list of.
-     * @returns {Promise<String[]>} Returns a list of all users that match this username.
+     * @returns {Promise<User>} Returns a list of all users that match this username.
      */
-    findUsersByUsername(username) {
+    getUserByUsername(username) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.conn.query(`SELECT * FROM accounts WHERE username = $1;`, username);
+            return yield this.conn.oneOrNone(`SELECT * FROM accounts WHERE username = $1;`, username);
         });
     }
     /**
@@ -85,8 +85,8 @@ class UserDAO {
      */
     AddUser(user) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.conn.query(`INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
-        values ($1, $2, $3, $4, $5, $6)
+            return yield this.conn.one(`INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
+        values ($1, $2, $3, $4, $5, $6, $7)
         RETURNING id;`, [user.username, user.fname, user.lname, user.email, user.hash, user.salt, roleDAO_1.roleType.USER] // Replace with actual role id
             );
         });
@@ -99,14 +99,14 @@ class UserDAO {
      */
     getUserById(userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.conn.query(`SELECT *
+            return yield this.conn.oneOrNone(`SELECT *
         FROM accounts
         WHERE id = $1;`, userId);
         });
     }
     getAllUsers() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.conn.query("SELECT * FROM accounts;");
+            return yield this.conn.manyOrNone("SELECT * FROM accounts;");
         });
     }
 }
