@@ -1,20 +1,6 @@
 import pgPromise from "pg-promise";
 import db from "../../../config/dbConfig.js";
-
-/**
- * All possible user types
- *
- * - *DEFAULT_ADMIN* --> Root user
- * - *ADMIN* --> Administartor over the system, chosen by the root (DEFAULT_ADMIN)
- * - *VET* --> has a group of users, and has contact to the ADMINs
- * - *USER* --> is only aware of his own VET, and or contact to the ADMIN.
- */
-export enum RoleType {
-  DEFAULT_ADMIN = 0,
-  ADMIN = 1,
-  VET = 2,
-  USER = 3,
-}
+import { RoleType } from "../roleModel.js";
 
 export class RoleDAO {
   private static _instance: RoleDAO = null;

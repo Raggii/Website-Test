@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDAO = void 0;
 const dbConfig_js_1 = __importDefault(require("../../../config/dbConfig.js"));
-const roleDAO_1 = require("./roleDAO");
+const roleModel_js_1 = require("../roleModel.js");
 const sessionDAO_1 = require("./sessionDAO");
 /**
  * Singlton class used as the primary access point to the database for negotiating with the user table.
@@ -62,7 +62,7 @@ class UserDAO {
      */
     defaultAdminExists() {
         return __awaiter(this, void 0, void 0, function* () {
-            const dgaaUser = yield this.conn.oneOrNone(`SELECT * FROM ACCOUNTS WHERE role_id = $1;`, roleDAO_1.RoleType.DEFAULT_ADMIN);
+            const dgaaUser = yield this.conn.oneOrNone(`SELECT * FROM ACCOUNTS WHERE role_id = $1;`, roleModel_js_1.RoleType.DEFAULT_ADMIN);
             return dgaaUser !== null && dgaaUser !== undefined;
         });
     }
@@ -105,7 +105,7 @@ class UserDAO {
                     newUser.email,
                     newUser.hash,
                     newUser.salt,
-                    roleDAO_1.RoleType.USER,
+                    roleModel_js_1.RoleType.USER,
                 ]);
                 return user.id;
             }));

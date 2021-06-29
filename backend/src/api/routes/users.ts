@@ -26,6 +26,9 @@ router.post(
   usersController.login
 );
 
+// Create a registration token
+router.get("/createRegisterToken", authenticateAccessToken, usersController.createRegisterToken);
+
 // Return a specfic user given a id parameter
 router.get(
   "/user/:id",

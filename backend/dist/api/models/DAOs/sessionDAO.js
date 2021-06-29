@@ -52,7 +52,8 @@ class SessionDAO {
     generateRegisterToken() {
         return __awaiter(this, void 0, void 0, function* () {
             const uuidString = yield this.auth.generateUuid();
-            return yield this.conn.one(`INSERT INTO sessions (id) VALUES ($1);`, uuidString);
+            const registerToken = yield this.conn.one(`INSERT INTO sessions (id) VALUES ($1) RETURNING id;`, uuidString);
+            return registerToken.id;
         });
     }
     /**

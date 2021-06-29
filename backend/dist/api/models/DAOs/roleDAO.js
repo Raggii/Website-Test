@@ -12,23 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RoleDAO = exports.RoleType = void 0;
+exports.RoleDAO = void 0;
 const dbConfig_js_1 = __importDefault(require("../../../config/dbConfig.js"));
-/**
- * All possible user types
- *
- * - *DEFAULT_ADMIN* --> Root user
- * - *ADMIN* --> Administartor over the system, chosen by the root (DEFAULT_ADMIN)
- * - *VET* --> has a group of users, and has contact to the ADMINs
- * - *USER* --> is only aware of his own VET, and or contact to the ADMIN.
- */
-var RoleType;
-(function (RoleType) {
-    RoleType[RoleType["DEFAULT_ADMIN"] = 0] = "DEFAULT_ADMIN";
-    RoleType[RoleType["ADMIN"] = 1] = "ADMIN";
-    RoleType[RoleType["VET"] = 2] = "VET";
-    RoleType[RoleType["USER"] = 3] = "USER";
-})(RoleType = exports.RoleType || (exports.RoleType = {}));
+const roleModel_js_1 = require("../roleModel.js");
 class RoleDAO {
     constructor() {
         this.conn = dbConfig_js_1.default;
@@ -59,12 +45,12 @@ class RoleDAO {
             // Create all the roles specified by roleModel
             yield t.batch([
                 t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [
-                    RoleType.DEFAULT_ADMIN,
+                    roleModel_js_1.RoleType.DEFAULT_ADMIN,
                     "DEFAULT_ADMIN",
                 ]),
-                t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [RoleType.ADMIN, "ADMIN"]),
-                t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [RoleType.VET, "VET"]),
-                t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [RoleType.USER, "USER"]),
+                t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [roleModel_js_1.RoleType.ADMIN, "ADMIN"]),
+                t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [roleModel_js_1.RoleType.VET, "VET"]),
+                t.none("INSERT INTO role(id, name) VALUES ($1, $2);", [roleModel_js_1.RoleType.USER, "USER"]),
             ]);
         });
     }

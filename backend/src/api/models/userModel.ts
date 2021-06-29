@@ -1,6 +1,6 @@
 import AuthService from "../services/authService";
 import { isNewUserValid } from "../validations/userValidation";
-import { RoleType } from "./DAOs/roleDAO";
+import { RoleType } from "./roleModel.js";
 import { SessionDAO } from "./DAOs/sessionDAO";
 import { UserDAO } from "./DAOs/userDAO";
 import { getUserResponse } from "./DTOs/userDTO";
@@ -151,10 +151,19 @@ export class UserModel {
   /**
    * Verifies that a register token is valid.
    *
-   * @param registerToken register token to be validated
+   * @param registerToken register token to be validated.
    * @returns true if valid. Otherwise false.
    */
-  async isValidRegistrToken(registerToken: string): Promise<boolean> {
+  async isValidRegisterToken(registerToken: string): Promise<boolean> {
     return await this.sessionDaoInstance.registerTokenExists(registerToken);
+  }
+
+  /**
+   * Generates a reigtration token.
+   *
+   * @returns {Promise<string>} the registration token.
+   */
+  async generateRegisterToken(): Promise<string> {
+    return await this.sessionDaoInstance.generateRegisterToken();
   }
 }

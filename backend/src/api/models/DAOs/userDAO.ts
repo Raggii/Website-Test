@@ -1,7 +1,7 @@
 import { User } from "../userModel";
 import db from "../../../config/dbConfig.js";
 import pgPromise from "pg-promise";
-import { RoleType } from "./roleDAO";
+import { RoleType } from "../roleModel.js";
 import { SessionDAO } from "./sessionDAO";
 
 /**

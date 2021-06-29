@@ -41,7 +41,11 @@ export class SessionDAO {
    */
   async generateRegisterToken(): Promise<string> {
     const uuidString = await this.auth.generateUuid();
-    return await this.conn.one(`INSERT INTO sessions (id) VALUES ($1);`, uuidString);
+    const registerToken = await this.conn.one(
+      `INSERT INTO sessions (id) VALUES ($1) RETURNING id;`,
+      uuidString
+    );
+    return registerToken.id;
   }
 
   /**

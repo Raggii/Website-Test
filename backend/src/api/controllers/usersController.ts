@@ -2,9 +2,11 @@ import { UserModel } from "../models/userModel";
 import AuthService from "../services/authService";
 import { Result, ValidationError, validationResult } from "express-validator";
 import { Request, Response } from "express";
+import { RoleModel } from "../models/roleModel";
 
 const authService = new AuthService();
 const userModel = new UserModel();
+const roleModel = new RoleModel();
 
 /**
  * Performs the registration steps when attempting to add a new user.
@@ -20,7 +22,7 @@ const register = async (req: Request, res: Response) => {
   }
 
   // Verify registeration token
-  if (!(await userModel.isValidRegistrToken(req.params.registerToken))) {
+  if (!(await userModel.isValidRegisterToken(req.params.registerToken))) {
     return res.status(403).json({ message: "Register token is invalid" });
   }
 
@@ -90,16 +92,26 @@ const login = async (req: Request, res: Response) => {
   }
 };
 
-const users = (req: Request, res: Response) => {
+const createRegisterToken = async (req: Request, res: Response) => {
+  // Verify the user has permission.
+  if (
+    !(await roleModel.isDefaultAdmin((await userModel.getUser(req.body.tokData.userId)).role_id))
+  ) {
+    return res.status(403).json({ message: "You lack permission to perform this action" });
+  }
+
+  // generate and return the token
   userModel
-    .getAllUsers()
-    .then((results) => {
-      res.status(200).json({
-        results,
-      });
+    .generateRegisterToken()
+    .then((regToken) => {
+      // If the reg token does not correctly generate
+      if (!regToken) throw new Error();
+
+      return res.status(200).json({ tok: regToken });
     })
     .catch((e) => {
-      res.status(500).json({ err: e });
+      console.error(e);
+      return res.status(500).json({ err: "Something went wrong..." });
     });
 };
 
@@ -135,6 +147,6 @@ const user = (req: Request, res: Response) => {
 export default {
   register,
   login,
-  users,
+  createRegisterToken,
   user,
 };

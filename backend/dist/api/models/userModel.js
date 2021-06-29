@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
 const authService_1 = __importDefault(require("../services/authService"));
 const userValidation_1 = require("../validations/userValidation");
-const roleDAO_1 = require("./DAOs/roleDAO");
+const roleModel_js_1 = require("./roleModel.js");
 const sessionDAO_1 = require("./DAOs/sessionDAO");
 const userDAO_1 = require("./DAOs/userDAO");
 /**
@@ -83,7 +83,7 @@ class UserModel {
                 email: newUser.email,
                 fname: newUser.fname,
                 lname: newUser.lname,
-                role_id: roleDAO_1.RoleType.USER,
+                role_id: roleModel_js_1.RoleType.USER,
             };
             try {
                 const userId = yield this.userDaoInstance.AddNewUser(user, registerToken);
@@ -145,12 +145,22 @@ class UserModel {
     /**
      * Verifies that a register token is valid.
      *
-     * @param registerToken register token to be validated
+     * @param registerToken register token to be validated.
      * @returns true if valid. Otherwise false.
      */
-    isValidRegistrToken(registerToken) {
+    isValidRegisterToken(registerToken) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.sessionDaoInstance.registerTokenExists(registerToken);
+        });
+    }
+    /**
+     * Generates a reigtration token.
+     *
+     * @returns {Promise<string>} the registration token.
+     */
+    generateRegisterToken() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.sessionDaoInstance.generateRegisterToken();
         });
     }
 }

@@ -2,7 +2,7 @@ import { UserDAO } from "../models/DAOs/userDAO";
 import { setInterval } from "timers";
 import { User } from "../models/userModel";
 import AuthService from "./authService";
-import { RoleType } from "../models/DAOs/roleDAO";
+import { RoleType } from "../models/roleModel";
 import { exit } from "process";
 
 const authService = new AuthService();

@@ -15,8 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const userModel_1 = require("../models/userModel");
 const authService_1 = __importDefault(require("../services/authService"));
 const express_validator_1 = require("express-validator");
+const roleModel_1 = require("../models/roleModel");
 const authService = new authService_1.default();
 const userModel = new userModel_1.UserModel();
+const roleModel = new roleModel_1.RoleModel();
 /**
  * Performs the registration steps when attempting to add a new user.
  */
@@ -30,7 +32,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
     }
     // Verify registeration token
-    if (!(yield userModel.isValidRegistrToken(req.params.registerToken))) {
+    if (!(yield userModel.isValidRegisterToken(req.params.registerToken))) {
         return res.status(403).json({ message: "Register token is invalid" });
     }
     // Ensure that the username is unique
@@ -45,10 +47,10 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         .then((userId) => {
         // If we don't have the user id this should have failed.
         if (userId === null)
-            throw new Error();
+            throw new Error("userId === null");
         // Create JWT Token
-        console.log(userId);
         const jwtToken = authService.signToken({ userId });
+        console.info(`New user with id ${userId} has a jwt token.`);
         // Success response
         return res.status(201).json({
             message: "User has been successfully.",
@@ -90,18 +92,25 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(500).json({ message: "Something went wrong when logging in..." });
     }
 });
-const users = (req, res) => {
+const createRegisterToken = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // Verify the user has permission.
+    if (!(yield roleModel.isDefaultAdmin((yield userModel.getUser(req.body.tokData.userId)).role_id))) {
+        return res.status(403).json({ message: "You lack permission to perform this action" });
+    }
+    // generate and return the token
     userModel
-        .getAllUsers()
-        .then((results) => {
-        res.status(200).json({
-            results,
-        });
+        .generateRegisterToken()
+        .then((regToken) => {
+        // If the reg token does not correctly generate
+        if (!regToken)
+            throw new Error();
+        return res.status(200).json({ tok: regToken });
     })
         .catch((e) => {
-        res.status(500).json({ err: e });
+        console.error(e);
+        return res.status(500).json({ err: "Something went wrong..." });
     });
-};
+});
 const user = (req, res) => {
     // Requested id
     let requestedId;
@@ -130,7 +139,7 @@ const user = (req, res) => {
 exports.default = {
     register,
     login,
-    users,
+    createRegisterToken,
     user,
 };
 //# sourceMappingURL=usersController.js.map

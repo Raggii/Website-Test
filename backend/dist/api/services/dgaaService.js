@@ -16,7 +16,7 @@ exports.dgaaService = exports.startDgaaService = void 0;
 const userDAO_1 = require("../models/DAOs/userDAO");
 const timers_1 = require("timers");
 const authService_1 = __importDefault(require("./authService"));
-const roleDAO_1 = require("../models/DAOs/roleDAO");
+const roleModel_1 = require("../models/roleModel");
 const process_1 = require("process");
 const authService = new authService_1.default();
 const DGAA_SERVICE_DELAY_MS = 1000 * 60 * 5;
@@ -46,7 +46,7 @@ function dgaaService() {
                     email: process.env.DGAA_EMAIL,
                     hash,
                     salt,
-                    role_id: roleDAO_1.RoleType.DEFAULT_ADMIN,
+                    role_id: roleModel_1.RoleType.DEFAULT_ADMIN,
                 };
                 yield userDAO_1.UserDAO.Instance.createDefaultAdmin(adminUser);
                 console.log("DGAA CREATED...");
