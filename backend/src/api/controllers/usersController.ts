@@ -1,6 +1,6 @@
 import { UserModel } from "../models/userModel";
 import AuthService from "../services/authService";
-import { body, Result, ValidationError, validationResult } from "express-validator";
+import { Result, ValidationError, validationResult } from "express-validator";
 import { Request, Response } from "express";
 
 const authService = new AuthService();
@@ -19,6 +19,11 @@ const register = async (req: Request, res: Response) => {
     });
   }
 
+  // Verify registeration token
+  if (!(await userModel.isValidRegistrToken(req.params.registerToken))) {
+    return res.status(403).json({ message: "Register token is invalid" });
+  }
+
   // Ensure that the username is unique
   if (!userModel.isUsernameUnique(req.body.username)) {
     return res.status(409).json({
@@ -28,13 +33,14 @@ const register = async (req: Request, res: Response) => {
 
   // Attempt to add the user data to the database
   await userModel
-    .addNewUser(req.body)
+    .addNewUser(req.body, req.params.registerToken)
     .then((userId: number) => {
       // If we don't have the user id this should have failed.
-      if (userId === null) throw new Error();
+      if (userId === null) throw new Error("userId === null");
 
       // Create JWT Token
       const jwtToken = authService.signToken({ userId });
+      console.info(`New user with id ${userId} has a jwt token.`);
 
       // Success response
       return res.status(201).json({
@@ -108,6 +114,9 @@ const user = (req: Request, res: Response) => {
 
   // If we don't have access to the request id (not ours) return a 403
   if (requestedId !== req.body.tokData.userId) {
+    console.error(
+      `User with id ${req.body.tokData.userId} tried to access user with id ${requestedId}`
+    );
     return res.sendStatus(403);
   }
 

@@ -15,12 +15,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserDAO = void 0;
 const dbConfig_js_1 = __importDefault(require("../../../config/dbConfig.js"));
 const roleDAO_1 = require("./roleDAO");
+const sessionDAO_1 = require("./sessionDAO");
 /**
  * Singlton class used as the primary access point to the database for negotiating with the user table.
  */
 class UserDAO {
     constructor() {
         this.conn = dbConfig_js_1.default;
+        /**
+         * Stores the instance of the session Data Access Object to interact with the database.
+         * This will also be lazily instantiated with the userModel.
+         */
+        this.sessionDaoInstance = sessionDAO_1.SessionDAO.Instance;
     }
     /**
      * Returns the Singlton instance, if it is not defined create a new one.
@@ -81,13 +87,28 @@ class UserDAO {
     }
     /**
      * Given a User object attempt to add it to the database.
-     * @param user
+     * @param newUser to be added (ALWAYS A USER ROLE TYPE).
      */
-    AddUser(user) {
+    AddNewUser(newUser, registerToken) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.conn.one(`INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
+            return this.conn.tx((t) => __awaiter(this, void 0, void 0, function* () {
+                // Ensure that the token exists before adding the user, and consume it.
+                if (!(yield this.sessionDaoInstance.consumeRegisterToken(registerToken, t))) {
+                    throw Error("Register token is invalid.");
+                }
+                const user = yield t.one(`INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
         values ($1, $2, $3, $4, $5, $6, $7)
-        RETURNING id;`, [user.username, user.fname, user.lname, user.email, user.hash, user.salt, user.role_id]);
+        RETURNING id;`, [
+                    newUser.username,
+                    newUser.fname,
+                    newUser.lname,
+                    newUser.email,
+                    newUser.hash,
+                    newUser.salt,
+                    roleDAO_1.RoleType.USER,
+                ]);
+                return user.id;
+            }));
         });
     }
     /**

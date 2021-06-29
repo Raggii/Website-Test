@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { v4 as uuidv4 } from "uuid";
 
 type HashResponse = {
   hash: string;
@@ -85,6 +86,15 @@ class AuthService {
     } catch (e) {
       return false;
     }
+  }
+
+  /**
+   * Generates a uuid string
+   *
+   * @returns uuid string.
+   */
+  async generateUuid(): Promise<string> {
+    return uuidv4();
   }
 }
 

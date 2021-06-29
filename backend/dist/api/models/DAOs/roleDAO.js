@@ -44,6 +44,11 @@ class RoleDAO {
         // Return the instance
         return this._instance;
     }
+    /**
+     * Initiates the role table, and ensures that all the roles are placed within the table.
+     *
+     * @param t a transaction that is currently running.
+     */
     initRoleTable(t) {
         return __awaiter(this, void 0, void 0, function* () {
             // Create the table

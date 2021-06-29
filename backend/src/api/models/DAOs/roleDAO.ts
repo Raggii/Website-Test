@@ -35,6 +35,11 @@ export class RoleDAO {
 
   private constructor() {}
 
+  /**
+   * Initiates the role table, and ensures that all the roles are placed within the table.
+   *
+   * @param t a transaction that is currently running.
+   */
   public async initRoleTable(t: pgPromise.ITask<{}>): Promise<void> {
     // Create the table
     await t.none(`CREATE TABLE IF NOT EXISTS role (

@@ -16,6 +16,7 @@ exports.UserModel = void 0;
 const authService_1 = __importDefault(require("../services/authService"));
 const userValidation_1 = require("../validations/userValidation");
 const roleDAO_1 = require("./DAOs/roleDAO");
+const sessionDAO_1 = require("./DAOs/sessionDAO");
 const userDAO_1 = require("./DAOs/userDAO");
 /**
  * handles data logic for the User model
@@ -27,6 +28,11 @@ class UserModel {
          * This will also be lazily instantiated with the userModel.
          */
         this.userDaoInstance = userDAO_1.UserDAO.Instance;
+        /**
+         * Stores the instance of the session Data Access Object to interact with the database.
+         * This will also be lazily instantiated with the userModel.
+         */
+        this.sessionDaoInstance = sessionDAO_1.SessionDAO.Instance;
         /**
          * Authentication service is instantiated by the model for authentication.
          */
@@ -58,7 +64,7 @@ class UserModel {
      * @param user A new user that we want to add.
      * @returns The user's ID.
      */
-    addNewUser(newUser) {
+    addNewUser(newUser, registerToken) {
         return __awaiter(this, void 0, void 0, function* () {
             // This is not really necessary, as functions providing newUser will probably
             // Sanatise the input anyway.
@@ -80,7 +86,7 @@ class UserModel {
                 role_id: roleDAO_1.RoleType.USER,
             };
             try {
-                const userId = yield this.userDaoInstance.AddUser(user);
+                const userId = yield this.userDaoInstance.AddNewUser(user, registerToken);
                 // We throw an error if the user id is null.
                 if (userId === null)
                     throw new Error("Something went wrong trying to add user.");
@@ -134,6 +140,17 @@ class UserModel {
             const user = yield this.userDaoInstance.getUserById(userId);
             const dtoData = Object.assign({}, user);
             return dtoData;
+        });
+    }
+    /**
+     * Verifies that a register token is valid.
+     *
+     * @param registerToken register token to be validated
+     * @returns true if valid. Otherwise false.
+     */
+    isValidRegistrToken(registerToken) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.sessionDaoInstance.registerTokenExists(registerToken);
         });
     }
 }

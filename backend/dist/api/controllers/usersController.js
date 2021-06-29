@@ -29,6 +29,10 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             message: "Some user data is missing.",
         });
     }
+    // Verify registeration token
+    if (!(yield userModel.isValidRegistrToken(req.params.registerToken))) {
+        return res.status(403).json({ message: "Register token is invalid" });
+    }
     // Ensure that the username is unique
     if (!userModel.isUsernameUnique(req.body.username)) {
         return res.status(409).json({
@@ -37,12 +41,13 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     // Attempt to add the user data to the database
     yield userModel
-        .addNewUser(req.body)
+        .addNewUser(req.body, req.params.registerToken)
         .then((userId) => {
         // If we don't have the user id this should have failed.
         if (userId === null)
             throw new Error();
         // Create JWT Token
+        console.log(userId);
         const jwtToken = authService.signToken({ userId });
         // Success response
         return res.status(201).json({
@@ -73,12 +78,10 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         // If the user is valid we return a token
         if (!response.err) {
             // Generate the JWT token for authenticated requests.
-            console.error(response);
             const jwtToken = authService.signToken({ userId: response.userId });
             return res.status(200).json({ message: "Successfully authenticated!", tok: jwtToken });
         }
         else {
-            console.error(response.err);
             return res.status(400).json({ message: "Password or username is invalid." });
         }
     }
@@ -110,6 +113,7 @@ const user = (req, res) => {
     }
     // If we don't have access to the request id (not ours) return a 403
     if (requestedId !== req.body.tokData.userId) {
+        console.error(`User with id ${req.body.tokData.userId} tried to access user with id ${requestedId}`);
         return res.sendStatus(403);
     }
     // Return the requested userId's user

@@ -13,6 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const uuid_1 = require("uuid");
 class AuthService {
     constructor() {
         /**
@@ -88,6 +89,16 @@ class AuthService {
             catch (e) {
                 return false;
             }
+        });
+    }
+    /**
+     * Generates a uuid string
+     *
+     * @returns uuid string.
+     */
+    generateUuid() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return uuid_1.v4();
         });
     }
 }

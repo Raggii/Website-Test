@@ -1,6 +1,7 @@
 import AuthService from "../services/authService";
 import { isNewUserValid } from "../validations/userValidation";
 import { RoleType } from "./DAOs/roleDAO";
+import { SessionDAO } from "./DAOs/sessionDAO";
 import { UserDAO } from "./DAOs/userDAO";
 import { getUserResponse } from "./DTOs/userDTO";
 
@@ -33,6 +34,13 @@ export class UserModel {
    * This will also be lazily instantiated with the userModel.
    */
   private userDaoInstance: UserDAO = UserDAO.Instance;
+
+  /**
+   * Stores the instance of the session Data Access Object to interact with the database.
+   * This will also be lazily instantiated with the userModel.
+   */
+  private sessionDaoInstance: SessionDAO = SessionDAO.Instance;
+
   /**
    * Authentication service is instantiated by the model for authentication.
    */
@@ -62,7 +70,7 @@ export class UserModel {
    * @param user A new user that we want to add.
    * @returns The user's ID.
    */
-  public async addNewUser(newUser: NewUser): Promise<number> {
+  public async addNewUser(newUser: NewUser, registerToken: string): Promise<number> {
     // This is not really necessary, as functions providing newUser will probably
     // Sanatise the input anyway.
     if (!isNewUserValid(newUser)) return null;
@@ -85,7 +93,7 @@ export class UserModel {
     };
 
     try {
-      const userId = await this.userDaoInstance.AddUser(user);
+      const userId: number = await this.userDaoInstance.AddNewUser(user, registerToken);
 
       // We throw an error if the user id is null.
       if (userId === null) throw new Error("Something went wrong trying to add user.");
@@ -138,5 +146,15 @@ export class UserModel {
     const dtoData: getUserResponse = { ...user };
 
     return dtoData;
+  }
+
+  /**
+   * Verifies that a register token is valid.
+   *
+   * @param registerToken register token to be validated
+   * @returns true if valid. Otherwise false.
+   */
+  async isValidRegistrToken(registerToken: string): Promise<boolean> {
+    return await this.sessionDaoInstance.registerTokenExists(registerToken);
   }
 }

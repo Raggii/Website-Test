@@ -2,6 +2,7 @@ import { User } from "../userModel";
 import db from "../../../config/dbConfig.js";
 import pgPromise from "pg-promise";
 import { RoleType } from "./roleDAO";
+import { SessionDAO } from "./sessionDAO";
 
 /**
  * Singlton class used as the primary access point to the database for negotiating with the user table.
@@ -12,6 +13,11 @@ export class UserDAO {
    */
   private static _instance: UserDAO = null;
   private conn = db;
+  /**
+   * Stores the instance of the session Data Access Object to interact with the database.
+   * This will also be lazily instantiated with the userModel.
+   */
+  private sessionDaoInstance: SessionDAO = SessionDAO.Instance;
 
   /**
    * Returns the Singlton instance, if it is not defined create a new one.
@@ -78,15 +84,31 @@ export class UserDAO {
 
   /**
    * Given a User object attempt to add it to the database.
-   * @param user
+   * @param newUser to be added (ALWAYS A USER ROLE TYPE).
    */
-  async AddUser(user: User): Promise<number> {
-    return await this.conn.one(
-      `INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
+  async AddNewUser(newUser: User, registerToken: string): Promise<number> {
+    return this.conn.tx(async (t: pgPromise.ITask<{}>) => {
+      // Ensure that the token exists before adding the user, and consume it.
+      if (!(await this.sessionDaoInstance.consumeRegisterToken(registerToken, t))) {
+        throw Error("Register token is invalid.");
+      }
+
+      const user = await t.one(
+        `INSERT INTO accounts (username, fname, lname, email, hash, salt, role_id)
         values ($1, $2, $3, $4, $5, $6, $7)
         RETURNING id;`,
-      [user.username, user.fname, user.lname, user.email, user.hash, user.salt, user.role_id]
-    );
+        [
+          newUser.username,
+          newUser.fname,
+          newUser.lname,
+          newUser.email,
+          newUser.hash,
+          newUser.salt,
+          RoleType.USER,
+        ]
+      );
+      return user.id;
+    });
   }
 
   /**

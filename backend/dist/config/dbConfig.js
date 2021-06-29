@@ -18,6 +18,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const process_1 = require("process");
 const roleDAO_1 = require("../api/models/DAOs/roleDAO");
 const userDAO_1 = require("../api/models/DAOs/userDAO");
+const sessionDAO_1 = require("../api/models/DAOs/sessionDAO");
 dotenv_1.default.config();
 /**
  * Connection configuration
@@ -44,15 +45,16 @@ exports.disconnectDatabase = disconnectDatabase;
 function initDatabase() {
     return __awaiter(this, void 0, void 0, function* () {
         // Try to create any missing tables
-        conn
+        yield conn
             .tx((t) => __awaiter(this, void 0, void 0, function* () {
             // If we are on a local machine, we want to wipe the database.
             if (process.env.NODE_ENV === "local") {
-                yield t.none(`DROP TABLE IF EXISTS role, accounts;`);
+                yield t.none(`DROP TABLE IF EXISTS role, accounts, sessions;`);
             }
             // initiate tables
             yield roleDAO_1.RoleDAO.Instance.initRoleTable(t);
             yield userDAO_1.UserDAO.Instance.initUserTable(t);
+            yield sessionDAO_1.SessionDAO.Instance.initSessionsTable(t);
             return;
         }))
             .catch((e) => {

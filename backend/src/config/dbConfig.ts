@@ -3,6 +3,7 @@ import dotEnv from "dotenv";
 import { exit } from "process";
 import { RoleDAO } from "../api/models/DAOs/roleDAO";
 import { UserDAO } from "../api/models/DAOs/userDAO";
+import { SessionDAO } from "../api/models/DAOs/sessionDAO";
 
 dotEnv.config();
 
@@ -41,16 +42,17 @@ export function disconnectDatabase() {
  */
 export async function initDatabase() {
   // Try to create any missing tables
-  conn
+  await conn
     .tx(async (t: pgPromise.ITask<{}>) => {
       // If we are on a local machine, we want to wipe the database.
       if (process.env.NODE_ENV === "local") {
-        await t.none(`DROP TABLE IF EXISTS role, accounts;`);
+        await t.none(`DROP TABLE IF EXISTS role, accounts, sessions;`);
       }
 
       // initiate tables
       await RoleDAO.Instance.initRoleTable(t);
       await UserDAO.Instance.initUserTable(t);
+      await SessionDAO.Instance.initSessionsTable(t);
       return;
     })
     .catch((e) => {
