@@ -27,7 +27,7 @@ const [page, setPage] = useState(0);
     <div id={display ? "wrapper" : "wrapper-menu-displayed"}>
 
         {/*Side bar stuff */}
-        <div id="sidebar-wrapper">
+        {/* <div id="sidebar-wrapper">
            <ul className="sidebar-nav">
               <p><img src={logoImage} className="img-fluid" alt=""/> </p>
               <li><a onClick={() => setPage(0)} >Dashboard</a></li>
@@ -37,7 +37,7 @@ const [page, setPage] = useState(0);
               <li><a onClick={() => setPage(4)} >Milk Revenue</a></li>
               <li><a onClick={() => setPage(5)} >Place Order</a></li> 
            </ul>
-        </div>
+        </div> */}
 
         <div>
           <TopNav>
