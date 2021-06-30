@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages
 import LandingPage from "./views/LandingPage";
-import Login from "./views/Login";
+import Login from "./views/Pages/Login/Login";
 import Dashboard from "./views/Dashboard";
 import FirstPage from "./views/InitialInputs/FirstPage";
 import SecondPage from "./views/InitialInputs/SecondPage";
@@ -22,7 +22,7 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-    {/* CHANGE THIS TO SOMETHING NICER!!!!! */}
+        {/* CHANGE THIS TO SOMETHING NICER!!!!! */}
         <Route path="/DataCollect1">
           <FirstPage />
         </Route>
@@ -38,9 +38,8 @@ function App() {
         <Route path="/DataCollect4">
           <ForthPage />
         </Route>
-    {/* PLEASE IT IS TO EASY TO GET TO */}
+        {/* PLEASE IT IS TO EASY TO GET TO */}
 
-    
         <Route path="/Dashboard">
           <Dashboard />
         </Route>

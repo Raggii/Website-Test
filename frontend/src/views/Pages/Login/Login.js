@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Api from "../Api";
+import Api from "../../../Api";
+import styles from "./Login.module.css";
+import largeLogo from "../../../assets/largeLogo.PNG";
 
 /**
  * Ensure that a given username follows the expected requirements before submission
@@ -118,25 +120,37 @@ export default function Login() {
 
   return (
     <>
-      <div className="container">
+      <div className={`container px-4 pt-4 mt-5 ${styles.loginContainer}`}>
+        <div className="row mb-1">
+          <div className="col d-flex justify-content-center">
+            <img src={largeLogo} alt="large logo"></img>
+          </div>
+        </div>
         {/* Tite */}
         <div className="row">
           <div className="col">
-            <h3 className="m-4 text-center">Login</h3>
+            <h2 className="m-4 text-center" id="login-title">
+              Login
+            </h2>
           </div>
         </div>
+
+        {/* Error model */}
+        <div></div>
 
         <form className="needs-validation px-auto" noValidate onSubmit={handleSubmit}>
           {/* Username */}
           <div className="row">
             <div className="col">
-              <label htmlFor="username-input-id" className="form-label">
+              <label htmlFor="login-username" className="form-label">
                 Username
               </label>
               <input
-                id="username-input-id"
+                id="login-username"
                 name="username"
-                className={`form-control ${errors.username ? "is-invalid" : ""}`}
+                className={`form-control ${styles.inputField} ${
+                  errors.username ? "is-invalid" : ""
+                }`}
                 type="string"
                 onChange={handleChange}
                 value={values.username}
@@ -148,13 +162,15 @@ export default function Login() {
           {/* Password */}
           <div className="row mt-3">
             <div className="col">
-              <label htmlFor="password-input-id" className="form-label">
+              <label htmlFor="login-password" className="form-label">
                 Password
               </label>
               <input
-                id="password-input-id"
+                id="login-password"
                 name="password"
-                className={`form-control ${errors.password ? "is-invalid" : ""}`}
+                className={`form-control ${styles.inputField} ${
+                  errors.password ? "is-invalid" : ""
+                }`}
                 type="password"
                 onChange={handleChange}
                 value={values.password}
@@ -164,12 +180,12 @@ export default function Login() {
           </div>
 
           {/* Login Button */}
-          <div className="row mt-4 text-center">
+          <div className="row mt-4 pb-4 text-center mb-5">
             <div className="col">
               {/* <button className="btn btn-outline-primary" type="submit">
                 Login
               </button> */}
-              <Link className="btn btn-outline-primary" to="/Dashboard">
+              <Link className="btn btn-outline-dark" to="/Dashboard">
                 Login
               </Link>
             </div>

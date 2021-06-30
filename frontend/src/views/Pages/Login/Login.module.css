@@ -1,0 +1,14 @@
+body {
+  background-color: #f6f6f6;
+}
+
+.loginContainer {
+  background-color: #ffffff;
+  max-width: 500px;
+  border-radius: 0.5em;
+}
+
+.inputField:focus {
+  border-color: #0021a5;
+  box-shadow: 0 0 0 0.15rem #0021a566;
+}
