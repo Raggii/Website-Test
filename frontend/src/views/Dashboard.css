@@ -18,10 +18,32 @@
 /* need to set to a different  */
 #wrapper-menu-displayed #sidebar-wrapper {
   width: 250px;
+  transition: ease-in 300ms;
 }
 
 #wrapper-menu-displayed #page-content-wrapper {
   padding-left: 250px;
+  transition: ease-in 300ms;
+}
+
+#wrapper-menu-displayed #top-nav {
+  padding-left: 250px;
+  transition: ease-in 300ms;
+}
+
+#wrapper-menu-disabled #sidebar-wrapper {
+  width: 0;
+  transition: ease-out 300ms;
+}
+
+#wrapper-menu-disabled #page-content-wrapper {
+  padding-left: 0;
+  transition: ease-out 300ms;
+}
+
+#wrapper-menu-disabled #top-nav {
+  padding-left: 0;
+  transition: ease-out 300ms;
 }
 
 .sidebar-nav {

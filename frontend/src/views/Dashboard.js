@@ -16,18 +16,21 @@ import NavItem from './Pages/NavItem';
 
 export default function Dashboard() {
 
-  
 const [display, setDisplay] = useState(false);
-// changes between the 5 different pages
+
+const toggleNav = () => {
+  setDisplay(!display)
+}
+
 
 const [page, setPage] = useState(0);
 
 
   return (
-    <div id={display ? "wrapper" : "wrapper-menu-displayed"}>
+    <div id={display ? "wrapper-menu-disabled" : "wrapper-menu-displayed"}>
 
         {/*Side bar stuff */}
-        {/* <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper">
            <ul className="sidebar-nav">
               <p><img src={logoImage} className="img-fluid" alt=""/> </p>
               <li><a onClick={() => setPage(0)} >Dashboard</a></li>
@@ -37,14 +40,14 @@ const [page, setPage] = useState(0);
               <li><a onClick={() => setPage(4)} >Milk Revenue</a></li>
               <li><a onClick={() => setPage(5)} >Place Order</a></li> 
            </ul>
-        </div> */}
+        </div>
 
-        <div>
-          <TopNav>
-            <li>plzS</li>
-            <li>plzS</li>
-            <li>plzS</li>
-              
+        <div  id="top-nav">
+          <TopNav toggle = {toggleNav}>
+            <NavItem icon="Yes"></NavItem>
+            <NavItem icon="DAn"></NavItem>
+            <NavItem icon="Kwl"></NavItem>
+
           </TopNav>
         </div>
 
@@ -54,8 +57,7 @@ const [page, setPage] = useState(0);
             <div className="row">
               <div className="col-lg-12">
                 <p className="fs-1">Home Page</p>
-                <a className="btn btn-success" id="menu-toggle" 
-                onClick={() =>setDisplay(!display)}>Open Menu</a>
+                
                 <div>
                   {page == 0 ? 
                     <DashboardMain></DashboardMain>: 

@@ -35,10 +35,10 @@ export default function ForthPage() {
                     </div>
                     
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input name="Total Zinc"></Input>
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
                         
                     </div>
                 </div>
@@ -52,11 +52,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
                         
                     </div>
                 </div>
@@ -69,11 +69,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                 </div>
@@ -86,11 +86,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
                         
                     </div>
                 </div>
@@ -104,11 +104,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
                     </div>
                 </div>
 
@@ -120,11 +120,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
                         
                     </div>
                 </div>
@@ -137,11 +137,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
                     </div>
                 </div>
 
@@ -153,11 +153,11 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input  ></Input>
 
                         
                     </div>
@@ -171,12 +171,12 @@ export default function ForthPage() {
                         
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input ></Input>
 
 
                     </div>
                     <div class="col-2">
-                        <Input isText = {false}></Input>
+                        <Input ></Input>
                         
                     </div>
                 </div>
