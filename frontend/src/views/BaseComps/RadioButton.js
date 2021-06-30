@@ -9,8 +9,8 @@ export default function RadioButton({title}) {
             
             <div class="input-group">
                 <div className="col-3"></div>
-                <div className="col-1">{title}</div>
-                <div className = "col-1">
+                <div className="col-1 text-center">{title}</div>
+                <div className = "col-1 text-center">
                     <div class="input-group-text">
                         <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input"/>
                     </div>

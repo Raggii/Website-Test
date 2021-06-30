@@ -44,6 +44,9 @@ function App() {
         <Route path="/Dashboard">
           <Dashboard />
         </Route>
+        <Route path="/Testing">
+          <Dashboard />
+        </Route>
       </Switch>
     </Router>
   );

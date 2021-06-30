@@ -8,6 +8,8 @@ import MilkRevenue from './Pages/MilkRevenue';
 import TimeBudgetTool from './Pages/TimeBudgetTool';
 import YourFarm from './Pages/YourFarm';
 import PlaceOrder from './Pages/PlaceOrder';
+import TopNav from './Pages/TopNav';
+import NavItem from './Pages/NavItem';
 
 //
 
@@ -28,13 +30,22 @@ const [page, setPage] = useState(0);
         <div id="sidebar-wrapper">
            <ul className="sidebar-nav">
               <p><img src={logoImage} className="img-fluid" alt=""/> </p>
-              <li><a onClick={() => setPage(0)} >Dashboard</a></li> {/*  this allows for changes between pages*/}
-              <li><a onClick={() => setPage(1)} >Your Farm</a></li> {/* Change to have the images if u can*/}
+              <li><a onClick={() => setPage(0)} >Dashboard</a></li>
+              <li><a onClick={() => setPage(1)} >Your Farm</a></li>
               <li><a onClick={() => setPage(2)} >Diet Evaluator</a></li>
               <li><a onClick={() => setPage(3)} >Time Budget Tool</a></li>
               <li><a onClick={() => setPage(4)} >Milk Revenue</a></li>
               <li><a onClick={() => setPage(5)} >Place Order</a></li> 
            </ul>
+        </div>
+
+        <div>
+          <TopNav>
+            <li>plzS</li>
+            <li>plzS</li>
+            <li>plzS</li>
+              
+          </TopNav>
         </div>
 
         {/*  main content */}
