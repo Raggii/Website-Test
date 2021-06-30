@@ -9,7 +9,7 @@ main {
 
 .cow_header {
   position: relative;
-  background-image: url("public/assets/MG_7755.jpg");
+  background-image: url("../../public/assets/MG_7755.jpg");
   background-position: center center;
   background-size: cover;
   height: 550px;
@@ -161,11 +161,7 @@ main {
 
 .aboutMeSectionSmall {
   background-color: transparent;
-  background-image: linear-gradient(
-    260deg,
-    #ffffff 0%,
-    rgba(210, 233, 225, 0.37) 100%
-  );
+  background-image: linear-gradient(260deg, #ffffff 0%, rgba(210, 233, 225, 0.37) 100%);
 
   padding: 3rem;
   margin-top: 5rem;
