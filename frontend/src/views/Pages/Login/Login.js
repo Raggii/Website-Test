@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Api from "../../../Api";
 import styles from "./Login.module.css";
 import largeLogo from "../../../assets/largeLogo.PNG";
@@ -56,6 +56,8 @@ const validatePassword = (password) => {
  * value changes and submission
  */
 const useLoginForm = () => {
+  const history = useHistory();
+
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -64,6 +66,7 @@ const useLoginForm = () => {
   const [errors, setErrors] = useState({
     username: "",
     password: "",
+    modelError: "",
   });
 
   const validateFields = () => {
@@ -95,7 +98,7 @@ const useLoginForm = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const { success, errorsCopy } = validateFields();
@@ -105,11 +108,46 @@ const useLoginForm = () => {
       return;
     }
 
-    // TODO Implement all cases handling
-    Api.signIn(values.username, values.password);
+    await Api.signIn(values.username, values.password)
+      .then((res) => {
+        if (res.status === 200) {
+          history.push("/dashboard");
+        } else {
+          throw Error("Unexpected response!");
+        }
+      })
+      .catch((err) => {
+        if (err.response) {
+          if (err.response.status === 400) {
+            setErrors({ ...errorsCopy, modelError: "400: Username or password are invalid." });
+          } else if (err.response.status === 500) {
+            setErrors({ ...errorsCopy, modelError: "500: Something unexpected went wrong." });
+          } else {
+            setErrors({ ...errorsCopy, modelError: "Something unexpected went wrong." });
+          }
+        } else if (err.request) {
+          setErrors({ ...errorsCopy, modelError: "503: Timeout occured." });
+        } else {
+          setErrors({ ...errorsCopy, modelError: "Something unexpected went wrong." });
+        }
+      });
   };
 
   return { values, errors, handleChange, handleSubmit };
+};
+
+const ErrorModel = (props) => {
+  if (props.error) {
+    return (
+      <div className="row">
+        <div className="col">
+          <div className="alert-danger p-2 mb-2 rounded">{props.error}</div>
+        </div>
+      </div>
+    );
+  } else {
+    return <></>;
+  }
 };
 
 /**
@@ -135,8 +173,8 @@ export default function Login() {
           </div>
         </div>
 
-        {/* Error model */}
-        <div></div>
+        {/* Error Message */}
+        <ErrorModel error={errors.modelError} />
 
         <form className="needs-validation px-auto" noValidate onSubmit={handleSubmit}>
           {/* Username */}
@@ -182,12 +220,12 @@ export default function Login() {
           {/* Login Button */}
           <div className="row mt-4 pb-4 text-center mb-5">
             <div className="col">
-              {/* <button className="btn btn-outline-primary" type="submit">
+              <button
+                className={`btn btn-outline-dark ${styles.primaryButton}`}
+                onClick={handleSubmit}
+              >
                 Login
-              </button> */}
-              <Link className="btn btn-outline-dark" to="/Dashboard">
-                Login
-              </Link>
+              </button>
             </div>
           </div>
         </form>

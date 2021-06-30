@@ -2,10 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import DotEnv from "dotenv";
-
-// imports all the .env file associations to the process
-DotEnv.config();
 
 ReactDOM.render(
   <React.StrictMode>

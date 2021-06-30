@@ -1,14 +1,38 @@
+:root {
+  --accent-color: #0021a5;
+  --faded-accent-color: #0021a580;
+  --background-color: #f6f6f6;
+  --background-highlight-color: #ffffff;
+}
+
 body {
-  background-color: #f6f6f6;
+  background-color: var(--background-color);
 }
 
 .loginContainer {
-  background-color: #ffffff;
+  background-color: var(--background-highlight-color);
   max-width: 500px;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
+  box-shadow: 0.2em 0.2em 0.2em 0.1rem #35353520;
 }
 
 .inputField:focus {
-  border-color: #0021a5;
-  box-shadow: 0 0 0 0.15rem #0021a566;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.135rem var(--faded-accent-color);
+}
+
+.primaryButton {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.primaryButton:hover,
+.primaryButton:active {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.primaryButton:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.135rem var(--faded-accent-color);
 }
