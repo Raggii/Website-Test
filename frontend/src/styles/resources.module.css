@@ -1,0 +1,22 @@
+.resource_item {
+  text-decoration: none;
+  background-color: #5bc0de;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.9em 2em;
+  border-radius: 0.25em;
+  line-height: 1;
+}
+
+.resource_item_wrap {
+  display: flex;
+}
+
+.resources_container {
+
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 10px;
+}
