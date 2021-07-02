@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import "./PagesCss/TopNav.css"
+import "../PagesCss/TopNav.css"
 
 
 export default function NavItem(props) {

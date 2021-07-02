@@ -8,8 +8,13 @@ import MilkRevenue from './Pages/MilkRevenue';
 import TimeBudgetTool from './Pages/TimeBudgetTool';
 import YourFarm from './Pages/YourFarm';
 import PlaceOrder from './Pages/PlaceOrder';
-import TopNav from './Pages/TopNav';
-import NavItem from './Pages/NavItem';
+import TopNav from './Pages/TopNav/TopNav';
+import NavItem from './Pages/TopNav/NavItem';
+import Pulse from './Pages/Svgs/Pulse';
+import SquareWithHill from './Pages/Svgs/SquareWithHill';
+import TickPage from './Pages/Svgs/TickPage';
+import Folder from './Pages/Svgs/Folder';
+import TwoSquare from './Pages/Svgs/TwoSquare';
 
 //
 
@@ -22,8 +27,19 @@ const toggleNav = () => {
   setDisplay(!display)
 }
 
-
 const [page, setPage] = useState(0);
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+
+const { height, widthScreen } = getWindowDimensions();
+
 
 
   return (
@@ -33,8 +49,11 @@ const [page, setPage] = useState(0);
         <div id="sidebar-wrapper">
            <ul className="sidebar-nav">
               <p><img src={logoImage} className="img-fluid" alt=""/> </p>
-              <li><a onClick={() => setPage(0)} >Dashboard</a></li>
-              <li><a onClick={() => setPage(1)} >Your Farm</a></li>
+              <li> <a onClick={() => setPage(0)}><div>
+                <Pulse text="Dashboard"></Pulse> 
+                </div>
+                </a></li>
+              <li><a onClick={() => setPage(1)} ><SquareWithHill text="Your Farm"></SquareWithHill></a></li>
               <li><a onClick={() => setPage(2)} >Diet Evaluator</a></li>
               <li><a onClick={() => setPage(3)} >Time Budget Tool</a></li>
               <li><a onClick={() => setPage(4)} >Milk Revenue</a></li>
@@ -42,23 +61,33 @@ const [page, setPage] = useState(0);
            </ul>
         </div>
 
+        
         <div  id="top-nav">
           <TopNav toggle = {toggleNav}>
             <NavItem icon="Yes"></NavItem>
             <NavItem icon="DAn"></NavItem>
             <NavItem icon="Kwl"></NavItem>
-
           </TopNav>
         </div>
+        
+
 
         {/*  main content */}
         <div id="page-content-wrapper">
-          <div className="container-fluid">
+          <div className="container-fluid ms-0" >
             <div className="row">
               <div className="col-lg-12">
                 <p className="fs-1">Home Page</p>
                 
-                <div>
+                <div id="line">
+                  <svg width= {widthScreen} >
+                    <rect width={widthScreen} />
+                    Sorry, your browser does not support inline SVG.  
+                  </svg>
+                </div>
+
+
+                <div id="mainPages">
                   {page == 0 ? 
                     <DashboardMain></DashboardMain>: 
                   page == 1 ?

@@ -16,8 +16,14 @@ const DashboardMain = () => {
 
                 </div>
                 <div className="col-1">
-                    <CalendarComponent></CalendarComponent> 
+                    <CalendarComponent color={"#00f"}></CalendarComponent> 
+                    {/* 
+                        const dateValue: Date = new Date(New Date().getFullYear(), new Date().getMonth, 20)
+                        assign to value 
+                        isMultiSelection ={true}
 
+                        
+                    */}
                     <h7>Reminders</h7>
                     <p>First</p>
                     <p>Second</p>

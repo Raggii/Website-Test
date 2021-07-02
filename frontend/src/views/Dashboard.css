@@ -1,3 +1,7 @@
+@import url("http://cdn.syncfusion.com/ej2/material.css");
+/* @import url("../node_modules/@syncfusion/ej2-buttons/styles/material.css");
+@import url("../node_modules/@syncfusion/ej2-react-calendars/styles/material.css"); */
+
 #sidebar-wrapper {
   z-index: 1;
   position: absolute;
@@ -6,6 +10,7 @@
   height: 100%;
   overflow-y: hidden;
   background: #0021a5;
+  display: flex;
 }
 
 #page-content-wrapper {
@@ -46,6 +51,14 @@
   transition: ease-out 300ms;
 }
 
+#mainPages {
+  margin-top: 20px;
+}
+#line {
+  background-color: #474a4d;
+  height: 2px;
+}
+
 .sidebar-nav {
   padding: 0;
   list-style: none;
@@ -58,9 +71,12 @@
 }
 
 .sidebar-nav li a {
-  padding-top: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 40px;
   display: block;
   text-decoration: none;
+  align-items: center;
 }
 
 .sidebar-nav p {
