@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages
-import LandingPage from "./views/LandingPage";
+import LandingPage from "./views/Pages/Landing/Landing";
 import Login from "./views/Pages/Login/Login";
 import Dashboard from "./views/Dashboard";
 import FirstPage from "./views/InitialInputs/FirstPage";
