@@ -53,9 +53,11 @@ export default function LandingPage() {
       </header>
       <main>
         <div className={styles.titleWrap}>
-          <div className={styles.bannerBetween}>
-            <div className={styles.titleCard}>
-              <h1 className={styles.titleCardContent}>Chase Bovine Services</h1>
+          <div className={styles.bannerGradient}>
+            <div className={styles.bannerBetween}>
+              <div className={styles.titleCard}>
+                <h1 className={styles.titleCardContent}>Chase Bovine Services</h1>
+              </div>
             </div>
           </div>
         </div>
