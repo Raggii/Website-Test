@@ -26,6 +26,6 @@ router.post(
 );
 
 // Create a registration token
-router.get("/createRegisterToken", authenticateAccessToken, authController.createRegisterToken);
+router.post("/createRegisterToken", authenticateAccessToken, authController.createRegisterToken);
 
 export = router;

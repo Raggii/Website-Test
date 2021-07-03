@@ -1,10 +1,10 @@
 import pgPromise from "pg-promise";
 import AuthService from "../../services/authService.js";
-import db from "../../../config/dbConfig.js";
+import dbHandler from "../../../config/dbConfig.js";
 
 export class SessionDAO {
   private static _instance: SessionDAO = null;
-  private conn = db;
+  private conn = dbHandler.Instance.getConn();
   private auth = new AuthService();
 
   /**
@@ -21,17 +21,6 @@ export class SessionDAO {
   }
 
   private constructor() {}
-
-  /**
-   * Creates a session table that contains session tokens used for creating accounts
-   *
-   * @param t a transaction that is currently running.
-   */
-  async initSessionsTable(t: pgPromise.ITask<{}>): Promise<void> {
-    await t.none(`CREATE TABLE IF NOT EXISTS sessions (
-      id VARCHAR(64) PRIMARY KEY
-    );`);
-  }
 
   /**
    * Attempts to generate a register token. But may throw an error if the token already exists

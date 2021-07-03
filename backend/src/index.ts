@@ -1,4 +1,4 @@
-import { disconnectDatabase, initDatabase } from "./config/dbConfig";
+import DatabaseConfig from "./config/dbConfig";
 import routers from "./api/routes/routers";
 
 // Require the middle ware libraries.
@@ -20,7 +20,7 @@ const BASE_URL = process.env.BASE_URL || "localhost";
 
 const initiation = async () => {
   // initiate the database.
-  await initDatabase();
+  await DatabaseConfig.Instance.initDatabase();
 
   // initiate the dgaa Service
   await dgaaService();
@@ -43,7 +43,7 @@ const initiation = async () => {
 
   // On exit we want to disconnect from the database.
   process.on("exit", () => {
-    disconnectDatabase();
+    DatabaseConfig.Instance.disconnectDatabase();
   });
 
   // Starting the server

@@ -1,5 +1,5 @@
 import { User } from "../userModel";
-import db from "../../../config/dbConfig.js";
+import dbHandler from "../../../config/dbConfig.js";
 import pgPromise from "pg-promise";
 import { RoleType } from "../roleModel.js";
 import { SessionDAO } from "./sessionDAO";
@@ -12,7 +12,7 @@ export class UserDAO {
    * Contains the instance.
    */
   private static _instance: UserDAO = null;
-  private conn = db;
+  private conn = dbHandler.Instance.getConn();
   /**
    * Stores the instance of the session Data Access Object to interact with the database.
    * This will also be lazily instantiated with the userModel.
@@ -33,21 +33,6 @@ export class UserDAO {
   }
 
   private constructor() {}
-
-  async initUserTable(t: pgPromise.ITask<{}>): Promise<void> {
-    await t.none(`CREATE TABLE IF NOT EXISTS accounts (
-      id serial PRIMARY KEY,
-      username VARCHAR(40) UNIQUE NOT NULL,
-      fname varchar(50),
-      lname varchar(50),
-      email varchar(40) UNIQUE NOT NULL,
-      hash varchar(72) NOT NULL,
-      salt varchar(72) NOT NULL,
-      created_on timestamp(6) DEFAULT current_timestamp,
-      role_id INT NOT NULL,
-      FOREIGN KEY (role_id) REFERENCES role (id)
-    );`);
-  }
 
   /**
    * Checks if the default admin account exists in the database.
