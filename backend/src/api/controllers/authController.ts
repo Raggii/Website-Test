@@ -1,0 +1,126 @@
+import { Request, Response } from "express";
+import { UserModel } from "../models/userModel";
+import { RoleModel } from "../models/roleModel";
+import AuthService from "../services/authService";
+import { Result, ValidationError, validationResult } from "express-validator";
+
+const authService = new AuthService();
+const userModel = new UserModel();
+const roleModel = new RoleModel();
+
+/**
+ * Performs the registration steps when attempting to add a new user.
+ */
+const register = async (req: Request, res: Response) => {
+  // Ensuring that we have the correct elements
+  const errors: Result<ValidationError> = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.error(errors);
+    return res.status(400).json({
+      message: "Some user data is missing.",
+    });
+  }
+
+  // Verify registeration token
+  if (!(await userModel.isValidRegisterToken(req.params.registerToken))) {
+    return res.status(403).json({ message: "Register token is invalid" });
+  }
+
+  // Ensure that the username is unique
+  if (!userModel.isUsernameUnique(req.body.username)) {
+    return res.status(409).json({
+      message: "Username is not unique.",
+    });
+  }
+
+  // Attempt to add the user data to the database
+  await userModel
+    .addNewUser(req.body, req.params.registerToken)
+    .then((userId: number) => {
+      // If we don't have the user id this should have failed.
+      if (userId === null) throw new Error("userId === null");
+
+      // Create JWT Token
+      const jwtToken = authService.signToken({ userId });
+      console.info(`New user with id ${userId} has a jwt token.`);
+
+      // Success response
+      return res
+        .status(201)
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .json({
+          message: "User has been successfully.",
+        });
+    })
+    .catch((e) => {
+      console.error(e);
+      return res.status(500).json({
+        message: "Something went wrong trying to sign you up.",
+      });
+    });
+};
+
+const login = async (req: Request, res: Response) => {
+  try {
+    // Ensuring that we have the correct elements
+    const errors: Result<ValidationError> = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.error(errors);
+      return res.status(400).json({
+        message: "Some user data is missing.",
+      });
+    }
+
+    const { username, password } = req.body;
+
+    // Check that the user is valid
+    const response: { err: string; userId: number } = await userModel.isUserValid(
+      username,
+      password
+    );
+
+    // If the user is valid we return a token
+    if (!response.err) {
+      // Generate the JWT token for authenticated requests.
+      const jwtToken = authService.signToken({ userId: response.userId });
+
+      return res
+        .status(200)
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .json({ message: "Successfully authenticated!" });
+    } else {
+      return res.status(400).json({ message: "Password or username is invalid." });
+    }
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: "Something went wrong when logging in..." });
+  }
+};
+
+const createRegisterToken = async (req: Request, res: Response) => {
+  // Verify the user has permission.
+  if (
+    !(await roleModel.isDefaultAdmin((await userModel.getUser(req.body.tokData.userId)).role_id))
+  ) {
+    return res.status(403).json({ message: "You lack permission to perform this action" });
+  }
+
+  // generate and return the token
+  userModel
+    .generateRegisterToken()
+    .then((regToken) => {
+      // If the reg token does not correctly generate
+      if (!regToken) throw new Error();
+
+      return res.status(200).json({ tok: regToken });
+    })
+    .catch((e) => {
+      console.error(e);
+      return res.status(500).json({ err: "Something went wrong..." });
+    });
+};
+export default {
+  register,
+  login,
+  createRegisterToken,
+};
