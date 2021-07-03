@@ -1,0 +1,31 @@
+.loginContainer {
+  background-color: #f6f6f6;
+  max-width: 500px;
+  border-radius: 0.3em;
+  box-shadow: 0.2em 0.2em 0.2em 0.1rem #35353520;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.imageResize {
+  width: 175px;
+  height: auto;
+}
+
+#outerStyle {
+  max-height: 610px;
+  overflow: hidden;
+  min-height: 0px;
+  position: absolute;
+  transform: translate3d(0px, 38px, 0px);
+  top: 0px;
+  left: 0px;
+  will-change: transform;
+}
+
+#innerStyle {
+  max-height: 592px;
+  overflow-y: auto;
+  min-height: 0px;
+}
