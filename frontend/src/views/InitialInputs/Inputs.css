@@ -3,7 +3,7 @@
   max-width: 500px;
   border-radius: 0.3em;
   box-shadow: 0.2em 0.2em 0.2em 0.1rem #35353520;
-  padding-bottom: 0px;
+  padding-bottom: 25px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -13,19 +13,7 @@
   height: auto;
 }
 
-#outerStyle {
-  max-height: 610px;
-  overflow: hidden;
-  min-height: 0px;
-  position: absolute;
-  transform: translate3d(0px, 38px, 0px);
-  top: 0px;
-  left: 0px;
-  will-change: transform;
-}
-
-#innerStyle {
-  max-height: 592px;
-  overflow-y: auto;
-  min-height: 0px;
+.buttons {
+  display: flex;
+  justify-content: center;
 }

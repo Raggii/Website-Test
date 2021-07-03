@@ -35,7 +35,7 @@ export default function ForthPage() {
                     </div>
                     
                     <div class="col-2">
-                        <Input name="Total Zinc"></Input>
+                        <Input></Input>
                     </div>
                     <div class="col-2">
                         <Input  ></Input>

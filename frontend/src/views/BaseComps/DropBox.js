@@ -6,12 +6,14 @@ export default function DropBox({title,opt1,opt2,opt3}) {
     return (
         <>
             <div>
+                <span>{title}</span>
                 <div>
-                    <select>
+
+                    <select  style={{width: "100%",borderColor: "#ced4da",padding: "7px"}}>
                         <option value="">Select an Option</option>
                         <option value="Male">{opt1}</option>
                         <option value="Female">{opt2}</option>
-                        <option value="Other">Other</option>
+                        <option value="Other">{opt3}</option>
                     </select>
                     <div className="dropdown-menu">
                         <div class="inner show">

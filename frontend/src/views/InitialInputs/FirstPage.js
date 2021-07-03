@@ -8,7 +8,7 @@ import largeLogo from "../../assets/largeLogo.PNG";
 export default function FirstPage() {
     return (
         <>
-        <div className="row mt-3 ml-10">
+        <div className="row ml-10">
             <div className="col d-flex justify-content-left">
                 <img className="imageResize" src={largeLogo} alt="large logo"></img>
             </div>
@@ -17,7 +17,7 @@ export default function FirstPage() {
                 
                 <div className="loginContainer">
                     
-                    <h2 className="m-4 text-center">
+                    <h2 className="m-5 text-center">
                         Please Enter Your Farm Details
                     </h2>
                     <span className="inline-flex ">
@@ -47,9 +47,27 @@ export default function FirstPage() {
                                 <Input name="Prot Percentage:" ></Input>
                             </div>
                         </div>
-                            <DropBox title ="Choose" opt1="male" opt2="Felame" opt3="Dan"></DropBox>
+                        <div className="row">
+                            <div className="col-6">
+                                <DropBox title ="Production Phase:" opt1="male" opt2="Felame" opt3="Dan"></DropBox>
+                            </div>
+                            <div className="col-6">
+                                <DropBox title ="Predominat Breed:" opt1="male" opt2="Felame" opt3="Dan"></DropBox>
+                            </div>
+                        </div>
+                            
                         <div>
                             <Input name="Production Breed:" ></Input>
+                        </div>
+                        <div className="buttons">
+                            <div className="row">
+                                <div className="col-6">
+                                    <a type="button" class="btn btn-danger">Cancel</a>
+                                </div>
+                                <div className="col-6">
+                                    <a type="button" class="btn btn-primary" href="/DataCollect2">Continue</a>
+                                </div>
+                            </div>
                         </div>
                     </span>
                 </div>
