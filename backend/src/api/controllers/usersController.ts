@@ -45,10 +45,12 @@ const register = async (req: Request, res: Response) => {
       console.info(`New user with id ${userId} has a jwt token.`);
 
       // Success response
-      return res.status(201).json({
-        message: "User has been successfully.",
-        tok: jwtToken,
-      });
+      return res
+        .status(201)
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .json({
+          message: "User has been successfully.",
+        });
     })
     .catch((e) => {
       console.error(e);
@@ -82,7 +84,10 @@ const login = async (req: Request, res: Response) => {
       // Generate the JWT token for authenticated requests.
       const jwtToken = authService.signToken({ userId: response.userId });
 
-      return res.status(200).json({ message: "Successfully authenticated!", tok: jwtToken });
+      return res
+        .status(200)
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .json({ message: "Successfully authenticated!" });
     } else {
       return res.status(400).json({ message: "Password or username is invalid." });
     }

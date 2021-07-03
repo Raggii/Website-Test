@@ -11,7 +11,7 @@ const authService = new AuthService();
  * @param next function to call for the next middleware level.
  */
 export async function authenticateAccessToken(req: Request, res: Response, next: NextFunction) {
-  const header = req.headers.authorization;
+  const header = req.cookies[process.env.JWT_COOKIE_NAME];
 
   if (header) {
     const headerVals = header.split(" ");

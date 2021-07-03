@@ -52,9 +52,11 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const jwtToken = authService.signToken({ userId });
         console.info(`New user with id ${userId} has a jwt token.`);
         // Success response
-        return res.status(201).json({
+        return res
+            .status(201)
+            .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+            .json({
             message: "User has been successfully.",
-            tok: jwtToken,
         });
     })
         .catch((e) => {
@@ -81,7 +83,10 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (!response.err) {
             // Generate the JWT token for authenticated requests.
             const jwtToken = authService.signToken({ userId: response.userId });
-            return res.status(200).json({ message: "Successfully authenticated!", tok: jwtToken });
+            return res
+                .status(200)
+                .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+                .json({ message: "Successfully authenticated!" });
         }
         else {
             return res.status(400).json({ message: "Password or username is invalid." });

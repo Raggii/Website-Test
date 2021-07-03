@@ -24,7 +24,7 @@ const authService = new authService_1.default();
  */
 function authenticateAccessToken(req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
-        const header = req.headers.authorization;
+        const header = req.cookies[process.env.JWT_COOKIE_NAME];
         if (header) {
             const headerVals = header.split(" ");
             const token = headerVals[headerVals.length - 1];
