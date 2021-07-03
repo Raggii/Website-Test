@@ -72,8 +72,9 @@
 .titleCard {
   display: flex;
   flex-direction: column;
-
-  padding: 2em 5em;
+  text-align: center;
+  width: 100%;
+  padding: 2em 0em;
 
   color: #fff;
 }
@@ -108,6 +109,14 @@
 .sectionImage {
   max-width: 1000px;
   width: 100%;
+  opacity: 0;
+  transform: translateY(20%);
+  transition: 600ms ease-in-out;
+}
+
+.showSectionImage {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .indexFooter {
@@ -130,5 +139,12 @@
 
   .navbar {
     justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 450px) {
+  .titleCard {
+    padding: 2rem 0;
+    padding-left: 0.5rem;
   }
 }

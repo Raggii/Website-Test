@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Landing.module.css";
 import logo from "./../../../assets/white-transparent-logo.png";
 import img1 from "./../../../assets/misc-and-some-duplicates-256-3.jpg";
@@ -6,6 +6,23 @@ import img2 from "./../../../assets/misc-and-some-duplicates-195-2-1024x683.jpg"
 import img3 from "./../../../assets/index-image-3.jpg";
 import img4 from "./../../../assets/index-image-4.jpg";
 import { Link } from "react-router-dom";
+
+export async function revealImageAnimation() {
+  const images = document.querySelectorAll(".has-image-animation");
+  const windowHeight = window.innerHeight;
+  const revealingPoint = 200;
+  console.log(images);
+
+  for (let i = 0; i < images.length; i++) {
+    const imageTopDistance = images[i].getBoundingClientRect().top;
+
+    if (imageTopDistance < windowHeight - revealingPoint) {
+      images[i].classList.add(styles.showSectionImage);
+    } else {
+      images[i].classList.remove(styles.showSectionImage);
+    }
+  }
+}
 
 function Section({ imgSrc, imgAlt, imgIsLeft, children }) {
   if (imgIsLeft) {
@@ -16,7 +33,7 @@ function Section({ imgSrc, imgAlt, imgIsLeft, children }) {
           style={{ backgroundColor: "#161616ff", color: "#f5f5f5" }}
         >
           <img
-            className={styles.sectionImage}
+            className={styles.sectionImage + " has-image-animation"}
             style={{ marginLeft: "auto" }}
             src={imgSrc}
             alt={imgAlt}
@@ -35,7 +52,11 @@ function Section({ imgSrc, imgAlt, imgIsLeft, children }) {
           <div className={styles.sectionChildrenWrap} style={{ marginLeft: "auto" }}>
             {children}
           </div>
-          <img className={styles.sectionImage} src={imgSrc} alt={imgAlt}></img>
+          <img
+            className={styles.sectionImage + " has-image-animation"}
+            src={imgSrc}
+            alt={imgAlt}
+          ></img>
         </section>
       </>
     );
@@ -43,6 +64,14 @@ function Section({ imgSrc, imgAlt, imgIsLeft, children }) {
 }
 
 export default function LandingPage() {
+  useEffect(() => {
+    window.addEventListener("scroll", revealImageAnimation);
+
+    return () => {
+      window.removeEventListener("scroll", revealImageAnimation);
+    };
+  }, []);
+
   return (
     <>
       <header className={styles.navbar}>
