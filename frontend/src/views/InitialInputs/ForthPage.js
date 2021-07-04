@@ -1,17 +1,38 @@
 import React from 'react'
 import Input from '../BaseComps/Input'
 import DropBox from '../BaseComps/DropBox'
+import largeLogo from "../../assets/largeLogo.PNG";
 
 export default function ForthPage() {
     return (
         <>
-        <div class="row">
-            {/* Consultant */}
-            <div class="col-4"></div>
-            <h2 class="col-4">
-                {"       CHASE BOVINE SERVICES PAGE 4"}
-            </h2>       
-        </div>
+        <div className="row ml-10">
+            <div className="col d-flex justify-content-left">
+                <img className="imageResize" src={largeLogo} alt="large logo"></img>
+            </div>
+        </div>  
+            <div className="d-flex justify-content-center">
+                
+                <div className="loginContainerRadio">
+                    
+                    <h2 className="m-5 text-center">
+                        CHASE BOVINE SERVICES PAGE 4
+                    </h2>
+                    <span className="inline-flex ">
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-2">
+                                PPM                
+                            </div>
+                            <div class="col-2">
+                                MG/C/D
+                            </div>
+                        </div>
+                        
+                    </span>
+                </div>
+                
+            </div>
         {/* Needs to move these to the top of the inputs */}
             <div>
                 <div class="row">
