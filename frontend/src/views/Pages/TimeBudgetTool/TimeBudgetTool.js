@@ -1,4 +1,5 @@
 import React from 'react'
+import "./TimeBudgetTool.css"
 import { PieChart } from 'react-minimal-pie-chart';
 
 // <PieChart
@@ -12,7 +13,12 @@ export default function TimeBudgetTool() {
     return (
         <>
             <div className="row text-center">
-                <div className="col-8">Pie Chart</div>
+                <div className="col-8">
+                    <div className="sideBox">
+                        Pie Chart
+                    </div>
+
+                </div>
                 <div className="col-4">Side bar</div>
 
             </div>
