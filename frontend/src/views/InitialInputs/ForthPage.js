@@ -46,7 +46,7 @@ export default function ForthPage() {
                             </div>
                         </div>
                         <RowInTable Title="Total Zinc"></RowInTable>
-                        
+
                         <RowInTable Title="Organic Zinc"></RowInTable>
 
                         <RowInTable Title="Total Manganese"></RowInTable>
@@ -62,7 +62,16 @@ export default function ForthPage() {
                         <RowInTable Title="Total Selenium"></RowInTable>
 
                         <RowInTable Title="Organic Chromium"></RowInTable>
-
+                        <div className="buttons">
+                            <div className="row">
+                                <div className="col-6">
+                                    <a type="button" class="btn btn-danger">Cancel</a>
+                                </div>
+                                <div className="col-6">
+                                    <a type="button" class="btn btn-primary" href="/DataCollect2">Continue</a>
+                                </div>
+                            </div>
+                        </div>
                     </span>
                 </div>
                 
