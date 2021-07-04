@@ -3,13 +3,13 @@ import "./TimeBudgetTool.css"
 import { PieChart } from 'react-minimal-pie-chart';
 import Input from '../../BaseComps/Input';
 
-<PieChart
+{/* <PieChart
     data={[
         { title: 'One', value: 10, color: '#E38627', animate:true},
         { title: 'Two', value: 15, color: '#C13C37' },
         { title: 'Three', value: 20, color: '#6A2135' },
     ]}
-/>
+/> */}
 export default function TimeBudgetTool() {
     return (
         <>
