@@ -1,8 +1,9 @@
 import { CalendarComponent } from "@syncfusion/ej2-react-calendars";
+import styles from "./DashboardCalender.module.css";
 
 export const DashboardCalender = () => {
   return (
-    <>
+    <div className={styles.calenderWrap}>
       <CalendarComponent color={"#00f"}></CalendarComponent>
       {/* 
                         const dateValue: Date = new Date(New Date().getFullYear(), new Date().getMonth, 20)
@@ -12,10 +13,12 @@ export const DashboardCalender = () => {
                         
                     */}
       <h7>Reminders</h7>
-      <p>First</p>
-      <p>Second</p>
-      <p>Third</p>
-      <p>Forth</p>
-    </>
+      <ul>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+        <li>Forth</li>
+      </ul>
+    </div>
   );
 };

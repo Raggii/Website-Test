@@ -1,14 +1,12 @@
 import React from "react";
+import styles from "./DashboardMain.module.css";
 import { DashboardCalender } from "../../../comps/DashboardCalender/DashboardCalender";
 
 const DashboardMain = () => {
   return (
-    <div className="row">
+    <div className={styles.dashboardWrap}>
       <div className="col">Column</div>
-      <div className="col">Column</div>
-      <div className="col">
-        <DashboardCalender />
-      </div>
+      <DashboardCalender />
     </div>
   );
 };

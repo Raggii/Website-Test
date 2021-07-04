@@ -1,0 +1,4 @@
+.calenderWrap {
+  display: flex;
+  flex-direction: column;
+}
