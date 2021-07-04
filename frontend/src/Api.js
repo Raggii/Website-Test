@@ -4,7 +4,7 @@ const serverUrl = process.env.REACT_APP_API_URL;
 
 const instance = Axios.create({
   baseURL: serverUrl,
-  timeout: 3000,
+  timeout: 5000,
 });
 
 const endpoints = {
