@@ -36,12 +36,12 @@ const register = async (req: Request, res: Response) => {
   // Attempt to add the user data to the database
   await userModel
     .addNewUser(req.body, req.params.registerToken)
-    .then((userId: number) => {
+    .then(({ userId, role }) => {
       // If we don't have the user id this should have failed.
       if (userId === null) throw new Error("userId === null");
 
       // Create JWT Token
-      const jwtToken = authService.signToken({ userId });
+      const jwtToken = authService.signToken({ userId, role });
       console.info(`New user with id ${userId} has a jwt token.`);
 
       // Success response
@@ -74,15 +74,15 @@ const login = async (req: Request, res: Response) => {
     const { username, password } = req.body;
 
     // Check that the user is valid
-    const response: { err: string; userId: number } = await userModel.isUserValid(
-      username,
-      password
-    );
+    const response = await userModel.isUserValid(username, password);
 
     // If the user is valid we return a token
     if (!response.err) {
       // Generate the JWT token for authenticated requests.
-      const jwtToken = authService.signToken({ userId: response.userId });
+      const jwtToken = authService.signToken({
+        userId: response.data.userId,
+        role: response.data.role,
+      });
 
       return res
         .status(200)

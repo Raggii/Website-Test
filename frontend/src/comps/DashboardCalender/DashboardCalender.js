@@ -6,13 +6,11 @@ export const DashboardCalender = () => {
     <div className={styles.calenderWrap}>
       <CalendarComponent color={"#00f"}></CalendarComponent>
       {/* 
-                        const dateValue: Date = new Date(New Date().getFullYear(), new Date().getMonth, 20)
-                        assign to value 
-                        isMultiSelection ={true}
-
-                        
+        const dateValue: Date = new Date(New Date().getFullYear(), new Date().getMonth, 20)
+        assign to value 
+        isMultiSelection ={true}
                     */}
-      <h7>Reminders</h7>
+      <h6>Reminders</h6>
       <ul>
         <li>First</li>
         <li>Second</li>

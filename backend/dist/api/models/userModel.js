@@ -90,7 +90,7 @@ class UserModel {
                 // We throw an error if the user id is null.
                 if (userId === null)
                     throw new Error("Something went wrong trying to add user.");
-                return userId;
+                return { userId, role: roleModel_js_1.RoleType.USER };
             }
             catch (e) {
                 console.error(e);
@@ -111,18 +111,18 @@ class UserModel {
                 // Check if the user exists
                 const user = yield this.userDaoInstance.getUserByUsername(username);
                 if (!user) {
-                    return { err: "Username is invalid", userId: null };
+                    return { err: "Username is invalid", data: null };
                 }
                 // Check the password
                 if (yield this.auth.verifyPassword(password, user.hash)) {
-                    return { err: null, userId: user.id };
+                    return { err: null, data: { userId: user.id, role: user.role_id } };
                 }
                 else {
-                    return { err: "Password is invalid", userId: null };
+                    return { err: "Password is invalid", data: null };
                 }
             }
             catch (e) {
-                return { err: "SOMETHING", userId: null };
+                return { err: "SOMETHING", data: null };
             }
         });
     }

@@ -70,7 +70,10 @@ export class UserModel {
    * @param user A new user that we want to add.
    * @returns The user's ID.
    */
-  public async addNewUser(newUser: NewUser, registerToken: string): Promise<number> {
+  public async addNewUser(
+    newUser: NewUser,
+    registerToken: string
+  ): Promise<{ userId: number; role: RoleType }> {
     // This is not really necessary, as functions providing newUser will probably
     // Sanatise the input anyway.
     if (!isNewUserValid(newUser)) return null;
@@ -98,7 +101,7 @@ export class UserModel {
       // We throw an error if the user id is null.
       if (userId === null) throw new Error("Something went wrong trying to add user.");
 
-      return userId;
+      return { userId, role: RoleType.USER };
     } catch (e) {
       console.error(e);
       return null;
@@ -112,22 +115,25 @@ export class UserModel {
    * @param password Attempt password
    * @returns err contains the error message. isValid defines if the combination is valid.
    */
-  async isUserValid(username: string, password: string): Promise<{ err: string; userId: number }> {
+  async isUserValid(
+    username: string,
+    password: string
+  ): Promise<{ err: string; data: { userId: number; role: RoleType } }> {
     try {
       // Check if the user exists
       const user: User = await this.userDaoInstance.getUserByUsername(username);
       if (!user) {
-        return { err: "Username is invalid", userId: null };
+        return { err: "Username is invalid", data: null };
       }
 
       // Check the password
       if (await this.auth.verifyPassword(password, user.hash)) {
-        return { err: null, userId: user.id };
+        return { err: null, data: { userId: user.id, role: user.role_id } };
       } else {
-        return { err: "Password is invalid", userId: null };
+        return { err: "Password is invalid", data: null };
       }
     } catch (e) {
-      return { err: "SOMETHING", userId: null };
+      return { err: "SOMETHING", data: null };
     }
   }
 

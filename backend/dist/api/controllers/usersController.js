@@ -44,12 +44,12 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Attempt to add the user data to the database
     yield userModel
         .addNewUser(req.body, req.params.registerToken)
-        .then((userId) => {
+        .then(({ userId, role }) => {
         // If we don't have the user id this should have failed.
         if (userId === null)
             throw new Error("userId === null");
         // Create JWT Token
-        const jwtToken = authService.signToken({ userId });
+        const jwtToken = authService.signToken({ userId, role });
         console.info(`New user with id ${userId} has a jwt token.`);
         // Success response
         return res
@@ -82,7 +82,10 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         // If the user is valid we return a token
         if (!response.err) {
             // Generate the JWT token for authenticated requests.
-            const jwtToken = authService.signToken({ userId: response.userId });
+            const jwtToken = authService.signToken({
+                userId: response.data.userId,
+                role: response.data.role,
+            });
             return res
                 .status(200)
                 .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: false })
