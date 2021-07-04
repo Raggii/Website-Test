@@ -61,6 +61,7 @@ const useLoginForm = () => {
   const [values, setValues] = useState({
     username: "",
     password: "",
+    loading: false,
   });
 
   const [errors, setErrors] = useState({
@@ -100,6 +101,7 @@ const useLoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setValues({ ...values, loading: true });
 
     const { success, errorsCopy } = validateFields();
     setErrors(errorsCopy);
@@ -157,7 +159,7 @@ export default function Login() {
   const { values, errors, handleChange, handleSubmit } = useLoginForm();
 
   return (
-    <>
+    <main className={styles.pageBackground}>
       <div className={`container px-4 pt-4 ${styles.loginContainer}`}>
         <div className="row mb-1">
           <div className="col d-flex justify-content-center">
@@ -220,16 +222,20 @@ export default function Login() {
           {/* Login Button */}
           <div className="row mt-4 pb-4 text-center mb-5">
             <div className="col">
-              <button
-                className={`btn btn-outline-dark ${styles.primaryButton}`}
-                onClick={handleSubmit}
-              >
-                Login
-              </button>
+              {values.loading ? (
+                <div class="spinner-grow text-primary" role="status" />
+              ) : (
+                <button
+                  className={`btn btn-outline-dark ${styles.primaryButton}`}
+                  onClick={handleSubmit}
+                >
+                  Login
+                </button>
+              )}
             </div>
           </div>
         </form>
       </div>
-    </>
+    </main>
   );
 }
