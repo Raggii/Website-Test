@@ -1,132 +1,82 @@
 import React from 'react'
 import RadioButton from "../BaseComps/RadioButton"
+
+import largeLogo from "../../assets/largeLogo.PNG";
 export default function ThirdPage() {
     return (
-        <>    
-            <div class="row">
-                <div class="col-4"></div>
-                <h2 class="col-4">
-                    {"       CHASE BOVINE SERVICES PAGE 3"}
-                </h2>       
+        <>  
+        <div className="row ml-10">
+            <div className="col d-flex justify-content-left">
+                <img className="imageResize" src={largeLogo} alt="large logo"></img>
             </div>
-
-            {/* Need to be in columns */}
-            <div className="row"> 
-                <div className= "col-4"> </div>
-                <div className= " col-1">None</div>
-                <div className= " col-1">Slight</div>
-                <div className= " col-1">Moderate</div>
-                <div className= " col-1">Very</div>
-            </div>
-            <div>
-                {/* Lameness */}
-                <RadioButton title = "Lameness"></RadioButton>
-
-                {/* Somatic Cell Count */}
-                <RadioButton title = "Somatic Cell Count"></RadioButton>
-
-                {/* Body Condition */}
-                <RadioButton title = "Body Condition"></RadioButton>
-            </div>
-
-            {/* Second Three */}
-            <div>        
-                <div className="row">
-                    <div className="col-2"></div>
-                    <div className="col-2"><h6>Reproductive Preformance</h6></div>
-                </div>
-                {/* NonCyler Cows */}
-                <RadioButton title = "NonCyler Cows"></RadioButton>
-
-                {/* 6wk inCalf % */}
-                <RadioButton title = "6wk inCalf %"></RadioButton>
-
-
-                {/* Final Empty % */}
-                <RadioButton title = "Final Empty"></RadioButton>
-
-            </div>
-
-
-            {/* Third Three */}
-            <div>
+        </div>  
+            <div className="d-flex justify-content-center">
                 
-                <div className="row">
-                    <div className="col-2"></div>
-                    <div className="col-2"><h6>Transition Disease Incidence</h6></div>
-                </div>
-                {/* Uterine Disease - RFM */}
-                <RadioButton title = "Uterine Disease"></RadioButton>
-
-
-                {/* Mastitis */}
-                <RadioButton title = "Mastitis"></RadioButton>
-
-
-                {/* Ketosis - Metabolic Dz */}
-                <RadioButton title = "Ketosis Metabolic"></RadioButton>
-
-            </div>
-
-
-
-            {/* Forth section */}
-            <div>
-                <div className="row">
-                    <div className="col-2"></div>
-                    <div className="col-2"><h6>Trace Mineral Monitoring</h6></div>
-                </div>
-                {/* Selenium Status */}
-                <RadioButton title = "Selenium Status"></RadioButton>
-
-
-                {/* Copper Deficiency */}
-                <RadioButton title = "Copper Deficiency"></RadioButton>
-
-
-                {/* Copper Toxicity */}
-                <RadioButton title = "Copper Toxicity"></RadioButton>
-
-
-            </div>
-
-
-            {/* Last Section*/}
-            <div>
-                <div className="row">
-                    <div className="col-2"></div>
-                    <div className="col-2"><h6>Dietary Antagonists</h6></div>
-                </div>
-                {/* Iron */}
-                <RadioButton title = "Iron"></RadioButton>
-
-
-                {/* Molydenum */}
-                <RadioButton title = "Molydenum"></RadioButton>
-
-
-
-                <div class="row">
-                    <div className="col-4"></div>
-                    <div class="col-1">
-                        <a type="button" class="btn btn-danger">Cancel</a>
-                    </div>
+                <div className="loginContainerRadio {
+">
                     
-                    <div class="col-1">
-                        <a type="button" class="btn btn-warning">Zero Concerns</a>
+                    <h2 className="m-5 text-center">
+                        Animal Health Concerns
+                    </h2>
+                    <span className="inline-flex text-left">
 
-                    </div>
+                        <div className="row mb-2"> 
+                            <div className= "col-4 "></div>
+                            <div className= "col-2">None</div>
+                            <div className= "col-2">Slight</div>
+                            <div className= "col-2">Moderate</div>
+                            <div className= "col-2">Very</div>
+                        </div>
+                        <div className="row">
+                            <RadioButton title = "Lameness"></RadioButton>
+                            <RadioButton title = "Somatic Cell Count"></RadioButton>
+                            <RadioButton title = "Body Condition"></RadioButton>
+                        </div>
+                        <div className ="mt-2 mb-1">
+                            <h6>Reproductive Preformance</h6>
+                        </div>
+                        <div className="row">
+                            <RadioButton title = "NonCyler Cows"></RadioButton>
+                            <RadioButton title = "6wk inCalf %"></RadioButton>
+                            <RadioButton title = "Final Empty"></RadioButton>
+                        </div>
+                        <div className ="mt-2 mb-1">
+                            <h6 >Transition Disease Incidence</h6>
+                        </div>
+                        <div className="row">
+                            <RadioButton title = "Uterine Disease"></RadioButton>
+                            <RadioButton title = "Mastitis"></RadioButton>
+                            <RadioButton title = "Ketosis Metabolic"></RadioButton>
+                        </div>
+                        <div className ="mt-2 mb-1">
+                            <h6 >Trace Mineral Monitoring</h6>
+                        </div>
+                        <div className="row">
+                            <RadioButton title = "Selenium Status"></RadioButton>
+                            <RadioButton title = "Copper Deficiency"></RadioButton>
+                            <RadioButton title = "Copper Toxicity"></RadioButton>
+                        </div>
+                        <div className ="mt-2 mb-1">
+                            <h6 >Dietary Antagonists</h6>
+                        </div>
+                        <div className="row">
+                            <RadioButton title = "Iron"></RadioButton>
+                            <RadioButton title = "Molydenum"></RadioButton>
+                        </div>
 
-                    <div class="col-1">
-                        <a type="button" class="btn btn-secondary" href="/DataCollect2">Back</a>
-
-                    </div>
-                    <div class="col-1">
-                        <a type="button" class="btn btn-primary" href="/DataCollect4">Continue</a>
-
-                    </div>
+                        <div className="buttons mt-4">
+                            <div className="row">
+                                <div className="col-6">
+                                    <a type="button" class="btn btn-danger">Cancel</a>
+                                </div>
+                                <div className="col-6">
+                                    <a type="button" class="btn btn-primary" href="/DataCollect2">Continue</a>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
                 </div>
-
+                
             </div>
 
             

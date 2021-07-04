@@ -8,6 +8,16 @@
   padding-right: 20px;
 }
 
+.loginContainerRadio {
+  background-color: #f6f6f6;
+  max-width: 650px;
+  border-radius: 0.3em;
+  box-shadow: 0.2em 0.2em 0.2em 0.1rem #35353520;
+  padding-bottom: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .imageResize {
   width: 175px;
   height: auto;
