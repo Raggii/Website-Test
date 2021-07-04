@@ -158,7 +158,7 @@ export default function Login() {
 
   return (
     <>
-      <div className={`container px-4 pt-4 mt-5 ${styles.loginContainer}`}>
+      <div className={`container px-4 pt-4 ${styles.loginContainer}`}>
         <div className="row mb-1">
           <div className="col d-flex justify-content-center">
             <img src={largeLogo} alt="large logo"></img>

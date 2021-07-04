@@ -7,6 +7,13 @@
 
 body {
   background-color: var(--background-color);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(16, 25, 54, 0.637) 0%,
+    rgba(60, 79, 122, 0.6) 30%,
+    rgba(255, 130, 46, 0.205) 100%
+  );
 }
 
 .loginContainer {
@@ -14,6 +21,7 @@ body {
   max-width: 500px;
   border-radius: 0.3em;
   box-shadow: 0.2em 0.2em 0.2em 0.1rem #35353520;
+  margin-top: 10rem;
 }
 
 .inputField:focus {
