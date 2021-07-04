@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 // Pages
 import LandingPage from "./views/Pages/Landing/Landing";
@@ -10,6 +10,32 @@ import FirstPage from "./views/InitialInputs/FirstPage";
 import SecondPage from "./views/InitialInputs/SecondPage";
 import ThirdPage from "./views/InitialInputs/ThirdPage";
 import ForthPage from "./views/InitialInputs/ForthPage";
+
+// Auth libs
+import Cookies from "js-cookie";
+
+const authenticateUser = () => {
+  const jwtCookie = Cookies.get("chronousTheThirdEyedMonster");
+
+  if (jwtCookie) {
+    return true;
+  }
+  // Failed to authenticate
+  return false;
+};
+
+function PrivateRoute({ children, ...rest }) {
+  const response = authenticateUser();
+
+  return (
+    <Route
+      {...rest}
+      render={() => {
+        return response === true ? children : <Redirect to="/login" />;
+      }}
+    />
+  );
+}
 
 function App() {
   return (
@@ -23,29 +49,26 @@ function App() {
           <Login />
         </Route>
         {/* CHANGE THIS TO SOMETHING NICER!!!!! */}
-        <Route path="/DataCollect1">
+        <PrivateRoute path="/DataCollect1">
           <FirstPage />
-        </Route>
+        </PrivateRoute>
 
-        <Route path="/DataCollect2">
+        <PrivateRoute path="/DataCollect2">
           <SecondPage />
-        </Route>
+        </PrivateRoute>
 
-        <Route path="/DataCollect3">
+        <PrivateRoute path="/DataCollect3">
           <ThirdPage />
-        </Route>
+        </PrivateRoute>
 
-        <Route path="/DataCollect4">
+        <PrivateRoute path="/DataCollect4">
           <ForthPage />
-        </Route>
+        </PrivateRoute>
         {/* PLEASE IT IS TO EASY TO GET TO */}
 
-        <Route path="/Dashboard">
+        <PrivateRoute path="/Dashboard">
           <Dashboard />
-        </Route>
-        <Route path="/Testing">
-          <Dashboard />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </Router>
   );

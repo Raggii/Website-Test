@@ -111,7 +111,7 @@ const useLoginForm = () => {
     await Api.signIn(values.username, values.password)
       .then((res) => {
         if (res.status === 200) {
-          history.push("/dashboard");
+          history.push("/Dashboard");
         } else {
           throw Error("Unexpected response!");
         }
