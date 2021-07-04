@@ -7,6 +7,8 @@ const instance = Axios.create({
   timeout: 5000,
 });
 
+export const authenticateUser = () => {};
+
 const endpoints = {
   // Login user
   signIn: (username, password) => instance.post("/api/users/login", { username, password }),
