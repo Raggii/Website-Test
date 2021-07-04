@@ -47,7 +47,7 @@ const register = async (req: Request, res: Response) => {
       // Success response
       return res
         .status(201)
-        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: false })
         .json({
           message: "User has been successfully.",
         });
@@ -86,7 +86,7 @@ const login = async (req: Request, res: Response) => {
 
       return res
         .status(200)
-        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: false })
         .json({ message: "Successfully authenticated!" });
     } else {
       return res.status(400).json({ message: "Password or username is invalid." });

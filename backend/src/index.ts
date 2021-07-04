@@ -30,7 +30,7 @@ const initiation = async () => {
   // Adding the middleware
   app.use(bodyParser.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
   app.use(bodyParser.json()); // Automatically converts json data type into JSON object for the req.
-  app.use(cors()); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
+  app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true })); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
   app.use(cookieParser());
 
   // use routers

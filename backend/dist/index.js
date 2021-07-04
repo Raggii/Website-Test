@@ -37,7 +37,7 @@ const initiation = () => __awaiter(void 0, void 0, void 0, function* () {
     // Adding the middleware
     app.use(body_parser_1.default.urlencoded({ extended: false })); // Converts the body automatically dpending on the encoding
     app.use(body_parser_1.default.json()); // Automatically converts json data type into JSON object for the req.
-    app.use(cors_1.default()); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
+    app.use(cors_1.default({ origin: process.env.CORS_ORIGIN, credentials: true })); // Applies CORS variables. But might not work in the future, where we use cookies. Will need to set headers.
     app.use(cookie_parser_1.default());
     // use routers
     app.use("/api", routers_1.default);

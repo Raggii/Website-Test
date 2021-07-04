@@ -54,7 +54,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         // Success response
         return res
             .status(201)
-            .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+            .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: false })
             .json({
             message: "User has been successfully.",
         });
@@ -85,7 +85,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             const jwtToken = authService.signToken({ userId: response.userId });
             return res
                 .status(200)
-                .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+                .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: false })
                 .json({ message: "Successfully authenticated!" });
         }
         else {
