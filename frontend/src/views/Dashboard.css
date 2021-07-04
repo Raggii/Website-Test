@@ -2,6 +2,10 @@
 /* @import url("../node_modules/@syncfusion/ej2-buttons/styles/material.css");
 @import url("../node_modules/@syncfusion/ej2-react-calendars/styles/material.css"); */
 
+:root {
+  --primaryBackground: #f2f2f2;
+  --primaryFrontground: #ffffff;
+}
 #sidebar-wrapper {
   z-index: 1;
   position: absolute;
@@ -18,6 +22,7 @@
   width: 100%;
   position: absolute;
   padding: 15px;
+  background-color: var(--primaryBackground);
 }
 
 /* changes the sidebar to display */

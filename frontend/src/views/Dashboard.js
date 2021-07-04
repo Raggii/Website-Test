@@ -70,7 +70,7 @@ const { height, widthScreen } = getWindowDimensions();
           <div className="container-fluid ms-0" >
             <div className="row">
               <div className="col-lg-12">
-                <p className="fs-5">{page === 0 ? 
+                <div className="fs-5">{page === 0 ? 
                     <Pulse text="Dashboard" colour="#000000"></Pulse>: 
                   page === 1 ?
                     <TwoSquare text="Your Farm" colour="#000000"></TwoSquare> :
@@ -84,7 +84,7 @@ const { height, widthScreen } = getWindowDimensions();
                     <Letter text="Place Order" colour="#000000"></Letter> :  
                   page > 5 ? 
                     null : 
-                  page < 0 ? null : null}</p>
+                  page < 0 ? null : null}</div>
                 
                 <div id="line">
                   <svg width= {widthScreen} >
