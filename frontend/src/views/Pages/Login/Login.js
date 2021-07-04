@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Api from "../../../Api";
 import styles from "./Login.module.css";
 import largeLogo from "../../../assets/largeLogo.PNG";
+import { FormWrapper } from "./../../../comps/FromWrapper/FormWrapper";
 
 /**
  * Ensure that a given username follows the expected requirements before submission
@@ -159,7 +160,7 @@ export default function Login() {
   const { values, errors, handleChange, handleSubmit } = useLoginForm();
 
   return (
-    <main className={styles.pageBackground}>
+    <FormWrapper>
       <div className={`container px-4 pt-4 ${styles.loginContainer}`}>
         <div className="row mb-1">
           <div className="col d-flex justify-content-center">
@@ -236,6 +237,6 @@ export default function Login() {
           </div>
         </form>
       </div>
-    </main>
+    </FormWrapper>
   );
 }
