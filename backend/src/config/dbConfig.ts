@@ -127,7 +127,11 @@ class DatabaseHandler {
    */
   private async initSessionsTable(t: pgPromise.ITask<{}>): Promise<void> {
     await t.none(`CREATE TABLE IF NOT EXISTS sessions (
-      id VARCHAR(64) PRIMARY KEY
+      id VARCHAR(64) NOT NULL,
+      type VARCHAR(16) NOT NULL CONSTRAINT enforce_session_type CHECK(type IN ('register', 'login')),
+      user_id INT,
+      PRIMARY KEY (id, type),
+      FOREIGN KEY (user_id) REFERENCES accounts (id)
     );`);
   }
 }

@@ -164,6 +164,36 @@ export class UserModel {
    * @returns {Promise<string>} the registration token.
    */
   async generateRegisterToken(): Promise<string> {
-    return await this.sessionDaoInstance.generateRegisterToken();
+    return await this.sessionDaoInstance.AddSessionToken(
+      await this.auth.generateSessionId(),
+      "register",
+      null
+    );
+  }
+
+  /**
+   * Generates a login token.
+   *
+   * @returns {Promise<string>} the login token.
+   */
+  async generateLoginToken(userId: number): Promise<string> {
+    return await this.sessionDaoInstance.AddSessionToken(
+      await this.auth.generateSessionId(),
+      "login",
+      userId
+    );
+  }
+
+  /**
+   * Givne a session string verify that it is still valid
+   *
+   * @param sessionString the session id we want to verify.
+   * @returns true if it is valid. Otherwise false.
+   */
+  async isLoginSessionValid(
+    sessionString: string
+  ): Promise<{ isValid: boolean; userId: number | null }> {
+    // TODO add expiry on the cookie
+    return await this.sessionDaoInstance.loginTokenExists(sessionString);
   }
 }

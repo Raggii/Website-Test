@@ -1,5 +1,5 @@
 import express from "express";
-import { body, param } from "express-validator";
+import { body, param, cookie } from "express-validator";
 import authController from "../controllers/authController";
 import { authenticateAccessToken } from "../middlewares/tokenAuth";
 
@@ -27,5 +27,13 @@ router.post(
 
 // Create a registration token
 router.post("/createRegisterToken", authenticateAccessToken, authController.createRegisterToken);
+
+// Refresh the short term token
+router.post(
+  "/refreshLoginToken",
+  cookie(process.env.JWT_COOKIE_NAME).exists(),
+  cookie(process.env.LONG_TERM_COOKIE_NAME).exists(),
+  authController.refreshLoginToken
+);
 
 export = router;

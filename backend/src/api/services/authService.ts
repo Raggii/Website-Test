@@ -27,9 +27,15 @@ class AuthService {
    * @returns {string} JWT token string.
    */
   signToken(payload: object): string {
-    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" });
+    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "10m" });
   }
 
+  /**
+   * Given a token string we verify that is ACTIVELY valid.
+   *
+   * @param token JWT string
+   * @returns {tokenResponse} A response object
+   */
   verifyToken(token: string): tokenResponse {
     try {
       const content = jwt.verify(token, process.env.JWT_SECRET);
@@ -40,6 +46,24 @@ class AuthService {
         err,
         isValid: false,
       };
+    }
+  }
+
+  /**
+   * Given a JWT determine if it is an expired token or
+   *
+   * @param token jwt token string.
+   * @returns true if the token is either valid
+   */
+  async isTokenValidButExpired(token: string): Promise<{ isValid: boolean; isExpired: boolean }> {
+    try {
+      jwt.verify(token, process.env.JWT_SECRET);
+      return { isValid: true, isExpired: false };
+    } catch (err) {
+      if (err instanceof jwt.TokenExpiredError) {
+        return { isValid: true, isExpired: true };
+      }
+      return { isValid: false, isExpired: false };
     }
   }
 
@@ -89,12 +113,22 @@ class AuthService {
   }
 
   /**
-   * Generates a uuid string
+   * Generates a random session string
    *
-   * @returns uuid string.
+   * @returns session id string.
    */
-  async generateUuid(): Promise<string> {
+  async generateSessionId(): Promise<string> {
     return uuidv4();
+  }
+
+  /**
+   * Returns the decoded payload of the token WITHOUT VERIFYING
+   *
+   * @param jwtString jwt token string
+   * @returns the decoded payload.
+   */
+  async decodeJwtToken(jwtString: string): Promise<any> {
+    return jwt.decode(jwtString);
   }
 }
 

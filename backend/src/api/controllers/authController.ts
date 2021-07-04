@@ -36,9 +36,12 @@ const register = async (req: Request, res: Response) => {
   // Attempt to add the user data to the database
   await userModel
     .addNewUser(req.body, req.params.registerToken)
-    .then((userId: number) => {
+    .then(async (userId: number) => {
       // If we don't have the user id this should have failed.
       if (userId === null) throw new Error("userId === null");
+
+      // Create a longterm session token
+      const longToken = await userModel.generateLoginToken(userId);
 
       // Create JWT Token
       const jwtToken = authService.signToken({ userId });
@@ -47,7 +50,8 @@ const register = async (req: Request, res: Response) => {
       // Success response
       return res
         .status(201)
-        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000 })
+        .cookie(process.env.LONG_TERM_COOKIE_NAME, longToken, { maxAge: 604800000, httpOnly: true })
         .json({
           message: "User has been successfully.",
         });
@@ -81,12 +85,16 @@ const login = async (req: Request, res: Response) => {
 
     // If the user is valid we return a token
     if (!response.err) {
+      // Create a longterm session token
+      const longToken = await userModel.generateLoginToken(response.userId);
+
       // Generate the JWT token for authenticated requests.
       const jwtToken = authService.signToken({ userId: response.userId });
 
       return res
         .status(200)
-        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000, httpOnly: true })
+        .cookie(process.env.JWT_COOKIE_NAME, jwtToken, { maxAge: 604800000 })
+        .cookie(process.env.LONG_TERM_COOKIE_NAME, longToken, { maxAge: 604800000, httpOnly: true })
         .json({ message: "Successfully authenticated!" });
     } else {
       return res.status(400).json({ message: "Password or username is invalid." });
@@ -119,8 +127,68 @@ const createRegisterToken = async (req: Request, res: Response) => {
       return res.status(500).json({ err: "Something went wrong..." });
     });
 };
+
+const refreshLoginToken = async (req: Request, res: Response) => {
+  try {
+    // Ensuring that we have the correct elements
+    const errors: Result<ValidationError> = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.error(errors);
+      return res.status(403).json({
+        message: "you cannot use this service.",
+      });
+    }
+
+    // Check if the token is still valid.
+    const response = await authService.isTokenValidButExpired(
+      req.cookies[process.env.JWT_COOKIE_NAME]
+    );
+
+    if (!response.isValid) {
+      return res.status(403).json({ message: "You do not have access permission." });
+    }
+
+    // No point if it is still valid
+    if (!response.isExpired) {
+      return res.status(425).json({ message: "The token you have is still valid." });
+    }
+
+    // Check if it is valid but expired.
+    if (response.isExpired && response.isValid) {
+      // Validate the session token.
+      const isSessionValidResponse = await userModel.isLoginSessionValid(
+        req.cookies[process.env.LONG_TERM_COOKIE_NAME]
+      );
+
+      // if valid still --> create a new JWT
+      if (isSessionValidResponse.isValid) {
+        const tokenData = await authService.decodeJwtToken(
+          req.cookies[process.env.JWT_COOKIE_NAME]
+        );
+
+        // Verify that this is the same userId
+        if (tokenData.userId === isSessionValidResponse.userId) {
+          const jwtString = authService.signToken({ userId: tokenData.userId });
+
+          return res
+            .status(200)
+            .cookie(process.env.JWT_COOKIE_NAME, jwtString, { maxAge: 604800000 })
+            .json({ message: "Token refreshed successfully" });
+        }
+      }
+    }
+
+    // Otherwise return a 403
+    return res.status(403).json({ message: "You do not have access permission." });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: "Something went wrong when logging in..." });
+  }
+};
+
 export default {
   register,
   login,
   createRegisterToken,
+  refreshLoginToken,
 };

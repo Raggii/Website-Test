@@ -26,13 +26,18 @@ export class SessionDAO {
    * Attempts to generate a register token. But may throw an error if the token already exists
    * in the table.
    *
-   * @returns {Promise<string>} Token string.
+   * @param registerTokenString contains the session id string
+   * @param sessionType contains the session type string
+   * @returns {Promise<string>} Token id string.
    */
-  async generateRegisterToken(): Promise<string> {
-    const uuidString = await this.auth.generateUuid();
+  async AddSessionToken(
+    registerTokenString: string,
+    sessionType: string,
+    userId: number
+  ): Promise<string> {
     const registerToken = await this.conn.one(
-      `INSERT INTO sessions (id) VALUES ($1) RETURNING id;`,
-      uuidString
+      `INSERT INTO sessions (id, type, user_id) VALUES ($1, $2, $3) RETURNING id;`,
+      [registerTokenString, sessionType, userId]
     );
     return registerToken.id;
   }
@@ -48,8 +53,10 @@ export class SessionDAO {
     // If it is a transaction, use that option
     if (t) {
       return (
-        (await t.oneOrNone(`DELETE FROM sessions WHERE id = $1 RETURNING *;`, registerToken)) !==
-        null
+        (await t.oneOrNone(
+          `DELETE FROM sessions WHERE id = $1 AND type = 'register' RETURNING *;`,
+          registerToken
+        )) !== null
       );
     }
 
@@ -69,7 +76,31 @@ export class SessionDAO {
    */
   async registerTokenExists(registerToken: string): Promise<boolean> {
     return (
-      (await this.conn.oneOrNone(`SELECT * FROM sessions WHERE id = $1;`, registerToken)) !== null
+      (await this.conn.oneOrNone(
+        `SELECT * FROM sessions WHERE id = $1 AND type = 'register';`,
+        registerToken
+      )) !== null
     );
+  }
+
+  /**
+   * Verifys if a session exists within the session table
+   *
+   * @param sessionString The session id
+   * @returns true and userId if it exists, Otherwise false and null.
+   */
+  async loginTokenExists(
+    sessionString: string
+  ): Promise<{ isValid: boolean; userId: number | null }> {
+    const res = await this.conn.oneOrNone(
+      `SELECT * FROM sessions WHERE id = $1 AND type = 'login';`,
+      sessionString
+    );
+
+    if (res !== null && res !== undefined) {
+      return { isValid: true, userId: res.user_id };
+    } else {
+      return { isValid: false, userId: null };
+    }
   }
 }
