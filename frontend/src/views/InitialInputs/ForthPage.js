@@ -5,13 +5,8 @@ import largeLogo from "../../assets/largeLogo.PNG";
 
 export default function ForthPage() {
     return (
-        <>
-        <div className="row ml-10">
-            <div className="col d-flex justify-content-left">
-                <img className="imageResize" src={largeLogo} alt="large logo"></img>
-            </div>
-        </div>  
-            <div className="d-flex justify-content-center">
+        <> 
+            <div className="d-flex justify-content-center mt-5">
                 
                 <div className="loginContainerRadio">
                     

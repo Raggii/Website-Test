@@ -5,15 +5,10 @@ import largeLogo from "../../assets/largeLogo.PNG";
 export default function ThirdPage() {
     return (
         <>  
-        <div className="row ml-10">
-            <div className="col d-flex justify-content-left">
-                <img className="imageResize" src={largeLogo} alt="large logo"></img>
-            </div>
-        </div>  
-            <div className="d-flex justify-content-center">
+
+            <div className="d-flex justify-content-center mt-5">
                 
-                <div className="loginContainerRadio {
-">
+                <div className="loginContainerRadio">
                     
                     <h2 className="m-5 text-center">
                         Animal Health Concerns
@@ -70,7 +65,7 @@ export default function ThirdPage() {
                                     <a type="button" class="btn btn-danger">Cancel</a>
                                 </div>
                                 <div className="col-6">
-                                    <a type="button" class="btn btn-primary" href="/DataCollect2">Continue</a>
+                                    <a type="button" class="btn btn-primary" href="/DataCollect4">Continue</a>
                                 </div>
                             </div>
                         </div>
