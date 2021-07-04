@@ -1,7 +1,7 @@
 import React from 'react'
 import RadioButton from "../BaseComps/RadioButton"
 
-import largeLogo from "../../assets/largeLogo.PNG";
+
 export default function ThirdPage() {
     return (
         <>  

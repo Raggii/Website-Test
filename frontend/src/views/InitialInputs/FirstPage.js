@@ -2,7 +2,6 @@ import React from 'react'
 import Input from '../BaseComps/Input'
 import DropBox from '../BaseComps/DropBox'
 import "./Inputs.css"
-import largeLogo from "../../assets/largeLogo.PNG";
 
 
 export default function FirstPage() {

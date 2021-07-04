@@ -1,5 +1,5 @@
 //import {useState } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logoImage from "./Logo2.png";
 import "./Dashboard.css";
 import DashboardMain  from "./Pages/DashboardMain";
@@ -11,7 +11,6 @@ import PlaceOrder from './Pages/PlaceOrder';
 import TopNav from './Pages/TopNav/TopNav';
 import NavItem from './Pages/TopNav/NavItem';
 import Pulse from './Pages/Svgs/Pulse';
-import SquareWithHill from './Pages/Svgs/SquareWithHill';
 import TickPage from './Pages/Svgs/TickPage';
 import Folder from './Pages/Svgs/Folder';
 import TwoSquare from './Pages/Svgs/TwoSquare';
@@ -46,7 +45,7 @@ const { height, widthScreen } = getWindowDimensions();
         <div id="sidebar-wrapper">
            <ul className="sidebar-nav">
               <p><img src={logoImage} className="img-fluid" alt=""/> </p>
-              <li><a onClick={() => setPage(0)}><div><Pulse text="Dashboard" colour="#ffffff"></Pulse> </div></a></li>
+              <li><a onClick={() => setPage(0)}><Pulse text="Dashboard" colour="#ffffff"></Pulse></a></li>
               <li><a onClick={() => setPage(1)} ><TwoSquare text="Your Farm" colour="#ffffff"></TwoSquare></a></li>
               <li><a onClick={() => setPage(2)} ><TickPage text="Diet Evaluator" colour="#ffffff"></TickPage></a></li>
               <li><a onClick={() => setPage(3)} ><Folder text="Time Budget Tool" colour="#ffffff"></Folder></a></li>
