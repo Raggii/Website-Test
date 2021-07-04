@@ -1,4 +1,14 @@
 .boxContainer {
   background-color: var(--primaryFrontground);
   border-radius: 0.3em;
+  padding: 40px;
+  height: 75%;
+}
+
+.pieChart {
+  width: 80%;
+}
+
+.sideBar {
+  margin-top: 10px;
 }
