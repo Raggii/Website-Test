@@ -4,7 +4,7 @@ import logoImage from "../assets/Logo1.png";
 import "./Dashboard.css";
 import DashboardMain from "./Pages/DashboardMain/DashboardMain";
 import DietEvaluator from "./Pages/DietEvaluator";
-import MilkRevenue from "./Pages/MilkRevenue";
+import MilkRevenue from "./Pages/MilkRevenue/MilkRevenue";
 import TimeBudgetTool from "./Pages/TimeBudgetTool/TimeBudgetTool";
 import YourFarm from "./Pages/YourFarm/YourFarm";
 import PlaceOrder from "./Pages/Place Order/PlaceOrder";
