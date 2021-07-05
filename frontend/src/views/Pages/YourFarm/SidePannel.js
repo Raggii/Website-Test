@@ -18,7 +18,7 @@ export default function Sidepannel() {
     return (
         <> 
             <div className="boxContainerPannel">
-                <h5 className="d-flex justify-content-center">Control Panel</h5>
+                <h5 className="text-center">Control Panel</h5>
                 <Controller className="mt-1" Title="ProPath LQ 4"></Controller>
                 <Controller className="mt-1" Title="Avalia-Cr 1000"></Controller>
                 <Controller className="mt-1" Title="ProPath LQ Zn"></Controller>
