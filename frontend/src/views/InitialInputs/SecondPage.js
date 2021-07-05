@@ -25,7 +25,7 @@ export default function SecondPage() {
             <div>
               <DropBox title="Body Weight (Kgs):" opt1="male" opt2="Felame" opt3="Dan"></DropBox>
             </div>
-            <div className="row">
+            <div className="row mt-3">
               <div className="col-6">
                 <Input name="Week of Lactation:"></Input>
               </div>
@@ -51,18 +51,18 @@ export default function SecondPage() {
             <div>
               <Input name="Distance to Shed (Km):"></Input>
             </div>
-            <div>
+            <div className="mb-4">
               <DropBox title="Number of Milkings:" opt1="male" opt2="Felame" opt3="Dan"></DropBox>
             </div>
             <div className="buttons">
               <div className="row">
                 <div className="col-6">
-                  <a type="button" class="btn btn-danger" href="/DataCollect3">
+                  <a type="button" className="btn btn-danger" href="/DataCollect1">
                     Cancel
                   </a>
                 </div>
                 <div className="col-6">
-                  <a type="button" class="btn btn-primary" href="/DataCollect3">
+                  <a type="button" className="btn btn-primary" href="/DataCollect3">
                     Continue
                   </a>
                 </div>

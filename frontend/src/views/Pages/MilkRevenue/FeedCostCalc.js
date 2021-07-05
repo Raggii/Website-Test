@@ -2,7 +2,7 @@ import React from 'react'
 
 function TableRow({Title, Before,After}) {
     return (
-        <div className="row tableRow">
+        <div className="row tableRow mr-3 ml-3">
             <div className="col-2">{Title}</div>
             <div className="col-1"></div>
             <div className="col-1"></div>

@@ -55,12 +55,12 @@ export default function ThirdPage() {
           <div className="buttons mt-4">
             <div className="row">
               <div className="col-6">
-                <a type="button" class="btn btn-danger">
+                <a type="button" className="btn btn-danger" href="/DataCollect2">
                   Cancel
                 </a>
               </div>
               <div className="col-6">
-                <a type="button" class="btn btn-primary" href="/DataCollect4">
+                <a type="button" className="btn btn-primary" href="/DataCollect4">
                   Continue
                 </a>
               </div>

@@ -58,18 +58,18 @@ export default function FirstPage() {
               </div>
             </div>
 
-            <div>
+            <div className="mt-3 mb-4">
               <Input name="Production Breed:"></Input>
             </div>
             <div className="buttons">
               <div className="row">
                 <div className="col-6">
-                  <a type="button" class="btn btn-danger">
+                  <a type="button" className="btn btn-danger" href="/Dashboard">
                     Cancel
                   </a>
                 </div>
                 <div className="col-6">
-                  <a type="button" class="btn btn-primary" href="/DataCollect2">
+                  <a type="button" className="btn btn-primary" href="/DataCollect2">
                     Continue
                   </a>
                 </div>
