@@ -1,0 +1,22 @@
+.animalHealthConcernWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.selectionWrap {
+  display: flex;
+  flex-direction: row;
+  margin: 0.3rem 0;
+}
+
+.selectLevel {
+  width: 30%;
+}
+
+.selectTitle {
+  width: 70%;
+}
+
+.groupTitle {
+  margin: 0.3rem 0;
+}
