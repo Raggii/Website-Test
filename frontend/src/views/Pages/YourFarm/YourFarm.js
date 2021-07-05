@@ -12,7 +12,7 @@ export default function YourFarm() {
                     <MainTable></MainTable>
 
                 </div>
-                <div className="col-4 boxContainer m-1">
+                <div className="col-4" >
                     <SmallTable></SmallTable>
 
                 </div>
