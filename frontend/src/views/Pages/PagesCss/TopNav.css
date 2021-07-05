@@ -47,10 +47,10 @@
 
 /* Icon Button */
 .icon-button {
-  --button-size: calc(var(--nav-size) * 0.5);
+  --button-size: calc(var(--nav-size) * 0.7);
   width: var(--button-size);
   height: var(--button-size);
-  background-color: #ffffff;
+  background-color: #343a40;
   border-radius: 50%;
   padding: 5px;
   margin: 2px;

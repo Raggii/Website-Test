@@ -3,7 +3,7 @@
 @import url("../node_modules/@syncfusion/ej2-react-calendars/styles/material.css"); */
 
 :root {
-  --primaryBackground: #f2f2f2;
+  --primaryBackground: #e1e1e1;
   --primaryFrontground: #ffffff;
 }
 #sidebar-wrapper {

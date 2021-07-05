@@ -1,5 +1,6 @@
 import React from 'react'
 import "../PagesCss/TopNav.css"
+import Burger from "../../../assets/Burger.PNG"
 
 
 export default function TopNav(props) {
@@ -8,7 +9,9 @@ export default function TopNav(props) {
         <nav className="navbar">
             <a id="menu-toggle" onClick={() =>props.toggle()}>
                <div className="container-fluid">
-                <button className="buttonSide"> </button>
+                <button type="button" class="btn btn-dark">
+                    <img src={Burger} className="img-fluid" alt="" />
+                </button>
             </div>
             </a>
             <ul className="navbar-nav">{props.children}</ul>

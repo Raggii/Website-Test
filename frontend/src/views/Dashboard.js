@@ -15,6 +15,7 @@ import TickPage from "./Pages/Svgs/TickPage";
 import Folder from "./Pages/Svgs/Folder";
 import TwoSquare from "./Pages/Svgs/TwoSquare";
 import Letter from "./Pages/Svgs/Letter";
+import CogWheel from "./Pages/Svgs/CogWheel";
 
 //
 
@@ -79,7 +80,7 @@ export default function Dashboard() {
 
       <div id="top-nav">
         <TopNav toggle={toggleNav}>
-          <NavItem icon="Yes"></NavItem>
+          <NavItem >{CogWheel}</NavItem>
           <NavItem icon="DAn"></NavItem>
           <NavItem icon="Kwl"></NavItem>
         </TopNav>
@@ -92,7 +93,7 @@ export default function Dashboard() {
             <div className="col-lg-12">
               <div className="fs-5">
                 {page === 0 ? (
-                  <Pulse text="Dashboard" colour="#000000"></Pulse>
+                  <h3><Pulse text="Dashboard" colour="#000000"></Pulse></h3>
                 ) : page === 1 ? (
                   <TwoSquare text="Your Farm" colour="#000000"></TwoSquare>
                 ) : page === 2 ? (

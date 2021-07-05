@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./DashboardMain.module.css";
 import { getCookieData } from "../../../helpers/jwtHelper";
 import { DashboardCalender } from "../../../comps/DashboardCalender/DashboardCalender";
+import ReminderHolder from "../Svgs/ReminderHolder";
 
 const UserDashboard = () => {
   return (
