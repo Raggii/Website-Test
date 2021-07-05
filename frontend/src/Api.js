@@ -41,6 +41,10 @@ const endpoints = {
       },
     ];
   },
+
+  // Get register token
+  getRegisterToken: async () =>
+    instance.get(`/api/users/createRegisterToken`, { withCredentials: true }),
 };
 
 export default endpoints;

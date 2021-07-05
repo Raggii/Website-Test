@@ -6,11 +6,37 @@
 
 .createRegisterTokenWrap {
   background-color: #fff;
-  width: 50%;
+  width: 100%;
+  max-width: 400px;
   height: auto;
   border-radius: 0.5rem;
 
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+
+  padding: 2rem;
+}
+
+.registerGeneratorWrap {
+  padding-top: 0.75rem;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(10, minmax(10px, 1fr));
+}
+
+.registerGeneratorWrap input {
+  width: 100%;
+  grid-column: 1 / 9;
+}
+
+.clickableIcon {
+  grid-column: span 1 / auto;
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
