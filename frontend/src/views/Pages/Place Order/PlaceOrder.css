@@ -1,0 +1,10 @@
+.buttonStyle {
+  border-color: #0f0d34;
+  border-width: 2px;
+  color: #0f0d34;
+}
+
+.buttonStyle:hover {
+  background-color: #0f0d34;
+  color: #c7c0fb;
+}

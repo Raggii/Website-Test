@@ -1,8 +1,10 @@
 :root {
   --color-primary: #0021a5;
   --color-secondary: #0021a580;
-  --background-primary: #f6f6f6;
-  --background-secondary: #ffffff;
+  --background-primary: orange;
+  --background-secondary: orange;
+  --primaryBackground: #e1e1e1;
+  --primaryFrontground: #;
 }
 
 .loginContainer {

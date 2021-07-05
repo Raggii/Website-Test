@@ -1,12 +1,13 @@
 import React from 'react'
 import Input from '../BaseComps/Input'
 import DropBox from '../BaseComps/DropBox'
+import { FormWrapper } from '../../comps/FromWrapper/FormWrapper'
 
 
 
 export default function SecondPage() {
     return (
-        <>
+        <FormWrapper>
             <div className="d-flex justify-content-center mt-5">
                 
                 <div className="loginContainer">
@@ -62,6 +63,6 @@ export default function SecondPage() {
                 </div>
                 
             </div>
-        </>
+        </FormWrapper>
     )
 }

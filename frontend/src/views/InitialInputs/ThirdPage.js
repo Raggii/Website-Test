@@ -1,10 +1,11 @@
 import React from 'react'
 import RadioButton from "../BaseComps/RadioButton"
+import { FormWrapper } from '../../comps/FromWrapper/FormWrapper'
 
 
 export default function ThirdPage() {
     return (
-        <>  
+        <FormWrapper>  
 
             <div className="d-flex justify-content-center mt-5">
                 
@@ -75,6 +76,6 @@ export default function ThirdPage() {
             </div>
 
             
-        </>
+        </FormWrapper>
     )
 }

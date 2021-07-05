@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../BaseComps/Input'
+import { FormWrapper } from '../../comps/FromWrapper/FormWrapper'
 
 function RowInTable({Title}) {
     return (

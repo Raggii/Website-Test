@@ -13,7 +13,7 @@ import Input from '../../BaseComps/Input';
 
 function TableTitle({Title, prefex}) {
     return (
-    <div className="row mt-3 mb-1"> 
+    <div className="row mt-1 mb-1"> 
         <div className="col-1"></div>                          
         <h5 className="col-4">
             {Title}
@@ -27,16 +27,16 @@ function TableTitle({Title, prefex}) {
 
 function TableContent({Title, prefex}) {
     return (
-    <div className="row mt-3 mb-1"> 
-        <div className="col-1"></div>                          
-        <h5 className="col-4">
+    <div className="row">
+        <div className="col-2"></div>
+        <p className="col-4">
             {Title}
-        </h5>
+        </p>
         <div className="col">
             <input className="inputButton"/>{prefex}
         </div>
     </div>
-    )
+)
 }
 
 
@@ -48,7 +48,7 @@ export default function TimeBudgetTool() {
                 <div className="pieChart">
                     <PieChart
                         data={[
-                            { title: 'Milking', value: 2, color: '#97F03D', animate:true},
+                            { title: 'Milking', value: 2, color: '#F0A44E', animate:true},
                             { title: 'Walking', value: 6, color: '#A63541' },
                             { title: 'One Feed Bad', value: 5, color: '#57358F' },
                             { title: 'Drinking', value: 2, color: '#4E8BA6' },
@@ -68,182 +68,47 @@ export default function TimeBudgetTool() {
                     <div className="inputRows">
                         
                         <TableTitle Title="Milking" prefex="Hours"></TableTitle>
-                        <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                        {/* Title */}
-                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
-                        <div className="row mb-1 mt-1">
-                            <div className="col-1"></div>                           
-                            <h5 className="col-4">
-                                Walking
-                            </h5>
-                            <div className="col">
-                                <input className="inputButton"/>Hours
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                        {/*  */}
-                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
-                        <div className="row mb-1 mt-1">
-                            <div className="col-1"></div>                           
-                            <h5 className="col-4">
-                                On Feed Pad
-                            </h5>
-                            <div className="col">
-                                <input className="inputButton"/>Hours
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                        {/*  */}
-                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
-                        <div className="row mb-1 mt-1">
-                            <div className="col-1"></div>                           
-                            <h5 className="col-4">
-                                On Feed Pad
-                            </h5>
-                            <div className="col">
-                                <input className="inputButton"/>Hours
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                         <TableContent Title="Milking" prefex="Hours"></TableContent>
-                        <div className="row">
-                            <div className="col-2"></div>
-                            <p className="col-4">
-                                Mob Size
-                            </p>
-                            <div className="col">
-                                <input className="inputButton"/>Cows
-                            </div>
-                        </div>
-                        {/*  */}
-                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
-                        <div className="row mb-1 mt-1">
-                            <div className="col-1"></div>                           
-                            <h5 className="col-4">
-                                Other
-                            </h5>
-                            <div className="col">
-                                <input className="inputButton"/>Hours
-                            </div>
-                        </div>
-                        {/*  */}
-                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
-                        <div className="row mb-1 mt-1">                         
-                            <h4 className="col-4">
-                                Lying
-                            </h4>
-                            <div className="col">
-                                <input className="inputButton"/>Hours
-                            </div>
-                        </div>
+                        <TableContent Title="Mob Size" prefex="Cows"></TableContent>
 
-                    </div>
+                         <TableContent Title="Milking Platform" prefex="bails"></TableContent>
+
+                         <TableContent Title="Milking Speed" prefex="Min"></TableContent>
+
+                         <TableContent Title="Cows Milked" prefex="Per Hour"></TableContent>
+                         <TableContent Title="Milkings" prefex="Day"></TableContent>
+
+                        {/* Title */}
+                        <TableTitle Title="Walking" prefex="Hours"></TableTitle>
+
+                        </div>
+                         <TableContent Title="walking Speed" prefex="Km/Hour"></TableContent>
+
+                         <TableContent Title="Distance/Day" prefex="Km"></TableContent>
+
+                        {/*  */}
+                        <TableTitle Title="Feed Pad" prefex="Hours"></TableTitle>
+
+                         <TableContent Title="Feed pad DMI" prefex="Hours"></TableContent>
+
+                        {/*  */}
+                        <TableTitle Title="Drinking" prefex="Hours"></TableTitle>
+                        {/*  */}
+                        <TableTitle Title="Grazing" prefex="Hours"></TableTitle>
+
+                         <TableContent Title="Grazing DMI" prefex="Kg"></TableContent>
+
+                         <TableContent Title="DMI/min/Grazing" prefex="Q"></TableContent>
+
+                         <TableContent Title="Bite Rate" prefex="Min"></TableContent>
+
+                         <TableContent Title="Bite Mass" prefex="g D"></TableContent>
+
+                        
+
+                        {/*  */}
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
+
+
                     
                 </div>
                 
