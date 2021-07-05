@@ -1,0 +1,73 @@
+.tableRow:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #fff;
+}
+
+.sidePannelButtons {
+  background-color: var(--primaryFrontground);
+  border-radius: 0.3em;
+  height: 52%;
+  padding: 1%;
+  right: 6vw;
+  top: 6.7vw;
+  width: 13vw;
+  position: fixed;
+}
+
+.buttonGreen {
+  background-color: #385723;
+  border-color: #548235;
+  border-width: 4px;
+  font-size: 15px;
+  width: 10vw;
+  color: white;
+}
+
+.buttonLime {
+  background-color: #70ad47;
+  border-color: #3b5c25;
+  border-width: 4px;
+  width: 10vw;
+  color: white;
+}
+
+.buttonBlue {
+  background-color: #0021a5;
+  border-color: #203864;
+  border-width: 4px;
+  width: 10vw;
+  color: white;
+}
+.buttonCyan {
+  background-color: #348abf;
+  border-color: #0021a5;
+  border-width: 4px;
+  width: 10vw;
+  color: white;
+}
+
+.butonRed {
+  background-color: #ff0000;
+  border-color: #c00000;
+  border-width: 4px;
+  width: 10vw;
+  color: white;
+}
+
+.buttonOrange {
+  background-color: #fa4616;
+  border-color: #843c0c;
+  border-width: 4px;
+  width: 10vw;
+  color: white;
+}
+.buttonReset {
+  background-color: #00b0f0;
+  border-color: #fa4616;
+  border-width: 4px;
+  width: 10vw;
+  color: white;
+}
