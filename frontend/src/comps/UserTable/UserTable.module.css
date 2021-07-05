@@ -77,3 +77,16 @@
   border-color: var(--button-primary-disabled);
   color: var(--button-primary-disabled);
 }
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination {
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+  flex-direction: row;
+}

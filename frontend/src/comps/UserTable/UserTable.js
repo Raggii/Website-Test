@@ -16,38 +16,53 @@ const UserRow = ({ index, fname, lname, email }) => {
   );
 };
 
+const useUserTable = () => {
+  const [data, setData] = useState({
+    users: [],
+    pageNumber: 0,
+    maxPageNumber: 0,
+  });
+
+  return { tableData: data, setTableData: setData };
+};
+
 export const UserTable = () => {
-  const [users, setUsers] = useState([]);
+  const { tableData, setTableData } = useUserTable();
   const [loading, setLoading] = useState(true);
 
   useEffect(async () => {
-    setUsers([
-      {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
-      },
-      {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
-      },
-      {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
-      },
-      {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
-      },
-      {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
-      },
-    ]);
+    setTableData({
+      ...tableData,
+      users: [
+        {
+          fname: "first name",
+          lname: "last name",
+          email: "email",
+        },
+        {
+          fname: "first name",
+          lname: "last name",
+          email: "email",
+        },
+        {
+          fname: "first name",
+          lname: "last name",
+          email: "email",
+        },
+        {
+          fname: "first name",
+          lname: "last name",
+          email: "email",
+        },
+        {
+          fname: "first name",
+          lname: "last name",
+          email: "email",
+        },
+      ],
+      maxPageNumber: 4,
+    });
+
     setLoading(false);
   }, []);
 
@@ -67,7 +82,7 @@ export const UserTable = () => {
               <div className="spinner-grow text-primary" role="status" />
             </div>
           ) : (
-            users
+            tableData.users
               .slice(0, 5)
               .map((val, index) => (
                 <UserRow
@@ -78,6 +93,31 @@ export const UserTable = () => {
                   email={val.email}
                 />
               ))
+          )}
+
+          {loading ? (
+            <> </>
+          ) : (
+            <div className={styles.paginationWrapper}>
+              <ul className={styles.pagination}>
+                <li className={styles.paginationPage}>
+                  asd
+                  <i className="bi bi-circle"></i>
+                </li>
+                <li className={styles.paginationPage}>
+                  asd
+                  <i className="bi bi-circle"></i>
+                </li>
+                <li className={styles.paginationPage}>
+                  asd
+                  <i className="bi bi-circle"></i>
+                </li>
+                <li className={styles.paginationPage}>
+                  asd
+                  <i className="bi bi-circle"></i>
+                </li>
+              </ul>
+            </div>
           )}
         </div>
       </div>

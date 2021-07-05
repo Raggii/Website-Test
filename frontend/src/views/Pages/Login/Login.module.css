@@ -1,14 +1,12 @@
 :root {
-  --color-primary: #0021a5;
-  --color-secondary: #0021a580;
-  --background-primary: orange;
-  --background-secondary: orange;
-  --primaryBackground: #e1e1e1;
-  --primaryFrontground: #;
+  --login-color-primary: #0021a5;
+  --login-color-secondary: #0021a580;
+  --login-background-primary: orange;
+  --login-background-secondary: orange;
 }
 
 .loginContainer {
-  background-color: var(--background-secondary);
+  background-color: var(--login-background-secondary);
   max-width: 500px;
   border-radius: 0.3em;
   box-shadow: 0.2em 0.2em 0.2em 0.1rem #35353520;
@@ -16,22 +14,22 @@
 }
 
 .inputField:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 0.135rem var(--color-secondary);
+  border-color: var(--login-color-primary);
+  box-shadow: 0 0 0 0.135rem var(--login-color-secondary);
 }
 
 .primaryButton {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--login-color-primary);
+  border-color: var(--login-color-primary);
 }
 
 .primaryButton:hover,
 .primaryButton:active {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--login-color-primary);
+  border-color: var(--login-color-primary);
 }
 
 .primaryButton:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 0.135rem var(--color-secondary);
+  border-color: var(--login-color-primary);
+  box-shadow: 0 0 0 0.135rem var(--login-color-secondary);
 }
