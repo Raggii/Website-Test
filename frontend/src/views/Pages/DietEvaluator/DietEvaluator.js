@@ -1,30 +1,21 @@
 import React from 'react'
-import InputRow from './InputRow'
+import BottomTable from './BottomTable'
 import Ingredients from './Ingredients'
-import MiddleTable from './MiddleTable'
-import FinalTable from './FinalTable'
+
 
 export default function DietEvaluator() {
     return (
-        <>  
-        <div className="row boxContainer ">
-            <div className="col-4">
-                <Ingredients></Ingredients>
+        <div className="boxContainer">  
+            <div className="row">
+                <div className="col-4">
+                    <Ingredients></Ingredients>
+                </div>
             </div>
-            <div className="col-2">
-                <InputRow></InputRow>
-            </div>
-            <div className="col-2">
-                <FinalTable></FinalTable>
-            </div>
-            <div className="col-2">
-                <InputRow></InputRow>
-            </div>
-            <div className="col-2">
-                <InputRow></InputRow>
+            <div className="row">
+                <div className="col-2">Space for buttons</div>
+                <div className="col-10"><BottomTable></BottomTable></div>
             </div>
         </div>
-        </>
     )
 }
 
