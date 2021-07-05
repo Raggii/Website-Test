@@ -11,7 +11,33 @@ import Input from '../../BaseComps/Input';
     ]}
 /> */}
 
+function TableTitle({Title, prefex}) {
+    return (
+    <div className="row mt-3 mb-1"> 
+        <div className="col-1"></div>                          
+        <h5 className="col-4">
+            {Title}
+        </h5>
+        <div className="col">
+            <input className="inputButton"/>{prefex}
+        </div>
+    </div>
+    )
+}
 
+function TableContent({Title, prefex}) {
+    return (
+    <div className="row mt-3 mb-1"> 
+        <div className="col-1"></div>                          
+        <h5 className="col-4">
+            {Title}
+        </h5>
+        <div className="col">
+            <input className="inputButton"/>{prefex}
+        </div>
+    </div>
+    )
+}
 
 
 export default function TimeBudgetTool() {
@@ -22,7 +48,7 @@ export default function TimeBudgetTool() {
                 <div className="pieChart">
                     <PieChart
                         data={[
-                            { title: 'Milking', value: 2, color: '#9C6D32', animate:true},
+                            { title: 'Milking', value: 2, color: '#97F03D', animate:true},
                             { title: 'Walking', value: 6, color: '#A63541' },
                             { title: 'One Feed Bad', value: 5, color: '#57358F' },
                             { title: 'Drinking', value: 2, color: '#4E8BA6' },
@@ -41,15 +67,8 @@ export default function TimeBudgetTool() {
                     </div>
                     <div className="inputRows">
                         
-                        <div className="row mt-3 mb-1"> 
-                            <div className="col-1"></div>                          
-                            <h5 className="col-4">
-                                Milking
-                            </h5>
-                            <div className="col">
-                                <input className="inputButton"/>Hours
-                            </div>
-                        </div>
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
+                        <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -59,6 +78,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -68,6 +88,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -77,6 +98,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -86,6 +108,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -96,6 +119,7 @@ export default function TimeBudgetTool() {
                             </div>
                         </div>
                         {/* Title */}
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
                         <div className="row mb-1 mt-1">
                             <div className="col-1"></div>                           
                             <h5 className="col-4">
@@ -105,6 +129,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Hours
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -114,6 +139,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -124,6 +150,7 @@ export default function TimeBudgetTool() {
                             </div>
                         </div>
                         {/*  */}
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
                         <div className="row mb-1 mt-1">
                             <div className="col-1"></div>                           
                             <h5 className="col-4">
@@ -133,6 +160,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Hours
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -143,6 +171,7 @@ export default function TimeBudgetTool() {
                             </div>
                         </div>
                         {/*  */}
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
                         <div className="row mb-1 mt-1">
                             <div className="col-1"></div>                           
                             <h5 className="col-4">
@@ -152,6 +181,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Hours
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -161,6 +191,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -170,6 +201,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -179,6 +211,7 @@ export default function TimeBudgetTool() {
                                 <input className="inputButton"/>Cows
                             </div>
                         </div>
+                         <TableContent Title="Milking" prefex="Hours"></TableContent>
                         <div className="row">
                             <div className="col-2"></div>
                             <p className="col-4">
@@ -189,6 +222,7 @@ export default function TimeBudgetTool() {
                             </div>
                         </div>
                         {/*  */}
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
                         <div className="row mb-1 mt-1">
                             <div className="col-1"></div>                           
                             <h5 className="col-4">
@@ -199,6 +233,7 @@ export default function TimeBudgetTool() {
                             </div>
                         </div>
                         {/*  */}
+                        <TableTitle Title="Milking" prefex="Hours"></TableTitle>
                         <div className="row mb-1 mt-1">                         
                             <h4 className="col-4">
                                 Lying

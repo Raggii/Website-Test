@@ -1,6 +1,6 @@
 //import {useState } from "react-router-dom";
 import React, { useState } from "react";
-import logoImage from "./Logo2.png";
+import logoImage from "../assets/Logo1.png";
 import "./Dashboard.css";
 import DashboardMain from "./Pages/DashboardMain/DashboardMain";
 import DietEvaluator from "./Pages/DietEvaluator";
@@ -47,32 +47,32 @@ export default function Dashboard() {
           </p>
           <li>
             <a onClick={() => setPage(0)}>
-              <Pulse text="Dashboard" colour="#ffffff"></Pulse>
+              <Pulse text="Dashboard" colour="#C7C0FB"></Pulse>
             </a>
           </li>
           <li>
             <a onClick={() => setPage(1)}>
-              <TwoSquare text="Your Farm" colour="#ffffff"></TwoSquare>
+              <TwoSquare text="Your Farm" colour="#C7C0FB"></TwoSquare>
             </a>
           </li>
           <li>
             <a onClick={() => setPage(2)}>
-              <TickPage text="Diet Evaluator" colour="#ffffff"></TickPage>
+              <TickPage text="Diet Evaluator" colour="#C7C0FB"></TickPage>
             </a>
           </li>
           <li>
             <a onClick={() => setPage(3)}>
-              <Folder text="Time Budget Tool" colour="#ffffff"></Folder>
+              <Folder text="Time Budget Tool" colour="#C7C0FB"></Folder>
             </a>
           </li>
           <li>
             <a onClick={() => setPage(4)}>
-              <TwoSquare text="Milk Revenue" colour="#ffffff"></TwoSquare>
+              <TwoSquare text="Milk Revenue" colour="#C7C0FB"></TwoSquare>
             </a>
           </li>
           <li>
             <a onClick={() => setPage(5)}>
-              <Letter text="Place Order" colour="#ffffff"></Letter>
+              <Letter text="Place Order" colour="#C7C0FB"></Letter>
             </a>
           </li>
         </ul>
