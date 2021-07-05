@@ -94,8 +94,8 @@ export default function Dashboard() {
       <div id="top-nav">
         <TopNav toggle={toggleNav}>
           <NavItem>{CogWheel}</NavItem>
-          <NavItem icon="DAn"></NavItem>
-          <NavItem icon="Kwl"></NavItem>
+          <NavItem icon=""></NavItem>
+          <NavItem icon=""></NavItem>
         </TopNav>
       </div>
 

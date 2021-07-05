@@ -5,12 +5,12 @@ import { FormWrapper } from "../../comps/FromWrapper/FormWrapper";
 function RowInTable({ Title }) {
   return (
     <>
-      <div class="row">
-        <div class="col-3">{Title}</div>
-        <div class="col-4">
+      <div className="row">
+        <div className="col-4">{Title}</div>
+        <div className="col-4">
           <Input></Input>
         </div>
-        <div class="col-4">
+        <div className="col-4">
           <Input></Input>
         </div>
       </div>
@@ -20,15 +20,15 @@ function RowInTable({ Title }) {
 
 export default function ForthPage() {
   return (
-    <>
+    <FormWrapper>
       <div className="d-flex justify-content-center mt-5">
         <div className="loginContainerRadio">
-          <h2 className="m-5 text-center">CHASE BOVINE SERVICES PAGE 4</h2>
+          <h1 className="m-5 text-center">Chemistry of your Farm</h1>
           <span className="inline-flex ">
-            <div class="row mb-2">
-              <div class="col-3"></div>
-              <div class="col-4">PPM</div>
-              <div class="col-4">MG/C/D</div>
+            <div className="row mb-2">
+              <div className="col-4"></div>
+              <div className="col-4">PPM</div>
+              <div className="col-4">MG/C/D</div>
             </div>
             <RowInTable Title="Total Zinc"></RowInTable>
 
@@ -50,12 +50,12 @@ export default function ForthPage() {
             <div className="buttons">
               <div className="row">
                 <div className="col-6">
-                  <a type="button" class="btn btn-danger">
+                  <a type="button" className="btn btn-danger" href="/DataCollect3">
                     Cancel
                   </a>
                 </div>
                 <div className="col-6">
-                  <a type="button" class="btn btn-primary" href="/DataCollect2">
+                  <a type="button" className="btn btn-primary" href="/Dashboard">
                     Continue
                   </a>
                 </div>
@@ -64,6 +64,6 @@ export default function ForthPage() {
           </span>
         </div>
       </div>
-    </>
+    </FormWrapper>
   );
 }

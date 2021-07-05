@@ -2,7 +2,7 @@ import React from 'react'
 
 function TableRow({Title, Before,After}) {
     return (
-        <div className="row tableRow">
+        <div className="row tableRow mr-3 ml-3">
             <div className="col-2">{Title}</div>
             <div className="col-1"></div>
             <div className="col-1"></div>
@@ -18,10 +18,10 @@ function TableRow({Title, Before,After}) {
 
 export default function FeedCostCalc() {
     return (
-        <div className="boxContainer mb-5">
-            <div className="row">
-                <div className="col-12">
-                    <h3 className="center-text"> Feed Cost Calculator</h3>
+        <div className="mb-5">
+            <div className="row center-text">
+                <div className="col-12 center-text">
+                    <h2 className="center-text mr-3 ml-3"> Feed Cost Calculator</h2>
                 </div>
             </div>
             <div className="row">
@@ -54,8 +54,8 @@ export default function FeedCostCalc() {
             <TableRow Title="" Before="0.00" After=""></TableRow>
             <TableRow Title="" Before="0.00" After=""></TableRow>
             
-             <div className="row tableRow">
-                <div className="col-5"><h5>Additional Ingredients for ROI analysis</h5></div>
+             <div className="row tableRow mr-3 ml-3">
+                <div className="col-5 "><h5>Additional Ingredients for ROI analysis</h5></div>
             </div>
 
 
