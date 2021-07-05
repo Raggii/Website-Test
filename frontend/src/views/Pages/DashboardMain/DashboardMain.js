@@ -65,28 +65,30 @@ const VetDashboard = () => {
   return (
     <>
       <div className={styles.userTableWrapper}>
-        <ul className={styles.tableHeaders}>
-          <h5 className={styles.headerCol}>First Name</h5>
-          <h5 className={styles.headerCol}>Last Name</h5>
-          <h5 className={styles.headerCol}>Email</h5>
-          <h5 className={styles.headerCol}>Actions</h5>
-        </ul>
+        <div className={styles.userTable}>
+          <ul className={styles.tableHeaders}>
+            <h5 className={styles.headerCol}>First Name</h5>
+            <h5 className={styles.headerCol}>Last Name</h5>
+            <h5 className={styles.headerCol}>Email</h5>
+            <h5 className={styles.headerCol}>Actions</h5>
+          </ul>
 
-        {loading ? (
-          <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-            <div className="spinner-grow text-primary" role="status" />
-          </div>
-        ) : (
-          users.map((val, index) => (
-            <UserRow
-              key={index}
-              index={index}
-              fname={val.fname}
-              lname={val.lname}
-              email={val.email}
-            />
-          ))
-        )}
+          {loading ? (
+            <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+              <div className="spinner-grow text-primary" role="status" />
+            </div>
+          ) : (
+            users.map((val, index) => (
+              <UserRow
+                key={index}
+                index={index}
+                fname={val.fname}
+                lname={val.lname}
+                email={val.email}
+              />
+            ))
+          )}
+        </div>
       </div>
     </>
   );
