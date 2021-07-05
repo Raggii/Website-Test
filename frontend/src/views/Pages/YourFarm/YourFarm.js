@@ -4,6 +4,7 @@ import SmallTable from './SmallTable'
 import Sidepannel from './SidePannel'
 import MainTable from './MainTable'
 
+
 export default function YourFarm() {
     return (
         <>
@@ -12,11 +13,12 @@ export default function YourFarm() {
                     <MainTable></MainTable>
 
                 </div>
-                <div className="col-4" >
+                <div className="col-4 m-1" >
                     <SmallTable></SmallTable>
 
                 </div>
-                <div className="col boxContainer m-1">
+                
+                <div className="col">
                     <Sidepannel></Sidepannel>
 
                 </div>
