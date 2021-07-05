@@ -1,0 +1,79 @@
+:root {
+  --background-primary: #fff;
+  --background-secondary: #efefef;
+  --button-primary: #0f0d34;
+  --button-secondary: #c7c6fd;
+
+  --button-primary-disabled: #0f0d346b;
+  --button-secondary-disabled: #efefef;
+}
+
+.userTableWrapper {
+  width: 100%;
+  margin-right: 2em;
+  overflow-x: auto;
+  height: 100%;
+}
+
+.userTable {
+  width: 100%;
+  min-width: 500px;
+  background-color: var(--background-primary);
+
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+
+  border-radius: 0.5em;
+}
+
+.tableHeaders,
+.dataRow {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.headerCol,
+.dataCol {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.headerCol {
+  margin-top: auto;
+  font-weight: bolder;
+  margin-bottom: 0.5rem;
+}
+
+.dataRow:nth-child(even) {
+  background-color: var(--background-secondary);
+}
+
+.dataRow:nth-child(odd) {
+  background-color: var(--background-primary);
+}
+
+.actionsButton {
+  border-color: var(--button-primary);
+  color: var(--button-primary);
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  transition: all ease-in-out 150ms;
+}
+
+.actionsButton:hover {
+  color: var(--button-secondary);
+  background-color: var(--button-primary);
+}
+
+.actionsButton:disabled {
+  background-color: var(--button-secondary-disabled);
+  border-color: var(--button-primary-disabled);
+  color: var(--button-primary-disabled);
+}
