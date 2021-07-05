@@ -27,7 +27,7 @@ const register = async (req: Request, res: Response) => {
   }
 
   // Ensure that the username is unique
-  if (!userModel.isUsernameUnique(req.body.username)) {
+  if (!(await userModel.isUsernameUnique(req.body.username))) {
     return res.status(409).json({
       message: "Username is not unique.",
     });

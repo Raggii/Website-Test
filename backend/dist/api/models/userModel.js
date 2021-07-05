@@ -48,9 +48,9 @@ class UserModel {
             try {
                 const result = yield this.userDaoInstance.getUserByUsername(username);
                 if (result) {
-                    return true;
+                    return false;
                 }
-                return false;
+                return true;
             }
             catch (e) {
                 console.error(e);

@@ -36,7 +36,7 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(403).json({ message: "Register token is invalid" });
     }
     // Ensure that the username is unique
-    if (!userModel.isUsernameUnique(req.body.username)) {
+    if (!(yield userModel.isUsernameUnique(req.body.username))) {
         return res.status(409).json({
             message: "Username is not unique.",
         });

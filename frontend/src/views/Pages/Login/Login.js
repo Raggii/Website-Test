@@ -103,7 +103,6 @@ const useLoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setValues({ ...values, loading: true });
 
     const { success, errorsCopy } = validateFields();
     setErrors(errorsCopy);
@@ -112,6 +111,7 @@ const useLoginForm = () => {
       return;
     }
 
+    setValues({ ...values, loading: true });
     await Api.signIn(values.username, values.password)
       .then((res) => {
         if (res.status === 200) {
@@ -135,6 +135,7 @@ const useLoginForm = () => {
           setErrors({ ...errorsCopy, modelError: "Something unexpected went wrong." });
         }
       });
+    setValues({ ...values, loading: false });
   };
 
   return { values, errors, handleChange, handleSubmit };

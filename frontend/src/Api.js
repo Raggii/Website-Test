@@ -41,6 +41,13 @@ const endpoints = {
       },
     ];
   },
+  // register
+  register: (username, password, email, fname, lname, token) =>
+    instance.post(
+      `/api/users/register/${token}`,
+      { username, password, email, fname, lname },
+      { withCredentials: true }
+    ),
 
   // Get register token
   getRegisterToken: async () =>

@@ -10,10 +10,10 @@ const router = express.Router();
 router.post(
   "/register/:registerToken",
   body("username").isAlphanumeric().isLength({ min: 1, max: 30 }).trim().escape(),
-  body("email").isEmail().exists().normalizeEmail(),
-  body("password").exists().isStrongPassword().trim().escape(),
-  body("fname").isAlpha().trim().escape(),
-  body("lname").isAlpha().trim().escape(),
+  body("email").isEmail().exists().isLength({ min: 1, max: 45 }).normalizeEmail(),
+  body("password").exists().isLength({ min: 1, max: 30 }).trim().escape(),
+  body("fname").isAlpha().trim().isLength({ min: 1, max: 30 }).escape(),
+  body("lname").isAlpha().trim().isLength({ min: 1, max: 30 }).escape(),
   param("registerToken").exists(),
   usersController.register
 );

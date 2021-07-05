@@ -12,7 +12,6 @@ export async function revealImageAnimation() {
   const images = document.querySelectorAll(".has-image-animation");
   const windowHeight = window.innerHeight;
   const revealingPoint = 200;
-  console.log(images);
 
   for (let i = 0; i < images.length; i++) {
     const imageTopDistance = images[i].getBoundingClientRect().top;

@@ -55,9 +55,9 @@ export class UserModel {
     try {
       const result: User = await this.userDaoInstance.getUserByUsername(username);
       if (result) {
-        return true;
+        return false;
       }
-      return false;
+      return true;
     } catch (e) {
       console.error(e);
       return false;
