@@ -43,3 +43,11 @@
 .tableRow:nth-child(even) {
   background-color: #fff;
 }
+
+.tableRowOdd {
+  background-color: #efefef;
+}
+
+.tableRowEven {
+  background-color: #fff;
+}
