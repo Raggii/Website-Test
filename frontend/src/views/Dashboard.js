@@ -95,15 +95,15 @@ export default function Dashboard() {
                 {page === 0 ? (
                   <h3><Pulse text="Dashboard" colour="#000000"></Pulse></h3>
                 ) : page === 1 ? (
-                  <TwoSquare text="Your Farm" colour="#000000"></TwoSquare>
+                  <h3><TwoSquare text="Your Farm" colour="#000000"></TwoSquare></h3>
                 ) : page === 2 ? (
-                  <TickPage text="Diet Evaluator" colour="#000000"></TickPage>
+                  <h3><TickPage text="Diet Evaluator" colour="#000000"></TickPage></h3>
                 ) : page === 3 ? (
-                  <Folder text="Time Budget Tool" colour="#000000"></Folder>
+                  <h3><Folder text="Time Budget Tool" colour="#000000"></Folder></h3>
                 ) : page === 4 ? (
-                  <TwoSquare text="Milk Revenue" colour="#000000"></TwoSquare>
+                  <h3><TwoSquare text="Milk Revenue" colour="#000000"></TwoSquare></h3>
                 ) : page === 5 ? (
-                  <Letter text="Place Order" colour="#000000"></Letter>
+                  <h3><Letter text="Place Order" colour="#000000"></Letter></h3>
                 ) : page > 5 ? null : page < 0 ? null : null}
               </div>
 
