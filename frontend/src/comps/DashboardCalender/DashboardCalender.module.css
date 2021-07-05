@@ -1,10 +1,10 @@
 .calenderWrap {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .reminderWrap {
-  margin-top: 2rem;
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: #fff;

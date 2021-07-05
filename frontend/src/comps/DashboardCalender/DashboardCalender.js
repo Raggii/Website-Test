@@ -8,6 +8,7 @@ import { format } from "date-fns";
 const Reminder = ({ date, text, prioity }) => {
   const [fill, setFill] = useState("");
   const [color, setColor] = useState("none");
+  const reminderCharLimit = 9;
 
   function addZero(i) {
     if (i < 10) {
@@ -38,13 +39,15 @@ const Reminder = ({ date, text, prioity }) => {
       <ReminderIcon fill={fill} color={color} className={styles.reminderIcon} />
       <div className={styles.reminderCenterWrap}>
         <div className={styles.reminderTitle}>
-          {text.length > 15 ? text.slice(0, 12) + "..." : text.slice(0, 15)}
+          {text.length > reminderCharLimit
+            ? text.slice(0, reminderCharLimit) + "..."
+            : text.slice(0, reminderCharLimit + 3)}
         </div>
         <div className={styles.date}>{format(date, "do MMMM u")}</div>
       </div>
       <div className={styles.hours}>
         <ClockIcon />
-        <div>
+        <div style={{ paddingLeft: "0.5rem" }}>
           {addZero(date.getHours())}:{addZero(date.getMinutes())}
         </div>
       </div>
