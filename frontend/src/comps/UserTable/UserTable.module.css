@@ -21,7 +21,7 @@
   background-color: var(--background-primary);
 
   display: grid;
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(9, 1fr);
 
   border-radius: 0.5em;
 }
@@ -82,11 +82,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-row: 9 / 10;
 }
 
 .pagination {
   display: grid;
   list-style: none;
   grid-template-columns: repeat(4, 1fr);
-  flex-direction: row;
+  column-gap: 1rem;
+  margin: 0;
 }

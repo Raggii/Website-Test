@@ -11,6 +11,36 @@ const endpoints = {
   // Login user
   signIn: (username, password) =>
     instance.post("/api/users/login", { username, password }, { withCredentials: true }),
+  // get users
+  getUsers: async () => {
+    return [
+      {
+        fname: "first name",
+        lname: "last name",
+        email: "email",
+      },
+      {
+        fname: "first name",
+        lname: "last name",
+        email: "email",
+      },
+      {
+        fname: "first name",
+        lname: "last name",
+        email: "email",
+      },
+      {
+        fname: "first name",
+        lname: "last name",
+        email: "email",
+      },
+      {
+        fname: "first name",
+        lname: "last name",
+        email: "email",
+      },
+    ];
+  },
 };
 
 export default endpoints;
