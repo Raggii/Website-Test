@@ -5,6 +5,7 @@ import img1 from "./../../../assets/misc-and-some-duplicates-256-3.jpg";
 import img2 from "./../../../assets/misc-and-some-duplicates-195-2-1024x683.jpg";
 import img3 from "./../../../assets/index-image-3.jpg";
 import img4 from "./../../../assets/index-image-4.jpg";
+import Mouse from "../Svgs/Mouse";
 import { Link } from "react-router-dom";
 
 export async function revealImageAnimation() {
@@ -86,6 +87,9 @@ export default function LandingPage() {
             <div className={styles.bannerBetween}>
               <div className={styles.titleCard}>
                 <h1 className={styles.titleCardContent}>Chase Bovine Services</h1>
+              </div>
+              <div className={styles.pageDownWrapper}>
+                <Mouse className={styles.pageDownIndicator} color={"white"} />
               </div>
             </div>
           </div>
