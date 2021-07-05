@@ -17,7 +17,7 @@ export default function AddUser() {
     await Api.getRegisterToken()
       .then((res) => {
         if (res.status === 200) {
-          setregisterUrl(`${process.env.REACT_APP_BASE_URL}/${res.data.tok}`);
+          setregisterUrl(`${process.env.REACT_APP_BASE_URL}/register/${res.data.tok}`);
         } else {
           throw Error("Unexpected response!");
         }

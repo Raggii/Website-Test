@@ -4,6 +4,7 @@ import Api from "../../../Api";
 import styles from "./Login.module.css";
 import largeLogo from "../../../assets/largeLogo.PNG";
 import { FormWrapper } from "./../../../comps/FromWrapper/FormWrapper";
+import ErrorModel from "./../../../comps/ErrorModel";
 
 /**
  * Ensure that a given username follows the expected requirements before submission
@@ -137,20 +138,6 @@ const useLoginForm = () => {
   };
 
   return { values, errors, handleChange, handleSubmit };
-};
-
-const ErrorModel = (props) => {
-  if (props.error) {
-    return (
-      <div className="row">
-        <div className="col">
-          <div className="alert-danger p-2 mb-2 rounded">{props.error}</div>
-        </div>
-      </div>
-    );
-  } else {
-    return <></>;
-  }
 };
 
 /**

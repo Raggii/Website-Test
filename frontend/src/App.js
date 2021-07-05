@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 // Pages
 import LandingPage from "./views/Pages/Landing/Landing";
 import Login from "./views/Pages/Login/Login";
+import Register from "./views/Pages/Register/Register";
 import Dashboard from "./views/Dashboard";
 import FirstPage from "./views/InitialInputs/FirstPage";
 import SecondPage from "./views/InitialInputs/SecondPage";
@@ -48,6 +49,11 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
+
+        <PrivateRoute path="/register/:token">
+          <Register />
+        </PrivateRoute>
+
         {/* CHANGE THIS TO SOMETHING NICER!!!!! */}
         <PrivateRoute path="/DataCollect1">
           <FirstPage />
