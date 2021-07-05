@@ -15,29 +15,29 @@ const endpoints = {
   getUsers: async () => {
     return [
       {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
+        fname: "Jon",
+        lname: "Sena",
+        email: "MrSena@yahoo.com",
       },
       {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
+        fname: "James",
+        lname: "Smitt",
+        email: "Yahoo@Smitt.co.jp",
       },
       {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
+        fname: "Smitt",
+        lname: "Semaj",
+        email: "JpCoSmitt@Gmail.ping",
       },
       {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
+        fname: "Firister",
+        lname: "Lastern",
+        email: "FirstName@thinkingForNames.co.nz",
       },
       {
-        fname: "first name",
-        lname: "last name",
-        email: "email",
+        fname: "Brock",
+        lname: "The Rock",
+        email: "TheRock.Com@bing.co.nz",
       },
     ];
   },
