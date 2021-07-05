@@ -63,7 +63,7 @@ export default function TimeBudgetTool() {
             <div className="col">
                 <div className="boxContainer">
                     <div className="boxTitle">
-                        <h3>Time Spent</h3>
+                        <h3 className="m-2">Time Spent</h3>
                     </div>
                     <div className="inputRows">
                         
