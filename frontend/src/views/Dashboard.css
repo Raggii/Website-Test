@@ -20,7 +20,6 @@
 
 #page-content-wrapper {
   width: 100%;
-  position: absolute;
   height: 100%;
   padding: 15px;
   background-color: var(--primaryBackground);
@@ -43,9 +42,13 @@
   transition: ease-in 300ms;
 }
 
-#wrapper-menu-disabled #sidebar-wrapper {
+#sidebar-wrapper {
   width: 0;
   transition: ease-out 300ms;
+}
+
+#wrapper-menu-disabled {
+  height: 100%;
 }
 
 #wrapper-menu-disabled #page-content-wrapper {
