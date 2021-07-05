@@ -1,0 +1,22 @@
+.boxContainer {
+  background-color: var(--primaryFrontground);
+  border-radius: 0.3em;
+  height: 100%;
+  padding: 1%;
+}
+
+.removePadding {
+  width: 100%;
+}
+
+.tableRow:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #fff;
+}
+
+.inputButton {
+  width: 100%;
+}

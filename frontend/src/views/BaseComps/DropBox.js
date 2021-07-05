@@ -2,11 +2,11 @@ import React from 'react'
 
 //import  "bootstrap.bundle.min.js"
 
-export default function DropBox({title,opt1,opt2,opt3}) {
+export default function DropBox({title,opt1,opt2,opt3,Error}) {
     return (
         <>
             <div>
-                <span>{title}</span>
+                {title ? <span>{title}</span> : null}
                 <div>
 
                     <select  style={{width: "100%",borderColor: "#ced4da",padding: "7px"}}>
@@ -32,7 +32,7 @@ export default function DropBox({title,opt1,opt2,opt3}) {
                     </div>
                 </div>
                 {/* If Error Comes up display it below */}
-                <label></label>
+                {Error ? <label></label> : null}
             </div>
 
 

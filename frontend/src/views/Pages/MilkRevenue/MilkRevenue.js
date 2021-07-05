@@ -1,22 +1,28 @@
 import React from 'react'
+import MilkRevenueCalc from './MilkRevenueCalc';
+import SideBar from './SideBar';
+import FeedCostCalc from './FeedCostCalc';
 import "../PagesCss/MilkRevenue.css";
 
 export default function MilkRevenue() {
     return (
         <>
-            <table>
-                <thead>
-
-                    
-
-
-                </thead>
-                <tbody>
-
-
-
-                </tbody>
-            </table>
+            <div className="row">
+                <div className="col-3"></div>
+                <div className="col-6 boxContainer">
+                    <MilkRevenueCalc></MilkRevenueCalc>
+                </div>
+                <div className="col ">
+                    <SideBar></SideBar>
+                </div>
+                
+            </div>
+            <div className="row">
+                <div className="col-2"></div>
+                <div className="col-8">
+                    <FeedCostCalc></FeedCostCalc>
+                </div>
+            </div>
         </>
     )
 }
