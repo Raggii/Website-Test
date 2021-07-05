@@ -129,6 +129,10 @@ export default function Dashboard() {
                   <h3>
                     <Letter text="Place Order" colour="#000000"></Letter>
                   </h3>
+                ) : page === 6 ? (
+                  <h3>
+                    <Person text="Add User" colour="#000000"></Person>
+                  </h3>
                 ) : page > 6 ? null : page < 0 ? null : null}
               </div>
 
