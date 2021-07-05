@@ -57,9 +57,25 @@ function TableRow({Name, Percent, PreMix, Grams}) {
             <TableRow Name="MCP" Percent="44.2889" PreMix="442.8889" Grams="3.986"></TableRow>
             <TableRow Name="LimeStone" Percent="44.2889" PreMix="442.8889" Grams="3.986"></TableRow>
             <TableRow Name="Total" Percent="44.2889" PreMix="442.8889" Grams="3.986"></TableRow>
-            <div className="row">
+            <div className="row tableRowOdd ml-1 mr-1">
                 <div className="col-10">Desired Feeding rate of TM premix</div>
                 <div className="col-2 text-center"><h6>9.000</h6></div>
+            </div>
+            <div className="row tableRowOdd ml-1 mr-1">
+                <div className="col-10">Total Mineral Package Feeding Rate</div>
+                <div className="col-2 text-center"><h6>9.0</h6></div>
+            </div>
+            <div className="row tableRowOdd ml-1 mr-1">
+                <div className="col-10">Assumed Dry Matter intak</div>
+                <div className="col-2 text-center"><h6>18.6</h6></div>
+            </div>
+            <div className="row tableRowEven ml-1 mr-1">
+                <div className="col-5">Heard Size</div>
+                <div className="col-2 text-center">500</div>
+            </div>
+            <div className="row tableRowEven ml-1 mr-1">
+                <div className="col-5">Estimated Days Supplied</div>
+                <div className="col-2 text-center">222</div>
             </div>
         </div>
     )
