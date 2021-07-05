@@ -3,6 +3,56 @@
   flex-direction: column;
 }
 
+.reminderWrap {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+.reminderList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reminderIcon {
+  max-width: 20px;
+  margin-right: 1.5rem;
+}
+
+.reminderCenterWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.reminderTitle {
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+
+.hours {
+  display: flex;
+  margin-left: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.date {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75rem;
+}
+
+.reminderList li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 @media (max-width: 1124px) {
   .calenderWrap {
     display: none;
