@@ -22,10 +22,13 @@ export default function TimeBudgetTool() {
                 <div className="pieChart">
                     <PieChart
                         data={[
-                            { title: 'One', value: 10, color: '#E38627', animate:true},
-                            { title: 'Two', value: 15, color: '#C13C37' },
-                            { title: 'Three', value: 20, color: '#6A2135' },
-                            { title: 'Three', value: 20, color: '#123456' }
+                            { title: 'Milking', value: 2, color: '#9C6D32', animate:true},
+                            { title: 'Walking', value: 6, color: '#A63541' },
+                            { title: 'One Feed Bad', value: 5, color: '#57358F' },
+                            { title: 'Drinking', value: 2, color: '#4E8BA6' },
+                            { title: 'Grazing', value: 5, color: '#519E5F' },
+                            { title: 'Other', value: 1, color: '#A88805' },
+                            { title: 'Lying', value: 10, color: '#A8402D' }
                         ]}
                     />
                 </div>

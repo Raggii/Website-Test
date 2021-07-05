@@ -7,7 +7,7 @@ import DietEvaluator from "./Pages/DietEvaluator";
 import MilkRevenue from "./Pages/MilkRevenue";
 import TimeBudgetTool from "./Pages/TimeBudgetTool/TimeBudgetTool";
 import YourFarm from "./Pages/YourFarm/YourFarm";
-import PlaceOrder from "./Pages/PlaceOrder";
+import PlaceOrder from "./Pages/Place Order/PlaceOrder";
 import TopNav from "./Pages/TopNav/TopNav";
 import NavItem from "./Pages/TopNav/NavItem";
 import Pulse from "./Pages/Svgs/Pulse";
