@@ -12,13 +12,17 @@ const UserDashboard = () => {
   );
 };
 
-const UserRow = ({ index, fname, lname, email, actions }) => {
+const UserRow = ({ index, fname, lname, email }) => {
   return (
     <ul className={styles.dataRow}>
-      <li className={styles.dataCol}>First Name</li>
-      <li className={styles.dataCol}>Last Name</li>
-      <li className={styles.dataCol}>Email</li>
-      <li className={styles.dataCol}>Actions</li>
+      <li className={styles.dataCol}>{fname}</li>
+      <li className={styles.dataCol}>{lname}</li>
+      <li className={styles.dataCol}>{email}</li>
+      <li className={styles.dataCol}>
+        <button className="btn btn-dark disabled" onClick={() => {}}>
+          Actions
+        </button>
+      </li>
     </ul>
   );
 };
@@ -28,7 +32,7 @@ const VetDashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(async () => {
-    await setUsers([
+    setUsers([
       {
         fname: "first name",
         lname: "last name",
@@ -70,18 +74,18 @@ const VetDashboard = () => {
 
         {loading ? (
           <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
-            <div class="spinner-grow text-primary" role="status" />
+            <div className="spinner-grow text-primary" role="status" />
           </div>
         ) : (
-          users.map((val, index) =>
-            UserRow({
-              index,
-              fname: val.fname,
-              lname: val.lname,
-              email: val.email,
-              actions: "actions",
-            })
-          )
+          users.map((val, index) => (
+            <UserRow
+              key={index}
+              index={index}
+              fname={val.fname}
+              lname={val.lname}
+              email={val.email}
+            />
+          ))
         )}
       </div>
     </>

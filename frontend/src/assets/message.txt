@@ -1,0 +1,904 @@
+<section class="">
+<table cellspacing="0" cellpadding="0" style="border-spacing:0;" onkeydown="javascript:navigate(event);">
+					<colgroup><col width="18">
+					<col width="255">
+					<col width="83">
+					<col width="76">
+					<col width="76">
+					<col width="86">
+					<col width="86">
+					<col width="14">
+					<col width="86">
+					<col width="75">
+					<col width="73">
+					<col width="103">
+					<col width="89">
+                    </colgroup><tbody><tr style="height:38pt;">
+						<td class="ee100" style="height:38pt;vertical-align:top;">
+						<span style="
+  position:absolute;z-index:1;margin-left:18px;margin-top:0px;width:360px;
+  height:105px">
+							<img src="image002.png" width="360" height="105" alt="" class="">
+						</span>
+						</td>
+						<td class="ee103" style="height:38pt;">&nbsp;</td>
+						<td class="ee106" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:44pt;">
+						<td class="ee109" style="height:44pt;">&nbsp;</td>
+						<td class="ee106" style="height:44pt;">&nbsp;</td>
+						<td class="ee106" style="height:44pt;">&nbsp;</td>
+						<td class="ee111" style="height:44pt;" colspan="4">&nbsp;</td>
+						<td class="ee109" style="height:44pt;">&nbsp;</td>
+						<td class="ee117" style="height:44pt;">&nbsp;</td>
+						<td class="ee117" style="height:44pt;">&nbsp;</td>
+						<td class="ee109" style="height:44pt;">&nbsp;</td>
+						<td class="ee120" style="height:44pt;">&nbsp;</td>
+						<td class="ee120" style="height:44pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:18pt;">
+						<td class="ee109" style="height:18pt;">&nbsp;</td>
+						<td class="ee123" style="height:18pt;" colspan="3">
+							<textarea id="Farm" class="ee125 form-control" style=" width:100% ;height:100%;min-height:27px;" onchange="recalc_onclick('Farm')" onkeydown="" name="Farm" placeholder="Farm Name" tabindex="1" data-sheet="1" data-row="3" data-col="2"></textarea>
+						</td>
+						<td class="ee126" style="height:18pt;" colspan="2">
+							Herd
+  Size:
+						</td>
+						<td class="ee129" style="height:18pt;">
+							<input id="HerdSize" type="text" value="500" class="ee131 form-control" style="width:100%" onchange="this.value=eedisplayFloat(eeparseFloat(this.value));recalc_onclick('HerdSize')" name="HerdSize" placeholder="500" tabindex="2" data-sheet="1" data-row="3" data-col="7">
+						</td>
+						<td class="ee132" style="height:18pt;">&nbsp;</td>
+						<td class="ee117" style="height:18pt;">&nbsp;</td>
+						<td class="ee117" style="height:18pt;">&nbsp;</td>
+						<td class="ee109" style="height:18pt;">&nbsp;</td>
+						<td class="ee120" style="height:18pt;">&nbsp;</td>
+						<td class="ee120" style="height:18pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:20pt;">
+						<td class="ee109" style="height:20pt;">&nbsp;</td>
+						<td class="ee135" style="height:20pt;">&nbsp;</td>
+						<td class="ee137" style="height:20pt;">
+							Before
+						</td>
+						<td class="ee137" style="height:20pt;">
+							After
+						</td>
+						<td class="ee140" style="height:20pt;">&nbsp;</td>
+						<td class="ee143" style="height:20pt;" colspan="2">
+							Difference
+  (After - Before)
+						</td>
+						<td class="ee132" style="height:20pt;">&nbsp;</td>
+						<td class="ee117" style="height:20pt;">&nbsp;</td>
+						<td class="ee117" style="height:20pt;">&nbsp;</td>
+						<td class="ee109" style="height:20pt;">&nbsp;</td>
+						<td class="ee120" style="height:20pt;">&nbsp;</td>
+						<td class="ee120" style="height:20pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:23pt;">
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee146" style="height:23pt;" colspan="6">
+							Milk
+  Production and Pricing:
+						</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee149" style="height:23pt;" colspan="4">
+							Farm Docket
+						</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Litres of Milk/cow/day
+						</td>
+						<td class="ee155" style="height:14pt;">
+						<input id="XLEW_1_6_3" type="text" readonly="readonly" value="0" class="ee155" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_6_3" tabindex="-1">
+						</td>
+						<td class="ee158" style="height:14pt;">
+						<input id="XLEW_1_6_4" type="text" readonly="readonly" value="0" class="ee158" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_6_4" tabindex="-1">
+						</td>
+						<td class="ee160" style="height:14pt;">
+<div class="input-group bootstrap-touchspin input-group-sm"><span class="input-group-btn"><button class="btn btn-primary btn-sm bootstrap-touchspin-down" type="button"><span class="glyphicon glyphicon-minus"></span></button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input id="XLEW_1_6_5" type="text" value="0" name="XLEW_1_6_5" onchange="recalc_onclick('XLEW_1_6_5')" class="cfc1 form-control input-sm text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-primary btn-sm bootstrap-touchspin-up" type="button"><span class="glyphicon glyphicon-plus"></span></button></span></div>
+						</td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_6_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_6_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_6_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_6_7" tabindex="-1">
+						</td>
+						<td class="ee166" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee168" style="height:14pt;" colspan="2">
+							<span>&nbsp;</span>Litres<span>&nbsp;</span>
+						</td>
+						<td class="ee170" style="height:14pt;">
+							<input id="XLEW_1_6_11" type="text" value="13000" class="ee171 form-control" style="width:100%" onchange="this.value=eedisplayFloatND(eeparseFloat(this.value),0);recalc_onclick('XLEW_1_6_11')" name="XLEW_1_6_11" placeholder="" tabindex="4" data-sheet="1" data-row="6" data-col="11">
+						</td>
+						<td class="ee172" style="height:14pt;">
+							kg MS
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee174" style="height:14pt;">
+						<input id="XLEW_1_7_2" type="text" readonly="readonly" value="" class="ee174" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_7_2" tabindex="-1">
+						</td>
+						<td class="ee175" style="height:14pt;">
+						<input id="XLEW_1_7_3" type="text" readonly="readonly" value="0" class="ee175" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_7_3" tabindex="-1">
+						</td>
+						<td class="ee176" style="height:14pt;">
+						<input id="XLEW_1_7_4" type="text" readonly="readonly" value="0" class="ee176" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_7_4" tabindex="-1">
+						</td>
+						<td class="ee160" style="height:14pt;">
+<div class="input-group bootstrap-touchspin input-group-sm"><span class="input-group-btn"><button class="btn btn-primary btn-sm bootstrap-touchspin-down" type="button"><span class="glyphicon glyphicon-minus"></span></button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input id="XLEW_1_7_5" type="text" value="0" name="XLEW_1_7_5" onchange="recalc_onclick('XLEW_1_7_5')" class="cfc1 form-control input-sm text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-primary btn-sm bootstrap-touchspin-up" type="button"><span class="glyphicon glyphicon-plus"></span></button></span></div>
+						</td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_7_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_7_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_7_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_7_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee177" style="height:14pt;" colspan="2">
+							<span>&nbsp;</span>Milk Fat %<span>&nbsp;</span>
+						</td>
+						<td class="ee178" style="height:14pt;">
+							<input id="XLEW_1_7_11" type="text" value="4.20" class="ee171 form-control" style="width:100%" onchange="this.value=eedisplayFloatND(eeparseFloat(this.value),2);recalc_onclick('XLEW_1_7_11')" name="XLEW_1_7_11" placeholder="" tabindex="6" data-sheet="1" data-row="7" data-col="11">
+						</td>
+						<td class="ee179" style="height:14pt;">
+						<input id="XLEW_1_7_12" type="text" readonly="readonly" value="0" class="ee179" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_7_12" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee174" style="height:14pt;">
+						<input id="XLEW_1_8_2" type="text" readonly="readonly" value="" class="ee174" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_8_2" tabindex="-1">
+						</td>
+						<td class="ee175" style="height:14pt;">
+						<input id="XLEW_1_8_3" type="text" readonly="readonly" value="0" class="ee175" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_8_3" tabindex="-1">
+						</td>
+						<td class="ee176" style="height:14pt;">
+						<input id="XLEW_1_8_4" type="text" readonly="readonly" value="0" class="ee176" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_8_4" tabindex="-1">
+						</td>
+						<td class="ee160" style="height:14pt;">
+<div class="input-group bootstrap-touchspin input-group-sm"><span class="input-group-btn"><button class="btn btn-primary btn-sm bootstrap-touchspin-down" type="button"><span class="glyphicon glyphicon-minus"></span></button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input id="XLEW_1_8_5" type="text" value="0" name="XLEW_1_8_5" onchange="recalc_onclick('XLEW_1_8_5')" class="cfc1 form-control input-sm text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-primary btn-sm bootstrap-touchspin-up" type="button"><span class="glyphicon glyphicon-plus"></span></button></span></div>
+						</td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_8_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_8_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_8_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_8_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee181" style="height:14pt;" colspan="2">
+							<span>&nbsp;</span>Milk Protein %<span>&nbsp;</span>
+						</td>
+						<td class="ee182" style="height:14pt;">
+							<input id="XLEW_1_8_11" type="text" value="3.50" class="ee171 form-control" style="width:100%" onchange="this.value=eedisplayFloatND(eeparseFloat(this.value),2);recalc_onclick('XLEW_1_8_11')" name="XLEW_1_8_11" placeholder="" tabindex="8" data-sheet="1" data-row="8" data-col="11">
+						</td>
+						<td class="ee183" style="height:14pt;">
+						<input id="XLEW_1_8_12" type="text" readonly="readonly" value="0" class="ee183" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_8_12" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Kilos of Milk Fat
+						</td>
+						<td class="ee184" style="height:14pt;">
+						<input id="XLEW_1_9_3" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_9_3" tabindex="-1">
+						</td>
+						<td class="ee184" style="height:14pt;">
+						<input id="XLEW_1_9_4" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_9_4" tabindex="-1">
+						</td>
+						<td class="ee185" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_9_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_9_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_9_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_9_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee186" style="height:14pt;" colspan="2">
+							<span>&nbsp;</span>Total kg MS/c/d<span>&nbsp;</span>
+						</td>
+						<td class="ee183" style="height:14pt;">
+						<input id="XLEW_1_9_11" type="text" readonly="readonly" value="0" class="ee183" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_9_11" tabindex="-1">
+						</td>
+						<td class="ee187" style="height:14pt;">
+						<input id="XLEW_1_9_12" type="text" readonly="readonly" value="0" class="ee187" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_9_12" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:13pt;">
+							Kilos of Milk Protein
+						</td>
+						<td class="ee184" style="height:13pt;">
+						<input id="XLEW_1_10_3" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_10_3" tabindex="-1">
+						</td>
+						<td class="ee184" style="height:13pt;">
+						<input id="XLEW_1_10_4" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_10_4" tabindex="-1">
+						</td>
+						<td class="ee185" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:13pt;">
+						<input id="XLEW_1_10_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_10_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:13pt;">
+						<input id="XLEW_1_10_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_10_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee166" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Kilos Milk Fat+Protein
+						</td>
+						<td class="ee184" style="height:14pt;">
+						<input id="XLEW_1_11_3" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_11_3" tabindex="-1">
+						</td>
+						<td class="ee184" style="height:14pt;">
+						<input id="XLEW_1_11_4" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_11_4" tabindex="-1">
+						</td>
+						<td class="ee185" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_11_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_11_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_11_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_11_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:13pt;">
+							Milk Fat ($/kg)
+						</td>
+						<td class="ee188" style="height:13pt;">
+							<input id="XLEW_1_12_3" type="text" value="6.50" class="ee189 form-control" style="width:100%" onchange="this.value=eedisplayFloatNDTh(eeparseFloatTh(this.value),2);recalc_onclick('XLEW_1_12_3')" name="XLEW_1_12_3" placeholder="" tabindex="9" data-sheet="1" data-row="12" data-col="3">
+						</td>
+						<td class="ee190" style="height:13pt;">
+						<input id="XLEW_1_12_4" type="text" readonly="readonly" value="-" class="ee190" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_12_4" tabindex="-1">
+						</td>
+						<td class="ee191" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee192" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee195" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee196" style="height:13pt;" colspan="4" rowspan="2">
+							Income Analysis
+						</td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Milk Protein ($/kg)
+						</td>
+						<td class="ee188" style="height:14pt;">
+							<input id="XLEW_1_13_3" type="text" value="6.50" class="ee189 form-control" style="width:100%" onchange="this.value=eedisplayFloatNDTh(eeparseFloatTh(this.value),2);recalc_onclick('XLEW_1_13_3')" name="XLEW_1_13_3" placeholder="" tabindex="10" data-sheet="1" data-row="13" data-col="3">
+						</td>
+						<td class="ee190" style="height:14pt;">
+						<input id="XLEW_1_13_4" type="text" readonly="readonly" value="-" class="ee190" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_13_4" tabindex="-1">
+						</td>
+						<td class="ee191" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee192" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee199" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Volume Premium ($/litre)
+						</td>
+						<td class="ee188" style="height:14pt;">
+							<input id="XLEW_1_14_3" type="text" value="0.00" class="ee189 form-control" style="width:100%" onchange="this.value=eedisplayFloatNDTh(eeparseFloatTh(this.value),2);recalc_onclick('XLEW_1_14_3')" name="XLEW_1_14_3" placeholder="" tabindex="11" data-sheet="1" data-row="14" data-col="3">
+						</td>
+						<td class="ee190" style="height:14pt;">
+						<input id="XLEW_1_14_4" type="text" readonly="readonly" value="-" class="ee190" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_14_4" tabindex="-1">
+						</td>
+						<td class="ee191" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee192" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee199" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee201" style="height:14pt;" colspan="3" rowspan="2">
+						<input id="XLEW_1_14_9" type="text" readonly="readonly" value="" class="ee201" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_14_9" tabindex="-1">
+						</td>
+						<td class="ee203" style="height:14pt;" rowspan="2">
+						<input id="XLEW_1_14_12" type="text" readonly="readonly" value="" class="ee203" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_14_12" tabindex="-1">
+						</td>
+						<td class="ee205" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Quality Premium ($/litre)
+						</td>
+						<td class="ee188" style="height:14pt;">
+							<input id="XLEW_1_15_3" type="text" value="0.00" class="ee189 form-control" style="width:100%" onchange="this.value=eedisplayFloatNDTh(eeparseFloatTh(this.value),2);recalc_onclick('XLEW_1_15_3')" name="XLEW_1_15_3" placeholder="" tabindex="12" data-sheet="1" data-row="15" data-col="3">
+						</td>
+						<td class="ee208" style="height:14pt;">
+							<input id="XLEW_1_15_4" type="text" value="0.00" class="ee189 form-control" style="width:100%" onchange="this.value=eedisplayFloatNDTh(eeparseFloatTh(this.value),2);recalc_onclick('XLEW_1_15_4')" name="XLEW_1_15_4" placeholder="" tabindex="13" data-sheet="1" data-row="15" data-col="4">
+						</td>
+						<td class="ee191" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee192" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee199" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee209" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee212" style="height:14pt;">
+							Other Deducts ($/litre)
+						</td>
+						<td class="ee215" style="height:14pt;">
+							<input id="XLEW_1_16_3" type="text" value="0.00" class="ee189 form-control" style="width:100%" onchange="this.value=eedisplayFloatNDTh(eeparseFloatTh(this.value),2);recalc_onclick('XLEW_1_16_3')" name="XLEW_1_16_3" placeholder="" tabindex="14" data-sheet="1" data-row="16" data-col="3">
+						</td>
+						<td class="ee216" style="height:14pt;">
+						<input id="XLEW_1_16_4" type="text" readonly="readonly" value="-" class="ee216" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_16_4" tabindex="-1">
+						</td>
+						<td class="ee217" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee218" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee221" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee222" style="height:14pt;" colspan="3" rowspan="2">
+							Change
+  in IoFC ($/c/d)
+						</td>
+						<td class="ee224" style="height:14pt;" rowspan="2">
+						<input id="XLEW_1_16_12" type="text" readonly="readonly" value="-" class="ee224" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_16_12" tabindex="-1">
+						</td>
+						<td class="ee227" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee230" style="height:14pt;" colspan="6" rowspan="2">
+							Dollars Received:
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee227" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							<span>&nbsp; </span>Milk Fat
+						</td>
+						<td class="ee231" style="height:14pt;">
+						<input id="XLEW_1_19_3" type="text" readonly="readonly" value="-" class="ee231" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_19_3" tabindex="-1">
+						</td>
+						<td class="ee231" style="height:14pt;">
+						<input id="XLEW_1_19_4" type="text" readonly="readonly" value="-" class="ee231" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_19_4" tabindex="-1">
+						</td>
+						<td class="ee232" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_19_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_19_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_19_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_19_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							<span>&nbsp;
+  </span>Milk Protein
+						</td>
+						<td class="ee233" style="height:14pt;">
+						<input id="XLEW_1_20_3" type="text" readonly="readonly" value="-" class="ee233" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_20_3" tabindex="-1">
+						</td>
+						<td class="ee233" style="height:14pt;">
+						<input id="XLEW_1_20_4" type="text" readonly="readonly" value="-" class="ee233" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_20_4" tabindex="-1">
+						</td>
+						<td class="ee232" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_20_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_20_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_20_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_20_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee234" style="height:14pt;" colspan="4" rowspan="2">
+							Break Even Milk
+						</td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							<span>&nbsp;
+  </span>Premiums
+						</td>
+						<td class="ee233" style="height:14pt;">
+						<input id="XLEW_1_21_3" type="text" readonly="readonly" value="-" class="ee233" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_21_3" tabindex="-1">
+						</td>
+						<td class="ee233" style="height:14pt;">
+						<input id="XLEW_1_21_4" type="text" readonly="readonly" value="-" class="ee233" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_21_4" tabindex="-1">
+						</td>
+						<td class="ee232" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_21_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_21_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_21_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_21_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee237" style="height:14pt;">
+							<span>&nbsp;
+  </span>Deductions
+						</td>
+						<td class="ee238" style="height:14pt;">
+						<input id="XLEW_1_22_3" type="text" readonly="readonly" value="-" class="ee238" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_22_3" tabindex="-1">
+						</td>
+						<td class="ee238" style="height:14pt;">
+						<input id="XLEW_1_22_4" type="text" readonly="readonly" value="-" class="ee238" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_22_4" tabindex="-1">
+						</td>
+						<td class="ee239" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_22_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_22_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_22_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_22_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee242" style="height:14pt;" colspan="4" rowspan="2">
+						<input id="XLEW_1_22_9" type="text" readonly="readonly" value="" class="ee242" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_22_9" tabindex="-1">
+						</td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee244" style="height:13pt;">
+							Milk Value ($$/litre)
+						</td>
+						<td class="ee245" style="height:13pt;">
+						<input id="XLEW_1_23_3" type="text" readonly="readonly" value="-" class="ee245" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_23_3" tabindex="-1">
+						</td>
+						<td class="ee245" style="height:13pt;">
+						<input id="XLEW_1_23_4" type="text" readonly="readonly" value="-" class="ee245" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_23_4" tabindex="-1">
+						</td>
+						<td class="ee247" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:13pt;">
+						<input id="XLEW_1_23_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_23_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:13pt;">
+						<input id="XLEW_1_23_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_23_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee249" style="height:14pt;">
+							Milk Value $$/cow/day
+						</td>
+						<td class="ee250" style="height:14pt;">
+						<input id="XLEW_1_24_3" type="text" readonly="readonly" value="-" class="ee250" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_24_3" tabindex="-1">
+						</td>
+						<td class="ee251" style="height:14pt;">
+						<input id="XLEW_1_24_4" type="text" readonly="readonly" value="-" class="ee251" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_24_4" tabindex="-1">
+						</td>
+						<td class="ee252" style="height:14pt;" colspan="2">
+						<input id="XLEW_1_24_5" type="text" readonly="readonly" value="-" class="ee252" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_24_5" tabindex="-1">
+						</td>
+						<td class="ee253" style="height:14pt;">
+						<input id="XLEW_1_24_7" type="text" readonly="readonly" value="0" class="ee253" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_24_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee254" style="height:14pt;" colspan="4" rowspan="2">
+						<input id="XLEW_1_24_9" type="text" readonly="readonly" value="" class="ee254" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_24_9" tabindex="-1">
+						</td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee256" style="height:14pt;" colspan="6" rowspan="2">
+							Milk Revenue Over Feed Cost:
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Ration DM Intake per Cow
+						</td>
+						<td class="ee231" style="height:14pt;">
+						<input id="XLEW_1_27_3" type="text" readonly="readonly" value="0" class="ee231" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_27_3" tabindex="-1">
+						</td>
+						<td class="ee231" style="height:14pt;">
+						<input id="XLEW_1_27_4" type="text" readonly="readonly" value="0" class="ee231" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_27_4" tabindex="-1">
+						</td>
+						<td class="ee232" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_27_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_27_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_27_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_27_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Ration Cost ($/kg DM)
+						</td>
+						<td class="ee233" style="height:14pt;">
+						<input id="XLEW_1_28_3" type="text" readonly="readonly" value="-" class="ee233" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_28_3" tabindex="-1">
+						</td>
+						<td class="ee233" style="height:14pt;">
+						<input id="XLEW_1_28_4" type="text" readonly="readonly" value="-" class="ee233" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_28_4" tabindex="-1">
+						</td>
+						<td class="ee232" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_28_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_28_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_28_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_28_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Feed Eff. (3.5 Fat /3.2 Prot.-Corr.)
+						</td>
+						<td class="ee184" style="height:14pt;">
+						<input id="XLEW_1_29_3" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_29_3" tabindex="-1">
+						</td>
+						<td class="ee184" style="height:14pt;">
+						<input id="XLEW_1_29_4" type="text" readonly="readonly" value="0" class="ee184" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_29_4" tabindex="-1">
+						</td>
+						<td class="ee185" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_29_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_29_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_29_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_29_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee152" style="height:14pt;">
+							Component Eff. (kg MS/kg DMI)
+						</td>
+						<td class="ee257" style="height:14pt;">
+						<input id="XLEW_1_30_3" type="text" readonly="readonly" value="0" class="ee257" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_30_3" tabindex="-1">
+						</td>
+						<td class="ee257" style="height:14pt;">
+						<input id="XLEW_1_30_4" type="text" readonly="readonly" value="0" class="ee257" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_30_4" tabindex="-1">
+						</td>
+						<td class="ee185" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:14pt;">
+						<input id="XLEW_1_30_6" type="text" readonly="readonly" value="0" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_30_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:14pt;">
+						<input id="XLEW_1_30_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_30_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee258" style="height:14pt;">
+							Total Ration Cost $$/cow/day
+						</td>
+						<td class="ee259" style="height:14pt;">
+						<input id="XLEW_1_31_3" type="text" readonly="readonly" value="-" class="ee259" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_31_3" tabindex="-1">
+						</td>
+						<td class="ee261" style="height:14pt;">
+						<input id="XLEW_1_31_4" type="text" readonly="readonly" value="-" class="ee261" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_31_4" tabindex="-1">
+						</td>
+						<td class="ee262" style="height:14pt;" colspan="2">
+						<input id="XLEW_1_31_5" type="text" readonly="readonly" value="-" class="ee262" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_31_5" tabindex="-1">
+						</td>
+						<td class="ee263" style="height:14pt;">
+						<input id="XLEW_1_31_7" type="text" readonly="readonly" value="0" class="ee263" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_31_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee258" style="height:14pt;">
+							Total Ration Cost ($$/kg MS)
+						</td>
+						<td class="ee264" style="height:14pt;">
+						<input id="XLEW_1_32_3" type="text" readonly="readonly" value="-" class="ee264" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_32_3" tabindex="-1">
+						</td>
+						<td class="ee265" style="height:14pt;">
+						<input id="XLEW_1_32_4" type="text" readonly="readonly" value="-" class="ee265" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_32_4" tabindex="-1">
+						</td>
+						<td class="ee266" style="height:14pt;" colspan="2">
+						<input id="XLEW_1_32_5" type="text" readonly="readonly" value="-" class="ee266" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_32_5" tabindex="-1">
+						</td>
+						<td class="ee267" style="height:14pt;">
+						<input id="XLEW_1_32_7" type="text" readonly="readonly" value="0" class="ee267" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_32_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:15pt;">
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee258" style="height:15pt;">
+							Purchased Cost ($$/cow/day)
+						</td>
+						<td class="ee264" style="height:15pt;">
+						<input id="XLEW_1_33_3" type="text" readonly="readonly" value="-" class="ee264" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_33_3" tabindex="-1">
+						</td>
+						<td class="ee265" style="height:15pt;">
+						<input id="XLEW_1_33_4" type="text" readonly="readonly" value="-" class="ee265" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_33_4" tabindex="-1">
+						</td>
+						<td class="ee266" style="height:15pt;" colspan="2">
+						<input id="XLEW_1_33_5" type="text" readonly="readonly" value="-" class="ee266" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_33_5" tabindex="-1">
+						</td>
+						<td class="ee267" style="height:15pt;">
+						<input id="XLEW_1_33_7" type="text" readonly="readonly" value="0" class="ee267" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_33_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee120" style="height:15pt;">&nbsp;</td>
+						<td class="ee120" style="height:15pt;">&nbsp;</td>
+						<td class="ee120" style="height:15pt;">&nbsp;</td>
+						<td class="ee120" style="height:15pt;">&nbsp;</td>
+						<td class="ee120" style="height:15pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:15pt;">
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee258" style="height:15pt;">
+							Purchased Cost ($$/kg)
+						</td>
+						<td class="ee268" style="height:15pt;">
+						<input id="XLEW_1_34_3" type="text" readonly="readonly" value="-" class="ee268" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_34_3" tabindex="-1">
+						</td>
+						<td class="ee269" style="height:15pt;">
+						<input id="XLEW_1_34_4" type="text" readonly="readonly" value="-" class="ee269" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_34_4" tabindex="-1">
+						</td>
+						<td class="ee270" style="height:15pt;" colspan="2">
+						<input id="XLEW_1_34_5" type="text" readonly="readonly" value="-" class="ee270" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_34_5" tabindex="-1">
+						</td>
+						<td class="ee271" style="height:15pt;">
+						<input id="XLEW_1_34_7" type="text" readonly="readonly" value="0" class="ee271" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_34_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+						<td class="ee109" style="height:15pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:38pt;">
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee272" style="height:38pt;">
+							Milk Revenue Over Feed Cost
+  $$/cow/day
+						</td>
+						<td class="ee275" style="height:38pt;">
+						<input id="XLEW_1_35_3" type="text" readonly="readonly" value="-" class="ee275" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_35_3" tabindex="-1">
+						</td>
+						<td class="ee276" style="height:38pt;">
+						<input id="XLEW_1_35_4" type="text" readonly="readonly" value="-" class="ee276" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_35_4" tabindex="-1">
+						</td>
+						<td class="ee277" style="height:38pt;" colspan="2">
+						<input id="XLEW_1_35_5" type="text" readonly="readonly" value="-" class="ee277" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_35_5" tabindex="-1">
+						</td>
+						<td class="ee278" style="height:38pt;">
+						<input id="XLEW_1_35_7" type="text" readonly="readonly" value="0" class="ee278" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_35_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+						<td class="ee109" style="height:38pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:23pt;">
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee279" style="height:23pt;" colspan="3">
+							Retrun on
+  Investment
+						</td>
+						<td class="ee280" style="height:23pt;">&nbsp;</td>
+						<td class="ee281" style="height:23pt;" colspan="2">
+						<input id="XLEW_1_36_6" type="text" readonly="readonly" value="" class="ee281" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_36_6" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+						<td class="ee109" style="height:23pt;">&nbsp;</td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee282" style="height:13pt;">
+							Number of Cows
+						</td>
+						<td class="ee284" style="height:13pt;">
+						<input id="XLEW_1_37_3" type="text" readonly="readonly" value="0" class="ee284" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_37_3" tabindex="-1">
+						</td>
+						<td class="ee284" style="height:13pt;">
+						<input id="XLEW_1_37_4" type="text" readonly="readonly" value="0" class="ee284" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_37_4" tabindex="-1">
+						</td>
+						<td class="ee286" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee287" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee288" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee282" style="height:13pt;">
+							Milk Revenue - 1 week
+						</td>
+						<td class="ee289" style="height:13pt;">
+						<input id="XLEW_1_38_3" type="text" readonly="readonly" value="-" class="ee289" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_38_3" tabindex="-1">
+						</td>
+						<td class="ee289" style="height:13pt;">
+						<input id="XLEW_1_38_4" type="text" readonly="readonly" value="-" class="ee289" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_38_4" tabindex="-1">
+						</td>
+						<td class="ee287" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee292" style="height:13pt;">
+						<input id="XLEW_1_38_6" type="text" readonly="readonly" value="-" class="ee292" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_38_6" tabindex="-1">
+						</td>
+						<td class="ee295" style="height:13pt;">
+						<input id="XLEW_1_38_7" type="text" readonly="readonly" value="0" class="ee295" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_38_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee282" style="height:13pt;">
+							Milk Revenue - 1 month
+						</td>
+						<td class="ee296" style="height:13pt;">
+						<input id="XLEW_1_39_3" type="text" readonly="readonly" value="-" class="ee296" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_39_3" tabindex="-1">
+						</td>
+						<td class="ee296" style="height:13pt;">
+						<input id="XLEW_1_39_4" type="text" readonly="readonly" value="-" class="ee296" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_39_4" tabindex="-1">
+						</td>
+						<td class="ee299" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee162" style="height:13pt;">
+						<input id="XLEW_1_39_6" type="text" readonly="readonly" value="-" class="ee162" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_39_6" tabindex="-1">
+						</td>
+						<td class="ee165" style="height:13pt;">
+						<input id="XLEW_1_39_7" type="text" readonly="readonly" value="0" class="ee165" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_39_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:14pt;">
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee300" style="height:14pt;">
+							Milk Revenue - 1 year
+						</td>
+						<td class="ee301" style="height:14pt;">
+						<input id="XLEW_1_40_3" type="text" readonly="readonly" value="-" class="ee301" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_40_3" tabindex="-1">
+						</td>
+						<td class="ee301" style="height:14pt;">
+						<input id="XLEW_1_40_4" type="text" readonly="readonly" value="-" class="ee301" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_40_4" tabindex="-1">
+						</td>
+						<td class="ee304" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee307" style="height:14pt;">
+						<input id="XLEW_1_40_6" type="text" readonly="readonly" value="-" class="ee307" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_40_6" tabindex="-1">
+						</td>
+						<td class="ee310" style="height:14pt;">
+						<input id="XLEW_1_40_7" type="text" readonly="readonly" value="0" class="ee310" style="overflow: hidden; border: 0px solid rgb(0, 0, 0); width: 100%; background: transparent;" name="XLEW_1_40_7" tabindex="-1">
+						</td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee109" style="height:14pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                    <tr style="height:13pt;">
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+						<td class="ee120" style="height:13pt;"><div style="overflow:hidden"></div></td>
+                    </tr>
+                </tbody></table>
+
+              </section>

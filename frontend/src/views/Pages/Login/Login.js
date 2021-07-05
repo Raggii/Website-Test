@@ -224,7 +224,7 @@ export default function Login() {
           <div className="row mt-4 pb-4 text-center mb-5">
             <div className="col">
               {values.loading ? (
-                <div class="spinner-grow text-primary" role="status" />
+                <div className="spinner-grow text-primary" role="status" />
               ) : (
                 <button
                   className={`btn btn-outline-dark ${styles.primaryButton}`}
